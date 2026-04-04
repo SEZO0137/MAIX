@@ -1,0 +1,2 @@
+# MAIX
+A Simple Guide To Make Own AI
