@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAIX — The Baby Guide to AI</title>
+<style>
+:root{--bg:#0d0f14;--surface:#151820;--card:#1c2030;--border:#2a2f45;
+  --accent:#4f8ef7;--accent2:#a78bfa;--accent3:#34d399;--warn:#fbbf24;
+  --text:#e2e8f0;--muted:#64748b;--code-bg:#0a0c12;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);
+  font-family:'Segoe UI',system-ui,sans-serif;font-size:16px;line-height:1.7;}
+.hero{background:linear-gradient(135deg,#0d0f14 0%,#1a1040 50%,#0d1a2a 100%);
+  padding:60px 20px 50px;text-align:center;border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 50%,rgba(79,142,247,.12) 0%,transparent 60%),
+             radial-gradient(ellipse at 70% 50%,rgba(167,139,250,.10) 0%,transparent 60%);}
+.logo{font-size:clamp(52px,12vw,96px);font-weight:900;letter-spacing:-3px;
+  background:linear-gradient(135deg,#4f8ef7,#a78bfa,#34d399);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;position:relative;line-height:1;margin-bottom:12px;}
+.tagline{font-size:clamp(15px,3vw,20px);color:#94a3b8;max-width:500px;
+  margin:0 auto 24px;position:relative;}
+.badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative;}
+.badge{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  border-radius:99px;padding:4px 14px;font-size:12px;color:#94a3b8;}
+.wrap{max-width:780px;margin:0 auto;padding:0 16px}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:16px;
+  padding:28px;margin:40px 0;}
+.toc h2{font-size:14px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:20px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px;}
+.toc a{display:block;color:#94a3b8;text-decoration:none;font-size:13px;
+  padding:4px 8px;border-radius:6px;transition:all .15s;}
+.toc a:hover{background:var(--card);color:var(--accent)}
+.toc a span{color:var(--accent);font-weight:700;margin-right:6px;font-size:11px;}
+.chapter{border-top:1px solid var(--border);padding:40px 0;}
+.ch-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;}
+.ch-num{background:linear-gradient(135deg,#4f8ef7,#a78bfa);color:#fff;
+  font-size:11px;font-weight:800;letter-spacing:2px;border-radius:8px;
+  padding:5px 10px;white-space:nowrap;margin-top:4px;flex-shrink:0;}
+.ch-title{font-size:clamp(20px,4vw,26px);font-weight:800;color:var(--text);line-height:1.2;}
+.simple-block,.real-block{border-radius:12px;padding:18px 20px;margin:16px 0;}
+.simple-block{background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);}
+.simple-block .label{color:var(--accent3);font-size:11px;font-weight:800;
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.real-block{background:rgba(79,142,247,.07);border:1px solid rgba(79,142,247,.2);}
+.real-block .label{color:var(--accent);font-size:11px;font-weight:800;
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+pre{background:var(--code-bg);border:1px solid var(--border);border-radius:10px;
+  padding:16px 18px;overflow-x:auto;
+  font-family:'Fira Code','Cascadia Code',monospace;font-size:13px;
+  line-height:1.75;margin:14px 0;}
+code{color:#93c5fd}
+.cm{color:#4b5563}.cs{color:#86efac}.ck{color:#a78bfa}.cn{color:#fbbf24}.cf{color:#f472b6}
+.formula{background:linear-gradient(135deg,rgba(167,139,250,.1),rgba(79,142,247,.1));
+  border:1px solid rgba(167,139,250,.3);border-radius:12px;padding:20px;margin:16px 0;
+  font-family:'Fira Code',monospace;font-size:15px;text-align:center;color:#e2e8f0;}
+.formula-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent2);margin-bottom:8px;font-family:sans-serif;}
+.tbl{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;}
+.tbl th{background:var(--card);color:var(--accent);padding:10px 12px;text-align:left;
+  border:1px solid var(--border);font-size:12px;letter-spacing:1px;text-transform:uppercase;}
+.tbl td{padding:9px 12px;border:1px solid var(--border);vertical-align:top;}
+.tbl tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+.callout{border-left:3px solid var(--warn);background:rgba(251,191,36,.07);
+  border-radius:0 10px 10px 0;padding:14px 16px;margin:14px 0;
+  font-size:14px;color:#fde68a;}
+.tip{border-color:var(--accent3);background:rgba(52,211,153,.07);color:#a7f3d0}
+.info{border-color:var(--accent);background:rgba(79,142,247,.07);color:#bfdbfe}
+.warn{border-color:var(--warn);background:rgba(251,191,36,.07);color:#fde68a}
+.steps{list-style:none;margin:12px 0;}
+.steps li{display:flex;gap:14px;padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;}
+.steps li:last-child{border:none}
+.step-n{background:var(--accent);color:#fff;min-width:24px;height:24px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;flex-shrink:0;margin-top:1px;}
+.gloss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:12px;margin-top:16px;}
+.gloss-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;}
+.gloss-term{font-weight:800;color:var(--accent2);font-size:14px;margin-bottom:4px;}
+.gloss-def{font-size:13px;color:#94a3b8}
+.analogy{background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.2);
+  border-radius:12px;padding:16px 20px;margin:14px 0;}
+.analogy-label{font-size:11px;letter-spacing:2px;color:var(--accent2);
+  font-weight:800;text-transform:uppercase;margin-bottom:8px;}
+.back-top{position:fixed;bottom:24px;right:20px;background:var(--accent);color:#fff;
+  width:44px;height:44px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:20px;text-decoration:none;
+  box-shadow:0 4px 20px rgba(79,142,247,.4);opacity:.85;transition:.2s;z-index:99;}
+.back-top:hover{opacity:1;transform:translateY(-2px)}
+footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;
+  border-top:1px solid var(--border);margin-top:40px;}
+@media(max-width:600px){
+  .hero{padding:40px 16px 36px}
+  .toc{padding:20px 16px}
+  pre{font-size:12px;padding:12px}
+  .chapter{padding:28px 0}
+  .gloss-grid{grid-template-columns:1fr}
+  .toc-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="logo">MAIX</div>
+  <p class="tagline">The Complete Baby Guide to Artificial Intelligence — from absolute zero to understanding how AI really works.</p>
+  <div class="badges">
+    <span class="badge">📱 Phone Friendly</span>
+    <span class="badge">💻 Laptop Ready</span>
+    <span class="badge">50 Chapters</span>
+    <span class="badge">Zero Experience Needed</span>
+    <span class="badge">All Concepts Explained</span>
+  </div>
+</div>
+<div class="wrap">
+<div class="toc" id="top">
+<h2>Table of Contents</h2>
+<div class="toc-grid">
+<a href="#ch01"><span>CH01</span>What Is a Computer?</a>
+<a href="#ch02"><span>CH02</span>What Is Code?</a>
+<a href="#ch03"><span>CH03</span>What Is Data?</a>
+<a href="#ch04"><span>CH04</span>What Is AI?</a>
+<a href="#ch05"><span>CH05</span>Normal Code vs AI</a>
+<a href="#ch06"><span>CH06</span>Types of AI</a>
+<a href="#ch07"><span>CH07</span>Supervised Learning</a>
+<a href="#ch08"><span>CH08</span>Unsupervised Learning</a>
+<a href="#ch09"><span>CH09</span>Reinforcement Learning Intro</a>
+<a href="#ch10"><span>CH10</span>What Is a Blank Model?</a>
+<a href="#ch11"><span>CH11</span>What Are Weights?</a>
+<a href="#ch12"><span>CH12</span>What Are Biases?</a>
+<a href="#ch13"><span>CH13</span>Training Data X and Y</a>
+<a href="#ch14"><span>CH14</span>What Is a Label?</a>
+<a href="#ch15"><span>CH15</span>What Is Training?</a>
+<a href="#ch16"><span>CH16</span>What Is an Epoch?</a>
+<a href="#ch17"><span>CH17</span>What Is a Loss Function?</a>
+<a href="#ch18"><span>CH18</span>What Is a Learning Rate?</a>
+<a href="#ch19"><span>CH19</span>What Is a Neuron?</a>
+<a href="#ch20"><span>CH20</span>What Are Layers?</a>
+<a href="#ch21"><span>CH21</span>What Is a Neural Network?</a>
+<a href="#ch22"><span>CH22</span>The Forward Pass</a>
+<a href="#ch23"><span>CH23</span>What Does AI Think Before Answering?</a>
+<a href="#ch24"><span>CH24</span>How AI Makes a Decision</a>
+<a href="#ch25"><span>CH25</span>What Is ReLU?</a>
+<a href="#ch26"><span>CH26</span>What Is Softmax?</a>
+<a href="#ch27"><span>CH27</span>What Is Backpropagation?</a>
+<a href="#ch28"><span>CH28</span>AI Learning from Numbers</a>
+<a href="#ch29"><span>CH29</span>AI Learning from Text</a>
+<a href="#ch30"><span>CH30</span>AI Learning from Images</a>
+<a href="#ch31"><span>CH31</span>AI Learning from Audio</a>
+<a href="#ch32"><span>CH32</span>What Is Overfitting?</a>
+<a href="#ch33"><span>CH33</span>What Is Underfitting?</a>
+<a href="#ch34"><span>CH34</span>Dataset Splits</a>
+<a href="#ch35"><span>CH35</span>Normalisation and Scaling</a>
+<a href="#ch36"><span>CH36</span>What Is a CNN?</a>
+<a href="#ch37"><span>CH37</span>What Is an RNN?</a>
+<a href="#ch38"><span>CH38</span>What Is a Transformer?</a>
+<a href="#ch39"><span>CH39</span>RL Deep Dive</a>
+<a href="#ch40"><span>CH40</span>State Action Reward</a>
+<a href="#ch41"><span>CH41</span>What Is a Q-Table?</a>
+<a href="#ch42"><span>CH42</span>The Bellman Equation</a>
+<a href="#ch43"><span>CH43</span>Applying RL Step by Step</a>
+<a href="#ch44"><span>CH44</span>Epsilon-Greedy Strategy</a>
+<a href="#ch45"><span>CH45</span>What Does the RL Agent Think?</a>
+<a href="#ch46"><span>CH46</span>Python Crash Course</a>
+<a href="#ch47"><span>CH47</span>Tkinter Windows and Buttons</a>
+<a href="#ch48"><span>CH48</span>sklearn AI Toolkit</a>
+<a href="#ch49"><span>CH49</span>Every AI Function Explained</a>
+<a href="#ch50"><span>CH50</span>Full Glossary</a>
+</div></div>
+
+<div class="chapter" id="ch01">
+<div class="ch-header">
+  <div class="ch-num">CH 01</div>
+  <h2 class="ch-title">What Is a Computer?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p>A computer is a machine that follows instructions very, very fast.</p>
+<p>It does not think. It does not feel. It just obeys.</p>
+<p>Your phone = computer. Your laptop = computer. A smart TV = computer.</p></div><div class="analogy"><div class="analogy-label">💡 Analogy</div>Imagine a very fast assistant who does EXACTLY what you say — nothing more, nothing less. You say <em>add 5 and 3</em> — they say <em>8</em>. They don't wonder why. They just do it.</div><div class="real-block"><div class="label">🔬 Real Version</div><p>Every computer has a <strong style='color:var(--accent)'>CPU</strong> (Central Processing Unit) that does only 4 things:</p><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'>Add two numbers</li><li style='margin:4px 0'>Compare two numbers (is A bigger than B?)</li><li style='margin:4px 0'>Move a number from one place to another</li><li style='margin:4px 0'>Jump to a different instruction</li></ul><p style='margin:10px 0;font-size:15px'>That is ALL. Yet from those 4 operations, humans built video games, social media, and AI.</p><div class="callout info">Computers only understand <strong>numbers</strong>. Your photo = millions of numbers. Your voice = thousands of numbers per second. Your message = numbers. Everything is numbers.</div></div>
+</div>
+<div class="chapter" id="ch02">
+<div class="ch-header">
+  <div class="ch-num">CH 02</div>
+  <h2 class="ch-title">What Is Code?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p>Code is a set of instructions written for a computer.</p>
+<p>Like a recipe — but for a machine.</p></div><div class="analogy"><div class="analogy-label">💡 Analogy</div>Cake recipe: mix eggs → add flour → bake 30 mins. Program: get number A → get number B → add them → show result.</div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>Python is the most beginner-friendly coding language. It reads like English.</p><pre><code><span class='cm'># A simple Python program</span>
+<span class='ck'>age</span>  = <span class='cn'>25</span>          <span class='cm'># store 25 in a box called "age"</span>
+<span class='ck'>name</span> = <span class='cs'>"Alice"</span>    <span class='cm'># store text in "name"</span>
+<span class='cf'>print</span>(age)         <span class='cm'># show: 25</span>
+<span class='cf'>print</span>(name)        <span class='cm'># show: Alice</span></code></pre><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Functions — reusable blocks of code</h3><pre><code><span class='ck'>def</span> <span class='cf'>add</span>(a, b):        <span class='cm'># define a function called "add"</span>
+    result = a + b   <span class='cm'># add the two inputs</span>
+    <span class='ck'>return</span> result    <span class='cm'># send the answer back</span>
+
+x = <span class='cf'>add</span>(<span class='cn'>10</span>, <span class='cn'>5</span>)      <span class='cm'># call it → x = 15</span>
+y = <span class='cf'>add</span>(<span class='cn'>3</span>,  <span class='cn'>7</span>)      <span class='cm'># call it → y = 10</span>
+<span class='cf'>print</span>(x)            <span class='cm'># 15</span></code></pre><div class="callout tip"><strong>def</strong> = define a function &nbsp;|&nbsp; <strong>return</strong> = send answer back &nbsp;|&nbsp; <strong>print()</strong> = show on screen</div></div>
+</div>
+<div class="chapter" id="ch03">
+<div class="ch-header">
+  <div class="ch-num">CH 03</div>
+  <h2 class="ch-title">What Is Data?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p>Data is any information at all.</p><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'>Your age = data</li><li style='margin:4px 0'>A photo = data</li><li style='margin:4px 0'>The weather today = data</li><li style='margin:4px 0'>Your voice = data</li><li style='margin:4px 0'>A price tag = data</li></ul><p style='margin:10px 0;font-size:15px'>If it can be written down or measured — it is data.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>Data comes in types:</p><table class="tbl"><tr><th>Type</th><th>Example</th><th>In code</th></tr><tr><td>Number</td><td>Age: 25</td><td><code>age = 25</code></td></tr><tr><td>Decimal</td><td>Temperature: 36.6</td><td><code>temp = 36.6</code></td></tr><tr><td>Text</td><td>Name: Alice</td><td><code>name = 'Alice'</code></td></tr><tr><td>True/False</td><td>Is raining?</td><td><code>rain = True</code></td></tr><tr><td>List</td><td>Three scores</td><td><code>[90, 85, 92]</code></td></tr><tr><td>Grid (matrix)</td><td>Image pixels</td><td><code>[[255,0,0],[0,255,0]]</code></td></tr></table><div class="callout info"><strong>Key fact:</strong> AI only understands numbers. Photos → pixel numbers. Audio → waveform numbers. Text → word-count numbers. The process of converting to numbers is called <strong>Feature Extraction</strong>.</div></div>
+</div>
+<div class="chapter" id="ch04">
+<div class="ch-header">
+  <div class="ch-num">CH 04</div>
+  <h2 class="ch-title">What Is Artificial Intelligence?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p>AI is a program that <strong>learns from examples</strong> instead of being told exact rules.</p></div><div class="analogy"><div class="analogy-label">💡 Analogy</div>Normal: You hand someone a rulebook. AI: You show someone 1000 examples. They figure out the rules themselves.</div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>AI = systems that learn patterns from data and use those patterns to make decisions on new data.</p><table class="tbl"><tr><th>Normal Program</th><th>AI Program</th></tr><tr><td>You write every rule</td><td>Computer finds the rules</td></tr><tr><td>Shows pictures of cats — you code 'if pointy ears → cat'</td><td>Shows pictures of cats — AI finds patterns itself</td></tr><tr><td>Breaks on new situations</td><td>Handles new situations (if trained on similar ones)</td></tr><tr><td>Rule = written by human</td><td>Rule = discovered by algorithm</td></tr></table><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>What AI is good at today:</h3><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'>Recognising images (photo of what?)</li><li style='margin:4px 0'>Understanding speech (what did they say?)</li><li style='margin:4px 0'>Translating languages</li><li style='margin:4px 0'>Playing games (chess, Go, video games)</li><li style='margin:4px 0'>Detecting fraud</li><li style='margin:4px 0'>Medical diagnosis</li><li style='margin:4px 0'>Recommendation engines</li></ul></div>
+</div>
+<div class="chapter" id="ch05">
+<div class="ch-header">
+  <div class="ch-num">CH 05</div>
+  <h2 class="ch-title">Normal Code vs AI Code</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p><strong>Normal code</strong> = a light switch. You tell it exactly what to do in every case.</p>
+<p><strong>AI code</strong> = teaching a child to ride a bike. No rules — just practice and feedback.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><table class="tbl"><tr><th></th><th>Normal Code</th><th>AI Code</th></tr><tr><td>Flow</td><td>Input → your rules → output</td><td>Data + examples → learned rules → output</td></tr><tr><td>Who makes rules?</td><td>Programmer</td><td>The computer itself</td></tr><tr><td>New situations</td><td>Often fails</td><td>Handles them (if seen similar in training)</td></tr><tr><td>Needs data?</td><td>Not much</td><td>Yes, lots</td></tr><tr><td>Gets better?</td><td>Only if you rewrite it</td><td>Yes, with more data</td></tr><tr><td>Example</td><td>Calculator</td><td>Voice assistant</td></tr></table><pre><code><span class='cm'># Normal code — you write the rule</span>
+<span class='ck'>def</span> <span class='cf'>is_spam</span>(email):
+    <span class='ck'>if</span> <span class='cs'>"FREE"</span> <span class='ck'>in</span> email:
+        <span class='ck'>return</span> <span class='cs'>"spam"</span>
+    <span class='ck'>return</span> <span class='cs'>"not spam"</span>
+
+<span class='cm'># AI code — the model finds the rule itself</span>
+model.fit(X_emails, y_labels)   <span class='cm'># learns from examples</span>
+model.predict([new_email])       <span class='cm'># applies what it learned</span></code></pre></div>
+</div>
+<div class="chapter" id="ch06">
+<div class="ch-header">
+  <div class="ch-num">CH 06</div>
+  <h2 class="ch-title">Types of AI</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>There are many flavours of AI. Here are the main ones you will hear about.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><table class="tbl"><tr><th>Type</th><th>Simple Idea</th><th>Used For</th></tr><tr><td>Supervised Learning</td><td>Learn from labelled examples</td><td>Image/speech recognition, spam</td></tr><tr><td>Unsupervised Learning</td><td>Find patterns with no labels</td><td>Customer groups, anomaly detection</td></tr><tr><td>Reinforcement Learning</td><td>Learn by trying + getting rewards</td><td>Game AI, robots, chatbots</td></tr><tr><td>Deep Learning</td><td>Big neural networks with many layers</td><td>ChatGPT, image AI, voice</td></tr><tr><td>Generative AI</td><td>AI that creates new things</td><td>ChatGPT, DALL-E, Suno</td></tr><tr><td>NLP</td><td>Understanding human language</td><td>Translation, search, chatbots</td></tr><tr><td>Computer Vision</td><td>Understanding images/video</td><td>Face recognition, self-driving</td></tr></table></div>
+</div>
+<div class="chapter" id="ch07">
+<div class="ch-header">
+  <div class="ch-num">CH 07</div>
+  <h2 class="ch-title">Supervised Learning</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>You are a teacher with flashcards. Front = photo. Back = answer.</p><p style='margin:10px 0;font-size:15px'>Show AI 10,000 flashcards. Now show a photo with no answer — AI guesses correctly.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>You have <strong style='color:var(--accent)'>X</strong> (inputs) and <strong style='color:var(--accent)'>y</strong> (correct answers). Train → model learns. Predict → model answers.</p><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Two kinds:</h3><table class="tbl"><tr><th>Type</th><th>Output</th><th>Example</th></tr><tr><td>Classification</td><td>A category</td><td>Photo → 'cat' or 'dog'</td></tr><tr><td>Regression</td><td>A number</td><td>House size → predicted price</td></tr></table><pre><code><span class='ck'>from</span> sklearn.neural_network <span class='ck'>import</span> MLPClassifier
+<span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+X = np.array([[<span class='cn'>5</span>,<span class='cn'>9</span>,<span class='cn'>1</span>], [<span class='cn'>8</span>,<span class='cn'>7</span>,<span class='cn'>2</span>], [<span class='cn'>4</span>,<span class='cn'>2</span>,<span class='cn'>3</span>]])
+<span class='cm'># 3 fruits: [size, sweetness, colour]</span>
+y = np.array([<span class='cn'>0</span>, <span class='cn'>1</span>, <span class='cn'>2</span>])  <span class='cm'># 0=apple 1=banana 2=lime</span>
+
+model = <span class='cf'>MLPClassifier</span>(max_iter=<span class='cn'>1000</span>)
+model.<span class='cf'>fit</span>(X, y)                   <span class='cm'># TRAIN</span>
+
+model.<span class='cf'>predict</span>([[<span class='cn'>5</span>,<span class='cn'>8</span>,<span class='cn'>1</span>]])          <span class='cm'># → [0]  (apple)</span>
+model.<span class='cf'>predict_proba</span>([[<span class='cn'>5</span>,<span class='cn'>8</span>,<span class='cn'>1</span>]])    <span class='cm'># → [[0.85, 0.08, 0.07]]</span></code></pre></div>
+</div>
+<div class="chapter" id="ch08">
+<div class="ch-header">
+  <div class="ch-num">CH 08</div>
+  <h2 class="ch-title">Unsupervised Learning</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Drop 1000 unsorted photos on a table. Tell the AI: find groups.</p><p style='margin:10px 0;font-size:15px'>AI groups similar photos together — no labels, no help. It finds structure by itself.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>No <strong>y</strong> labels. Just <strong>X</strong> data. Algorithm finds hidden structure.</p><pre><code><span class='ck'>from</span> sklearn.cluster <span class='ck'>import</span> KMeans
+<span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+<span class='cm'># Height and weight of 6 people</span>
+X = np.array([[<span class='cn'>160</span>,<span class='cn'>55</span>],[<span class='cn'>162</span>,<span class='cn'>58</span>],
+              [<span class='cn'>180</span>,<span class='cn'>80</span>],[<span class='cn'>182</span>,<span class='cn'>85</span>],
+              [<span class='cn'>171</span>,<span class='cn'>65</span>],[<span class='cn'>172</span>,<span class='cn'>67</span>]])
+
+model = <span class='cf'>KMeans</span>(n_clusters=<span class='cn'>3</span>, n_init=<span class='cn'>10</span>)
+model.<span class='cf'>fit</span>(X)              <span class='cm'># no y needed!</span>
+<span class='cf'>print</span>(model.labels_)    <span class='cm'># [0,0,1,1,2,2]</span>
+<span class='cm'># 0=short/light  1=tall/heavy  2=medium</span></code></pre></div>
+</div>
+<div class="chapter" id="ch09">
+<div class="ch-header">
+  <div class="ch-num">CH 09</div>
+  <h2 class="ch-title">Reinforcement Learning (Intro)</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Training a dog:</p><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'>Dog sits when told → give treat → dog does it more</li><li style='margin:4px 0'>Dog bites sofa → no treat → dog does it less</li></ul><p style='margin:10px 0;font-size:15px'>Nobody told the dog the rules. It learned from consequences. That is RL.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>RL has four parts:</p><table class="tbl"><tr><th>Part</th><th>Meaning</th><th>Example</th></tr><tr><td>Agent</td><td>The AI doing the learning</td><td>A robot</td></tr><tr><td>Environment</td><td>The world it lives in</td><td>A maze</td></tr><tr><td>Action</td><td>What it can do</td><td>Move left/right/up/down</td></tr><tr><td>Reward</td><td>Feedback: good or bad</td><td>+10 reach exit, -1 hit wall</td></tr></table><p style='margin:10px 0;font-size:15px'>The agent keeps trying actions, collecting rewards, and learns which actions are best.</p><div class="callout tip">Unlike supervised learning, RL has NO labelled examples. The AI figures everything out from trial and error.</div></div>
+</div>
+<div class="chapter" id="ch10">
+<div class="ch-header">
+  <div class="ch-num">CH 10</div>
+  <h2 class="ch-title">What Is a Blank Model?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>A blank model is like a newborn baby brain.</p><p style='margin:10px 0;font-size:15px'>It has all the right parts. But it knows absolutely nothing.</p><p style='margin:10px 0;font-size:15px'>Everything it will ever know — it must learn.</p></div><div class="analogy"><div class="analogy-label">💡 Analogy</div>Blank model = an empty notebook. Training = writing the right information in it. Prediction = reading the answer from the notebook.</div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>When you create a model in code, all its internal numbers (weights) are set to small <strong style='color:var(--warn)'>random values</strong>.</p><pre><code><span class='ck'>from</span> sklearn.neural_network <span class='ck'>import</span> MLPClassifier
+
+model = <span class='cf'>MLPClassifier</span>(hidden_layer_sizes=(<span class='cn'>64</span>, <span class='cn'>32</span>))
+<span class='cm'># RIGHT NOW: model has random weights</span>
+<span class='cm'># If you predict now → random, useless output</span>
+<span class='cm'># After model.fit(X, y) → meaningful, useful output</span></code></pre><div class="callout tip">Random start is fine. The training process knows how to improve from any starting point. What matters is the training, not the starting weights.</div></div>
+</div>
+<div class="chapter" id="ch11">
+<div class="ch-header">
+  <div class="ch-num">CH 11</div>
+  <h2 class="ch-title">What Are Weights?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Weights are the AI's memories. They are just numbers stored inside the model.</p><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'>Before training → random numbers → AI knows nothing</li><li style='margin:4px 0'>After training → carefully tuned numbers → AI is smart</li></ul><p style='margin:10px 0;font-size:15px'>Every time the AI sees an example, the weights change a tiny bit to get better.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>A weight is attached to a <strong>connection</strong> between two neurons. It says how important that connection is.</p><pre><code>input_1 <span class='cm'>(size)</span>     × weight_1 = <span class='cn'>0.8</span>  <span class='cm'># very important</span>
+input_2 <span class='cm'>(colour)</span>   × weight_2 = <span class='cn'>0.3</span>  <span class='cm'># somewhat important</span>
+input_3 <span class='cm'>(smell)</span>    × weight_3 = <span class='cn'>0.1</span>  <span class='cm'># not very important</span>
+output = (<span class='cn'>0.8</span> + <span class='cn'>0.3</span> + <span class='cn'>0.1</span>) = <span class='cn'>1.2</span></code></pre><p style='margin:10px 0;font-size:15px'>Typical model weight counts:</p><table class="tbl"><tr><th>Model</th><th>Number of Weights</th></tr><tr><td>Small model</td><td>~10,000</td></tr><tr><td>Medium model</td><td>~10 million</td></tr><tr><td>GPT-4</td><td>~1 trillion</td></tr></table><pre><code>model.<span class='cf'>fit</span>(X, y)
+<span class='cf'>print</span>(model.coefs_[<span class='cn'>0</span>].shape)  <span class='cm'># e.g. (26, 64)</span>
+<span class='cm'># 26 inputs × 64 neurons = 1,664 weight numbers in layer 1</span></code></pre></div>
+</div>
+<div class="chapter" id="ch12">
+<div class="ch-header">
+  <div class="ch-num">CH 12</div>
+  <h2 class="ch-title">What Are Biases?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>A bias is a 'head start' number added to a neuron.</p><p style='margin:10px 0;font-size:15px'>Without bias, a neuron with all-zero inputs would always output zero — useless.</p><p style='margin:10px 0;font-size:15px'>Bias lets the neuron have a non-zero output even when inputs are quiet.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><div class="formula"><div class="formula-label">Neuron Formula</div>output = activate( input₁×w₁ + input₂×w₂ + input₃×w₃ + <span style='color:var(--warn)'>bias</span> )</div><table class="tbl"><tr><th>Thing</th><th>Count</th><th>In sklearn</th></tr><tr><td>Weights</td><td>One per connection</td><td>model.coefs_</td></tr><tr><td>Biases</td><td>One per neuron</td><td>model.intercepts_</td></tr></table><pre><code><span class='cm'># After training:</span>
+model.coefs_        <span class='cm'># list of weight matrices</span>
+model.intercepts_   <span class='cm'># list of bias vectors</span>
+<span class='cm'># You rarely need to look at these directly</span></code></pre></div>
+</div>
+<div class="chapter" id="ch13">
+<div class="ch-header">
+  <div class="ch-num">CH 13</div>
+  <h2 class="ch-title">Training Data: X and Y</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'><strong style='color:var(--accent)'>X</strong> = the questions (inputs, examples)</p><p style='margin:10px 0;font-size:15px'><strong style='color:var(--accent)'>y</strong> = the answers (correct labels)</p><p style='margin:10px 0;font-size:15px'>Together they are your <strong>training data</strong>. The AI reads all of them during training.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'><strong>X</strong> is a 2D grid: each <em>row</em> = one example, each <em>column</em> = one feature.</p><p style='margin:10px 0;font-size:15px'><strong>y</strong> is a 1D list: one answer per row in X.</p><pre><code><span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+<span class='cm'># Spam detector: [times says FREE, times says CLICK, exclamation marks]</span>
+X = np.array([
+    [<span class='cn'>3</span>, <span class='cn'>2</span>, <span class='cn'>5</span>],   <span class='cm'># spammy email</span>
+    [<span class='cn'>0</span>, <span class='cn'>0</span>, <span class='cn'>1</span>],   <span class='cm'># normal email</span>
+    [<span class='cn'>5</span>, <span class='cn'>3</span>, <span class='cn'>8</span>],   <span class='cm'># very spammy</span>
+    [<span class='cn'>0</span>, <span class='cn'>1</span>, <span class='cn'>0</span>],   <span class='cm'># normal email</span>
+])
+
+y = np.array([<span class='cn'>1</span>, <span class='cn'>0</span>, <span class='cn'>1</span>, <span class='cn'>0</span>])  <span class='cm'># 1=spam, 0=not spam</span>
+
+<span class='cf'>print</span>(X.shape)   <span class='cm'># (4, 3)  → 4 emails, 3 features each</span>
+<span class='cf'>print</span>(y.shape)   <span class='cm'># (4,)   → 4 labels</span></code></pre><div class="callout warn"><strong>Golden rule:</strong> len(X) must always equal len(y). One label for every example, always.</div></div>
+</div>
+<div class="chapter" id="ch14">
+<div class="ch-header">
+  <div class="ch-num">CH 14</div>
+  <h2 class="ch-title">What Is a Label?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>A label is the correct answer for one example.</p><p style='margin:10px 0;font-size:15px'>If X is a photo of a cat, the label y is 'cat'.</p><p style='margin:10px 0;font-size:15px'>The label is what the model is trying to predict.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><table class="tbl"><tr><th>Task</th><th>Label type</th><th>Example</th></tr><tr><td>Classification</td><td>A category</td><td>0=cat, 1=dog, 2=bird</td></tr><tr><td>Regression</td><td>A number</td><td>250000 (house price)</td></tr></table><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>One-Hot Encoding (happens inside the model):</h3><p style='margin:10px 0;font-size:15px'>Internally the model converts class numbers to vectors:</p><pre><code>cat  = class <span class='cn'>0</span>  →  [<span class='cn'>1</span>, <span class='cn'>0</span>, <span class='cn'>0</span>]
+dog  = class <span class='cn'>1</span>  →  [<span class='cn'>0</span>, <span class='cn'>1</span>, <span class='cn'>0</span>]
+bird = class <span class='cn'>2</span>  →  [<span class='cn'>0</span>, <span class='cn'>0</span>, <span class='cn'>1</span>]
+<span class='cm'># This happens automatically. You just give 0, 1, 2.</span></code></pre><div class="callout info">The AI never understands the words 'cat' or 'dog'. It only sees the numbers 0 and 1. You translate back to words when showing results.</div></div>
+</div>
+<div class="chapter" id="ch15">
+<div class="ch-header">
+  <div class="ch-num">CH 15</div>
+  <h2 class="ch-title">What Is Training?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Training = teaching the AI with examples.</p><p style='margin:10px 0;font-size:15px'>It guesses. You tell it if it was wrong. It adjusts. Repeat thousands of times. Eventually it gets good.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><ul class="steps"><li><span class="step-n">1</span><span>Start with a blank model (random weights)</span></li><li><span class="step-n">2</span><span>Take one example from X, feed it through the model → get a prediction</span></li><li><span class="step-n">3</span><span>Compare prediction to correct answer in y → measure how wrong (the LOSS)</span></li><li><span class="step-n">4</span><span>Work backwards to find which weights caused the error (backpropagation)</span></li><li><span class="step-n">5</span><span>Adjust those weights a tiny bit to do better next time</span></li><li><span class="step-n">6</span><span>Move to next example in X. Repeat steps 2–5</span></li><li><span class="step-n">7</span><span>One full pass through ALL examples = 1 EPOCH</span></li><li><span class="step-n">8</span><span>Repeat many epochs until the model is good</span></li></ul><div class="callout tip">In sklearn, <strong>all of these steps happen inside ONE call:</strong> model.fit(X, y) — that single line does everything.</div><pre><code>model = <span class='cf'>MLPClassifier</span>(max_iter=<span class='cn'>500</span>)
+model.<span class='cf'>fit</span>(X, y)        <span class='cm'># trains completely automatically</span>
+model.<span class='cf'>predict</span>(X_new)  <span class='cm'># now ready to use</span></code></pre></div>
+</div>
+<div class="chapter" id="ch16">
+<div class="ch-header">
+  <div class="ch-num">CH 16</div>
+  <h2 class="ch-title">What Is an Epoch?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>One epoch = the AI looks at EVERY example ONCE.</p><p style='margin:10px 0;font-size:15px'>Imagine you have 1000 photos to learn from:</p><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'>After 1 epoch: saw all 1000 photos once</li><li style='margin:4px 0'>After 10 epochs: saw all 1000 photos 10 times</li><li style='margin:4px 0'>After 100 epochs: much more practice, usually much better</li></ul></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>More epochs = more practice = usually better performance, <em>up to a point</em>.</p><table class="tbl"><tr><th>Epochs</th><th>Typical result</th></tr><tr><td>Too few</td><td>Didn't learn enough (underfitting)</td></tr><tr><td>Too many</td><td>Memorised data, stops generalising (overfitting)</td></tr><tr><td>Just right</td><td>Learns real patterns, works on new data</td></tr></table><pre><code>model = <span class='cf'>MLPClassifier</span>(
+    hidden_layer_sizes=(<span class='cn'>64</span>, <span class='cn'>32</span>),
+    max_iter=<span class='cn'>500</span>,    <span class='cm'># ← number of epochs</span>
+)
+<span class='cm'># Typical values: 50 to 1000, depends on your data</span></code></pre></div>
+</div>
+<div class="chapter" id="ch17">
+<div class="ch-header">
+  <div class="ch-num">CH 17</div>
+  <h2 class="ch-title">What Is a Loss Function?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Loss = how wrong the AI is right now.</p><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'>High loss → very wrong</li><li style='margin:4px 0'>Low loss → almost right</li><li style='margin:4px 0'>Zero loss → perfect (rarely happens)</li></ul><p style='margin:10px 0;font-size:15px'>Training = making the loss as small as possible.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>The loss function takes the prediction and the correct answer and returns one number showing how bad the error was.</p><table class="tbl"><tr><th>Loss Type</th><th>Used For</th><th>What It Measures</th></tr><tr><td>Cross-Entropy</td><td>Classification (categories)</td><td>How confident and correct the prediction is</td></tr><tr><td>Mean Squared Error</td><td>Regression (numbers)</td><td>Average of (prediction − truth)²</td></tr></table><pre><code><span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+<span class='cm'># MSE example</span>
+true_values = np.array([<span class='cn'>100</span>, <span class='cn'>200</span>, <span class='cn'>150</span>])
+predictions = np.array([<span class='cn'>110</span>, <span class='cn'>190</span>, <span class='cn'>160</span>])
+
+mse = np.<span class='cf'>mean</span>((true_values - predictions) ** <span class='cn'>2</span>)
+<span class='cf'>print</span>(mse)   <span class='cm'># 100.0  (lower = better model)</span></code></pre></div>
+</div>
+<div class="chapter" id="ch18">
+<div class="ch-header">
+  <div class="ch-num">CH 18</div>
+  <h2 class="ch-title">What Is a Learning Rate?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>The learning rate controls how fast the AI adjusts after each mistake.</p><p style='margin:10px 0;font-size:15px'>Too fast → overshoots, never settles. Too slow → takes forever. Just right → smooth learning.</p></div><div class="analogy"><div class="analogy-label">💡 Analogy</div>Adjusting a shower temperature. Big turns → too hot, then too cold. Tiny turns → takes 20 minutes. Small-but-deliberate turns → perfect in a few adjustments.</div><div class="real-block"><div class="label">🔬 Real Version</div><div class="formula"><div class="formula-label">Weight Update Formula</div>new_weight = old_weight − <span style='color:var(--warn)'>learning_rate</span> × gradient</div><table class="tbl"><tr><th>Learning Rate</th><th>What Happens</th></tr><tr><td>10.0 (too high)</td><td>Weights jump wildly, loss bounces up and down</td></tr><tr><td>0.001 (good)</td><td>Smooth learning, loss decreases steadily</td></tr><tr><td>0.0000001 (too low)</td><td>Takes forever, barely any progress</td></tr></table><pre><code>model = <span class='cf'>MLPClassifier</span>(
+    learning_rate_init=<span class='cn'>0.001</span>,  <span class='cm'># safe default</span>
+    max_iter=<span class='cn'>500</span>
+)</code></pre></div>
+</div>
+<div class="chapter" id="ch19">
+<div class="ch-header">
+  <div class="ch-num">CH 19</div>
+  <h2 class="ch-title">What Is a Neuron?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>A neuron is the smallest unit in an AI brain.</p><p style='margin:10px 0;font-size:15px'>It takes in numbers, multiplies each by a weight, adds them up, and passes the result forward.</p><p style='margin:10px 0;font-size:15px'>It is just a simple maths machine.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><div class="formula"><div class="formula-label">One Neuron</div>output = activate( Σ(input × weight) + bias )</div><pre><code><span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+inputs  = np.<span class='cf'>array</span>([<span class='cn'>0.5</span>, <span class='cn'>0.3</span>, <span class='cn'>0.8</span>])
+weights = np.<span class='cf'>array</span>([<span class='cn'>0.2</span>, <span class='cn'>0.9</span>, <span class='cn'>0.4</span>])
+bias    = <span class='cn'>0.1</span>
+
+<span class='cm'># Step 1+2: multiply inputs×weights and sum</span>
+raw = np.<span class='cf'>dot</span>(inputs, weights) + bias
+<span class='cm'># 0.5×0.2 + 0.3×0.9 + 0.8×0.4 + 0.1 = 0.79</span>
+
+<span class='cm'># Step 3: apply activation (ReLU = keep if positive)</span>
+output = <span class='cf'>max</span>(<span class='cn'>0</span>, raw)
+<span class='cf'>print</span>(output)   <span class='cm'># 0.79</span></code></pre><div class="callout info">np.dot(a, b) multiplies each pair of numbers and adds them all up. It's the core operation of every AI model.</div></div>
+</div>
+<div class="chapter" id="ch20">
+<div class="ch-header">
+  <div class="ch-num">CH 20</div>
+  <h2 class="ch-title">What Are Layers?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>A layer is a group of neurons working together.</p><p style='margin:10px 0;font-size:15px'>Data flows through layers left to right — input layer first, output layer last, hidden layers in between.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><table class="tbl"><tr><th>Layer</th><th>What It Does</th></tr><tr><td>Input Layer</td><td>Receives raw data. One neuron per feature. No computation.</td></tr><tr><td>Hidden Layers</td><td>Where learning happens. Can be many. Learn patterns.</td></tr><tr><td>Output Layer</td><td>Final answer. One neuron per class.</td></tr></table><pre><code><span class='cm'># Network: 26 inputs → 64 neurons → 32 neurons → 3 outputs</span>
+model = <span class='cf'>MLPClassifier</span>(
+    hidden_layer_sizes=(<span class='cn'>64</span>, <span class='cn'>32</span>)
+    <span class='cm'># hidden_layer_sizes=(64, 32) means:</span>
+    <span class='cm'>#   hidden layer 1: 64 neurons</span>
+    <span class='cm'>#   hidden layer 2: 32 neurons</span>
+    <span class='cm'># Input and output layers added automatically</span>
+)</code></pre><p style='margin:10px 0;font-size:15px'>26 inputs × 64 neurons = <strong>1,664 weight connections</strong> in layer 1 alone.</p><div class="callout tip">More layers = more power to learn complex patterns. But also needs more data and time. Balance is everything.</div></div>
+</div>
+<div class="chapter" id="ch21">
+<div class="ch-header">
+  <div class="ch-num">CH 21</div>
+  <h2 class="ch-title">What Is a Neural Network?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>A neural network is many neurons connected in layers.</p><p style='margin:10px 0;font-size:15px'>Alone, one neuron is weak. Together in layers, thousands of neurons can learn incredibly complex patterns.</p><p style='margin:10px 0;font-size:15px'>Loosely inspired by the human brain — but much simpler.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>Each neuron in one layer connects to EVERY neuron in the next layer. This is called a <strong>fully connected</strong> or <strong>dense</strong> layer.</p><div class="formula"><div class="formula-label">Full Network Computation</div>h₁  = relu( X  @ W₀ + b₀ )  ← layer 1 (26→64)<br>
+h₂  = relu( h₁ @ W₁ + b₁ )  ← layer 2 (64→32)<br>
+out = softmax( h₂ @ W₂ + b₂ ) ← output (32→N classes)</div><div class="callout info"><strong>@</strong> = matrix multiply &nbsp;&nbsp; <strong>W</strong> = weight matrix &nbsp;&nbsp; <strong>b</strong> = bias vector</div><pre><code><span class='cm'># View the learned weight shapes after training</span>
+model.<span class='cf'>fit</span>(X, y)
+<span class='cf'>print</span>(model.coefs_[<span class='cn'>0</span>].shape)  <span class='cm'># (26, 64)  layer 1</span>
+<span class='cf'>print</span>(model.coefs_[<span class='cn'>1</span>].shape)  <span class='cm'># (64, 32)  layer 2</span>
+<span class='cf'>print</span>(model.coefs_[<span class='cn'>2</span>].shape)  <span class='cm'># (32, N)   output layer</span></code></pre></div>
+</div>
+<div class="chapter" id="ch22">
+<div class="ch-header">
+  <div class="ch-num">CH 22</div>
+  <h2 class="ch-title">The Forward Pass</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>The forward pass is what happens when you give the AI some data and it produces an answer.</p><p style='margin:10px 0;font-size:15px'>Data flows forward through the layers. Each layer processes and passes to the next. An answer pops out at the end.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><ul class="steps"><li><span class="step-n">1</span><span>Input arrives as a list of numbers, e.g. [5, 9, 1]</span></li><li><span class="step-n">2</span><span>Layer 1 neurons all fire: multiply inputs × weights, add bias, apply ReLU → 64 new numbers</span></li><li><span class="step-n">3</span><span>Layer 2 neurons all fire: same thing using the 64 numbers → 32 new numbers</span></li><li><span class="step-n">4</span><span>Output neurons compute final scores (logits): e.g. [-1.2, 3.5, 0.8]</span></li><li><span class="step-n">5</span><span>Softmax converts scores to probabilities: [0.02, 0.94, 0.04]</span></li><li><span class="step-n">6</span><span>Argmax picks the winner: index 1 → predict class 1</span></li></ul><pre><code><span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+<span class='ck'>def</span> <span class='cf'>relu</span>(x): <span class='ck'>return</span> np.<span class='cf'>maximum</span>(x, <span class='cn'>0</span>)
+<span class='ck'>def</span> <span class='cf'>softmax</span>(x):
+    e = np.<span class='cf'>exp</span>(x - x.<span class='cf'>max</span>())
+    <span class='ck'>return</span> e / e.<span class='cf'>sum</span>()
+
+<span class='ck'>def</span> <span class='cf'>forward</span>(x, W0,b0, W1,b1, W2,b2):
+    h1  = <span class='cf'>relu</span>(x  @ W0 + b0)
+    h2  = <span class='cf'>relu</span>(h1 @ W1 + b1)
+    out = <span class='cf'>softmax</span>(h2 @ W2 + b2)
+    <span class='ck'>return</span> out     <span class='cm'># probabilities per class</span></code></pre></div>
+</div>
+<div class="chapter" id="ch23">
+<div class="ch-header">
+  <div class="ch-num">CH 23</div>
+  <h2 class="ch-title">What Does AI Think Before Answering?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>The AI does NOT think the way you think.</p><p style='margin:10px 0;font-size:15px'>No wondering. No doubting. No feelings. Just maths.</p><p style='margin:10px 0;font-size:15px'>It multiplies, adds, filters, repeats — out comes a number. That number is the answer.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>Here is EXACTLY what happens every time you ask the AI to predict:</p><table class="tbl"><tr><th>Step</th><th>What Happens</th></tr><tr><td>1</td><td>Input arrives as numbers</td></tr><tr><td>2</td><td>Every neuron in layer 1 fires at the same time: multiply, add, ReLU</td></tr><tr><td>3</td><td>Same for every hidden layer</td></tr><tr><td>4</td><td>Output neurons produce raw scores (called logits)</td></tr><tr><td>5</td><td>Softmax turns scores into probabilities (0.0 to 1.0, sum = 1.0)</td></tr><tr><td>6</td><td>Argmax picks the index with the highest probability → that is the prediction</td></tr></table><div class="callout warn"><strong>The AI does NOT understand anything.</strong><br>
+It only learned: "when the input numbers look like X, output Y has the highest probability."<br>
+It is pattern matching at massive scale, happening in microseconds.</div></div>
+</div>
+<div class="chapter" id="ch24">
+<div class="ch-header">
+  <div class="ch-num">CH 24</div>
+  <h2 class="ch-title">How AI Makes a Decision</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>The AI picks whichever answer it is MOST SURE about.</p><p style='margin:10px 0;font-size:15px'>If it thinks 94% chance of class 1 — it says class 1.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><pre><code><span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+probs = np.<span class='cf'>array</span>([<span class='cn'>0.02</span>, <span class='cn'>0.94</span>, <span class='cn'>0.04</span>])
+<span class='cm'># class 0=2%, class 1=94%, class 2=4%</span>
+
+decision = np.<span class='cf'>argmax</span>(probs)  <span class='cm'># → 1  (highest value)</span>
+<span class='cf'>print</span>(<span class='cs'>f"Predict class {decision} with {probs[decision]:.0%} confidence"</span>)
+<span class='cm'># Predict class 1 with 94% confidence</span></code></pre><table class="tbl"><tr><th>Output</th><th>Meaning</th></tr><tr><td>[0.94, 0.03, 0.03]</td><td>Confident prediction — probably correct</td></tr><tr><td>[0.35, 0.33, 0.32]</td><td>Model is unsure — treat output with caution</td></tr><tr><td>[0.99, 0.005, 0.005]</td><td>Very confident — model has seen this type before</td></tr></table><div class="callout warn">High confidence + wrong answer = poorly trained model OR an input very different from training data.</div></div>
+</div>
+<div class="chapter" id="ch25">
+<div class="ch-header">
+  <div class="ch-num">CH 25</div>
+  <h2 class="ch-title">What Is ReLU?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>ReLU is a simple filter:</p><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'>Positive number → pass through unchanged</li><li style='margin:4px 0'>Negative number → become zero</li></ul><p style='margin:10px 0;font-size:15px'>relu(5) = 5 &nbsp;&nbsp; relu(-3) = 0 &nbsp;&nbsp; relu(0) = 0</p></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>ReLU = Rectified Linear Unit. Formula: <code>relu(x) = max(0, x)</code></p><p style='margin:10px 0;font-size:15px'><strong>Why is it needed?</strong> Without activation functions, stacking layers is useless — they collapse to one single multiplication. ReLU adds non-linearity, letting the network learn complex, curved patterns instead of just straight lines.</p><pre><code><span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+x    = np.<span class='cf'>array</span>([<span class='cn'>-3</span>, <span class='cn'>-1</span>, <span class='cn'>0</span>, <span class='cn'>2</span>, <span class='cn'>5</span>])
+relu = np.<span class='cf'>maximum</span>(x, <span class='cn'>0</span>)
+<span class='cf'>print</span>(relu)   <span class='cm'># [0, 0, 0, 2, 5]</span></code></pre><table class="tbl"><tr><th>Activation</th><th>Formula</th><th>Used In</th></tr><tr><td>ReLU</td><td>max(0,x)</td><td>Hidden layers (most common)</td></tr><tr><td>Softmax</td><td>e^x / sum(e^x)</td><td>Output layer (classification)</td></tr><tr><td>Sigmoid</td><td>1/(1+e^-x)</td><td>Binary output</td></tr><tr><td>Tanh</td><td>(e^x-e^-x)/(e^x+e^-x)</td><td>Some hidden layers</td></tr></table></div>
+</div>
+<div class="chapter" id="ch26">
+<div class="ch-header">
+  <div class="ch-num">CH 26</div>
+  <h2 class="ch-title">What Is Softmax?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Softmax turns ANY list of numbers into probabilities that add up to 100%.</p><p style='margin:10px 0;font-size:15px'>Input: [-1.5, 4.2, 0.8] → Output: [0.01, 0.94, 0.05]</p><p style='margin:10px 0;font-size:15px'>The biggest number gets the biggest probability. Everything sums to 1.0.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><div class="formula"><div class="formula-label">Softmax Formula</div>softmax(x)[i] = e^x[i] / ( e^x[0] + e^x[1] + ... + e^x[n] )</div><pre><code><span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+<span class='ck'>def</span> <span class='cf'>softmax</span>(x):
+    e = np.<span class='cf'>exp</span>(x - x.<span class='cf'>max</span>()) <span class='cm'># subtract max for stability</span>
+    <span class='ck'>return</span> e / e.<span class='cf'>sum</span>()
+
+x = np.<span class='cf'>array</span>([<span class='cn'>-1.5</span>, <span class='cn'>4.2</span>, <span class='cn'>0.8</span>])
+<span class='cf'>print</span>(<span class='cf'>softmax</span>(x))
+<span class='cm'># [0.003, 0.965, 0.032]  ← sum = 1.0</span></code></pre><div class="callout tip">Softmax always goes in the output layer for classification. It converts raw scores into something you can interpret as percentages.</div></div>
+</div>
+<div class="chapter" id="ch27">
+<div class="ch-header">
+  <div class="ch-num">CH 27</div>
+  <h2 class="ch-title">What Is Backpropagation?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>After a wrong prediction, backpropagation figures out:</p><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'>Which weights caused the error?</li><li style='margin:4px 0'>How should each weight change to fix it?</li></ul><p style='margin:10px 0;font-size:15px'>It works backwards from output → to input. That is why it is called 'BACK-propagation'.</p></div><div class="analogy"><div class="analogy-label">💡 Analogy</div>Blame propagation. The final wrong answer is blamed. Blame is sent backwards through each layer. Each weight gets its share of blame and adjusts accordingly.</div><div class="real-block"><div class="label">🔬 Real Version</div><ul class="steps"><li><span class="step-n">1</span><span>Forward pass: compute prediction</span></li><li><span class="step-n">2</span><span>Compute loss: how wrong?</span></li><li><span class="step-n">3</span><span>Compute gradient of loss at output layer (how should output weights change?)</span></li><li><span class="step-n">4</span><span>Propagate gradient back to hidden layers using the chain rule from calculus</span></li><li><span class="step-n">5</span><span>Update ALL weights: weight = weight − learning_rate × gradient</span></li><li><span class="step-n">6</span><span>Repeat for next example</span></li></ul><div class="callout tip">You NEVER need to code backpropagation yourself. model.fit(X, y) does it all automatically inside.</div></div>
+</div>
+<div class="chapter" id="ch28">
+<div class="ch-header">
+  <div class="ch-num">CH 28</div>
+  <h2 class="ch-title">AI Learning from Numbers</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Numbers are the easiest input for AI. You put them straight into X — no conversion needed.</p><p style='margin:10px 0;font-size:15px'>Just make sure they are on similar scales (see Chapter 35 — Normalisation).</p></div><div class="real-block"><div class="label">🔬 Real Version</div><pre><code><span class='ck'>from</span> sklearn.neural_network <span class='ck'>import</span> MLPRegressor
+<span class='ck'>from</span> sklearn.preprocessing <span class='ck'>import</span> StandardScaler
+<span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+<span class='cm'># Predict house price from: [bedrooms, sqft, age]</span>
+X = np.<span class='cf'>array</span>([[<span class='cn'>3</span>,<span class='cn'>1500</span>,<span class='cn'>10</span>],[<span class='cn'>4</span>,<span class='cn'>2000</span>,<span class='cn'>5</span>],[<span class='cn'>2</span>,<span class='cn'>800</span>,<span class='cn'>20</span>]])
+y = np.<span class='cf'>array</span>([<span class='cn'>200000</span>, <span class='cn'>320000</span>, <span class='cn'>110000</span>])  <span class='cm'># prices</span>
+
+scaler = <span class='cf'>StandardScaler</span>()
+X_sc = scaler.<span class='cf'>fit_transform</span>(X)   <span class='cm'># normalise</span>
+
+model = <span class='cf'>MLPRegressor</span>(hidden_layer_sizes=(<span class='cn'>64</span>,<span class='cn'>32</span>), max_iter=<span class='cn'>500</span>)
+model.<span class='cf'>fit</span>(X_sc, y)
+
+new = scaler.<span class='cf'>transform</span>([[<span class='cn'>3</span>,<span class='cn'>1800</span>,<span class='cn'>3</span>]])
+<span class='cf'>print</span>(model.<span class='cf'>predict</span>(new))   <span class='cm'># predicted price</span></code></pre></div>
+</div>
+<div class="chapter" id="ch29">
+<div class="ch-header">
+  <div class="ch-num">CH 29</div>
+  <h2 class="ch-title">AI Learning from Text</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Computers do not understand words. Every word must become a number first. Then AI can learn.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><ul class="steps"><li><span class="step-n">1</span><span>Tokenise: split text into words/pieces</span></li><li><span class="step-n">2</span><span>Build vocabulary: assign a number to every known word</span></li><li><span class="step-n">3</span><span>Encode: convert sentence to numbers</span></li><li><span class="step-n">4</span><span>Feed to model: learn from those numbers</span></li></ul><pre><code><span class='ck'>from</span> sklearn.feature_extraction.text <span class='ck'>import</span> CountVectorizer
+<span class='ck'>from</span> sklearn.neural_network <span class='ck'>import</span> MLPClassifier
+
+emails = [
+    <span class='cs'>"FREE money click now"</span>,     <span class='cm'># spam</span>
+    <span class='cs'>"Meeting at 3pm tomorrow"</span>,   <span class='cm'># not spam</span>
+    <span class='cs'>"WIN a FREE iPhone"</span>,         <span class='cm'># spam</span>
+    <span class='cs'>"Can we reschedule lunch?"</span>,  <span class='cm'># not spam</span>
+]
+labels = [<span class='cn'>1</span>, <span class='cn'>0</span>, <span class='cn'>1</span>, <span class='cn'>0</span>]  <span class='cm'># 1=spam, 0=not spam</span>
+
+vec = <span class='cf'>CountVectorizer</span>()      <span class='cm'># converts text to word counts</span>
+X   = vec.<span class='cf'>fit_transform</span>(emails).<span class='cf'>toarray</span>()
+
+model = <span class='cf'>MLPClassifier</span>(max_iter=<span class='cn'>1000</span>)
+model.<span class='cf'>fit</span>(X, labels)
+
+test = vec.<span class='cf'>transform</span>([<span class='cs'>"FREE prize claim now"</span>]).<span class='cf'>toarray</span>()
+<span class='cf'>print</span>(model.<span class='cf'>predict</span>(test))  <span class='cm'># [1] → spam detected!</span></code></pre></div>
+</div>
+<div class="chapter" id="ch30">
+<div class="ch-header">
+  <div class="ch-num">CH 30</div>
+  <h2 class="ch-title">AI Learning from Images</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>An image is a grid of pixels. Each pixel is 1–3 numbers.</p><p style='margin:10px 0;font-size:15px'>A 100×100 colour image = 30,000 numbers. That list of numbers goes into X.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><pre><code><span class='ck'>from</span> PIL <span class='ck'>import</span> Image
+<span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+img  = <span class='cf'>Image</span>.<span class='cf'>open</span>(<span class='cs'>"cat.jpg"</span>).<span class='cf'>convert</span>(<span class='cs'>"L"</span>)  <span class='cm'># greyscale</span>
+img  = img.<span class='cf'>resize</span>((<span class='cn'>28</span>, <span class='cn'>28</span>))                 <span class='cm'># 28×28 pixels</span>
+arr  = np.<span class='cf'>array</span>(img)                           <span class='cm'># shape (28,28)</span>
+flat = arr.<span class='cf'>flatten</span>() / <span class='cn'>255.0</span>                 <span class='cm'># shape (784,) values 0–1</span>
+<span class='cm'># flat = one image's feature vector, ready for model</span></code></pre><div class="callout info">More advanced image AI uses CNNs (Chapter 36) which understand that nearby pixels are related — much better than simple flattening.</div></div>
+</div>
+<div class="chapter" id="ch31">
+<div class="ch-header">
+  <div class="ch-num">CH 31</div>
+  <h2 class="ch-title">AI Learning from Audio</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Sound = vibrations. Microphone converts vibrations to numbers.</p><p style='margin:10px 0;font-size:15px'>At 16,000 samples/second, 1 second of audio = 16,000 numbers. Too many! We summarise to ~26 key numbers called MFCC features.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><ul class="steps"><li><span class="step-n">1</span><span>Record audio → 16,000 numbers per second</span></li><li><span class="step-n">2</span><span>Split into small 256-sample frames (16ms each)</span></li><li><span class="step-n">3</span><span>Apply FFT to each frame → which frequencies are present?</span></li><li><span class="step-n">4</span><span>Group frequencies into 26 Mel bands (mimics human hearing)</span></li><li><span class="step-n">5</span><span>Take log of energies (mimics how we perceive loudness)</span></li><li><span class="step-n">6</span><span>Apply DCT → 13 MFCC coefficients per frame</span></li><li><span class="step-n">7</span><span>Average over all frames → 26 numbers total = feature vector</span></li></ul><div class="callout tip">These 26 numbers efficiently describe the 'shape' of the sound. The model then learns from those numbers.</div></div>
+</div>
+<div class="chapter" id="ch32">
+<div class="ch-header">
+  <div class="ch-num">CH 32</div>
+  <h2 class="ch-title">What Is Overfitting?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>A student who memorised the textbook word-for-word.</p><p style='margin:10px 0;font-size:15px'>Aces the practice test (same text). Fails a real exam (slightly different questions).</p><p style='margin:10px 0;font-size:15px'>They learned the examples, not the patterns.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><table class="tbl"><tr><th>Symptom</th><th>Meaning</th></tr><tr><td>Train accuracy: 99%, Test accuracy: 65%</td><td>Classic overfitting — memorised training data</td></tr><tr><td>Train accuracy: 72%, Test accuracy: 70%</td><td>Healthy — genuinely learned patterns</td></tr></table><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>How to fix overfitting:</h3><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'>Get more training data (best solution)</li><li style='margin:4px 0'>Use a simpler model (fewer neurons/layers)</li><li style='margin:4px 0'>Add L2 regularisation: alpha=0.01 in sklearn</li><li style='margin:4px 0'>Train for fewer epochs</li><li style='margin:4px 0'>Use dropout (random neuron shutoff during training)</li></ul><pre><code>model = <span class='cf'>MLPClassifier</span>(
+    hidden_layer_sizes=(<span class='cn'>64</span>, <span class='cn'>32</span>),
+    alpha=<span class='cn'>0.01</span>,     <span class='cm'># L2 regularisation — discourages memorisation</span>
+    max_iter=<span class='cn'>500</span>
+)</code></pre></div>
+</div>
+<div class="chapter" id="ch33">
+<div class="ch-header">
+  <div class="ch-num">CH 33</div>
+  <h2 class="ch-title">What Is Underfitting?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>A student who did not study at all.</p><p style='margin:10px 0;font-size:15px'>Fails both the practice test AND the real exam.</p><p style='margin:10px 0;font-size:15px'>They did not learn anything.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><table class="tbl"><tr><th>Symptom</th><th>Meaning</th></tr><tr><td>Train: 58%, Test: 57%</td><td>Underfitting — both low</td></tr><tr><td>Train: 98%, Test: 65%</td><td>Overfitting — train high, test low</td></tr></table><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>How to fix underfitting:</h3><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'>Use a bigger model (more neurons, more layers)</li><li style='margin:4px 0'>Train for more epochs</li><li style='margin:4px 0'>Lower the learning rate</li><li style='margin:4px 0'>Add more or better features to X</li></ul><p style='margin:10px 0;font-size:15px'>The ideal is in the middle:</p><div class="formula"><div class="formula-label">Sweet Spot</div>Too simple (underfitting) ←————————————→ Too complex (overfitting)<br><span style='color:var(--accent3)'>↑ ideal point ↑</span></div></div>
+</div>
+<div class="chapter" id="ch34">
+<div class="ch-header">
+  <div class="ch-num">CH 34</div>
+  <h2 class="ch-title">Dataset Splits</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Never test your AI on data it trained on. That is cheating.</p><p style='margin:10px 0;font-size:15px'>Keep some data hidden during training. Test on that hidden data. That tells you the truth.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><table class="tbl"><tr><th>Split</th><th>Proportion</th><th>Purpose</th></tr><tr><td>Training set</td><td>70–80%</td><td>Model learns from this</td></tr><tr><td>Validation set</td><td>10–15%</td><td>Monitor overfitting during training</td></tr><tr><td>Test set</td><td>10–20%</td><td>Final honest evaluation — model never sees this during training</td></tr></table><pre><code><span class='ck'>from</span> sklearn.model_selection <span class='ck'>import</span> train_test_split, cross_val_score
+
+X_train, X_test, y_train, y_test = <span class='cf'>train_test_split</span>(
+    X, y, test_size=<span class='cn'>0.2</span>, random_state=<span class='cn'>42</span>
+)
+
+model.<span class='cf'>fit</span>(X_train, y_train)
+<span class='cf'>print</span>(model.<span class='cf'>score</span>(X_test, y_test))  <span class='cm'># honest accuracy</span>
+
+<span class='cm'># Even better: 5-fold cross validation</span>
+scores = <span class='cf'>cross_val_score</span>(model, X, y, cv=<span class='cn'>5</span>)
+<span class='cf'>print</span>(scores.<span class='cf'>mean</span>())   <span class='cm'># average over 5 different splits</span></code></pre></div>
+</div>
+<div class="chapter" id="ch35">
+<div class="ch-header">
+  <div class="ch-num">CH 35</div>
+  <h2 class="ch-title">Normalisation and Scaling</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Imagine grading two features: maths score (0–100) and height (100–200cm).</p><p style='margin:10px 0;font-size:15px'>A height of 190cm LOOKS bigger than a maths score of 95, just because 190 > 95.</p><p style='margin:10px 0;font-size:15px'>That is unfair. Scaling makes all features use the SAME range.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><div class="formula"><div class="formula-label">StandardScaler Formula</div>scaled = (value − mean) / std</div><pre><code><span class='ck'>from</span> sklearn.preprocessing <span class='ck'>import</span> StandardScaler
+<span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+X = np.<span class='cf'>array</span>([[<span class='cn'>100</span>, <span class='cn'>0.5</span>],  <span class='cm'># big + tiny features</span>
+             [<span class='cn'>200</span>, <span class='cn'>0.8</span>],
+             [<span class='cn'>150</span>, <span class='cn'>0.6</span>]])
+
+scaler    = <span class='cf'>StandardScaler</span>()
+X_scaled  = scaler.<span class='cf'>fit_transform</span>(X)   <span class='cm'># fit on training data</span>
+<span class='cf'>print</span>(X_scaled)  <span class='cm'># both features now on similar range</span>
+
+<span class='cm'># ALWAYS apply same scaler to new data too:</span>
+X_new_scaled = scaler.<span class='cf'>transform</span>(X_new)  <span class='cm'># NOT fit_transform!</span></code></pre><div class="callout warn">Fit the scaler ONLY on training data. Then use .transform() on everything else (validation, test, production).</div></div>
+</div>
+<div class="chapter" id="ch36">
+<div class="ch-header">
+  <div class="ch-num">CH 36</div>
+  <h2 class="ch-title">What Is a CNN?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>CNN = Convolutional Neural Network.</p><p style='margin:10px 0;font-size:15px'>Designed specifically for images.</p><p style='margin:10px 0;font-size:15px'>Instead of looking at all pixels at once, it slides a small window across the image looking for patterns: edges, curves, shapes.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><table class="tbl"><tr><th>Layer</th><th>What It Does</th></tr><tr><td>Conv Layer</td><td>Slides small filters across image. Each filter detects one pattern (edge, texture).</td></tr><tr><td>ReLU</td><td>Activation after each conv layer.</td></tr><tr><td>Pooling</td><td>Shrinks the image (keeps the strongest signal in each area).</td></tr><tr><td>Flatten</td><td>Converts 2D feature maps to 1D vector.</td></tr><tr><td>Dense</td><td>Standard neural network layers to classify.</td></tr></table><p style='margin:10px 0;font-size:15px'>Famous CNNs: LeNet (1998), AlexNet (2012), ResNet (2015), EfficientNet (2019).</p><div class="callout info">CNNs understand that nearby pixels are related. Simple flattening ignores position. CNNs use position. This is why CNNs are far better at image tasks.</div></div>
+</div>
+<div class="chapter" id="ch37">
+<div class="ch-header">
+  <div class="ch-num">CH 37</div>
+  <h2 class="ch-title">What Is an RNN?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>RNN = Recurrent Neural Network.</p><p style='margin:10px 0;font-size:15px'>An RNN REMEMBERS. It reads a sentence one word at a time and carries a memory forward.</p><p style='margin:10px 0;font-size:15px'>By the end, the memory holds information about the whole sequence.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><table class="tbl"><tr><th>Step</th><th>Input</th><th>Memory</th></tr><tr><td>1</td><td>Read: 'The'</td><td>Memory M1 = basic context</td></tr><tr><td>2</td><td>Read: 'cat'</td><td>Memory M2 = 'The cat'</td></tr><tr><td>3</td><td>Read: 'sat'</td><td>Memory M3 = 'The cat sat'</td></tr><tr><td>4</td><td>Read: 'down'</td><td>Memory M4 = full phrase</td></tr></table><p style='margin:10px 0;font-size:15px'><strong>Problem:</strong> Long sequences cause gradients to vanish. Model forgets what it read early on.</p><p style='margin:10px 0;font-size:15px'><strong>Solution:</strong> LSTM (Long Short-Term Memory) and GRU — special gates that decide what to remember and what to forget.</p><div class="callout info">RNNs were replaced by Transformers (Chapter 38) for most text tasks, but are still used for time series prediction.</div></div>
+</div>
+<div class="chapter" id="ch38">
+<div class="ch-header">
+  <div class="ch-num">CH 38</div>
+  <h2 class="ch-title">What Is a Transformer?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>A Transformer reads EVERYTHING at once and figures out how every word relates to every other word.</p><p style='margin:10px 0;font-size:15px'>This is why ChatGPT understands context so well.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>Key mechanism: <strong style='color:var(--accent)'>Self-Attention</strong></p><p style='margin:10px 0;font-size:15px'>For each word, self-attention asks: 'which other words in this sentence should I pay attention to?'</p><pre><code><span class='cs'>"The bank by the river is flooded"</span>
+
+<span class='cm'>For the word "bank":</span>
+<span class='cm'>  → "river" gets HIGH attention  (river bank!)</span>
+<span class='cm'>  → "flooded" gets HIGH attention</span>
+<span class='cm'>  → "the" gets LOW attention</span>
+<span class='cm'>Model correctly understands: bank = river bank, not financial bank</span></code></pre><table class="tbl"><tr><th>Model</th><th>Purpose</th></tr><tr><td>GPT-4</td><td>Text generation (ChatGPT)</td></tr><tr><td>BERT</td><td>Text understanding (Google Search)</td></tr><tr><td>DALL-E</td><td>Image generation</td></tr><tr><td>Whisper</td><td>Speech recognition</td></tr></table></div>
+</div>
+<div class="chapter" id="ch39">
+<div class="ch-header">
+  <div class="ch-num">CH 39</div>
+  <h2 class="ch-title">Reinforcement Learning Deep Dive</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>RL = learning by doing. Try. Get feedback. Improve. Repeat millions of times.</p><p style='margin:10px 0;font-size:15px'>Like a baby learning to walk: nobody explains the physics. The baby just tries, falls, adjusts.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>RL is fundamentally different from supervised learning:</p><table class="tbl"><tr><th></th><th>Supervised Learning</th><th>Reinforcement Learning</th></tr><tr><td>Data needed</td><td>Labelled examples (X, y)</td><td>No labels. Just reward signal.</td></tr><tr><td>Feedback</td><td>Correct answer given</td><td>Good/bad number given</td></tr><tr><td>Learning</td><td>Memorise examples</td><td>Discover strategies by trial</td></tr><tr><td>Used for</td><td>Classification, regression</td><td>Games, robots, chatbots</td></tr></table><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Key challenges in RL:</h3><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'><strong>Credit assignment:</strong> if you win after 40 moves, which moves helped?</li><li style='margin:4px 0'><strong>Explore vs exploit:</strong> try new things or use what you know?</li><li style='margin:4px 0'><strong>Sparse rewards:</strong> reward might come much later than the action that caused it</li></ul></div>
+</div>
+<div class="chapter" id="ch40">
+<div class="ch-header">
+  <div class="ch-num">CH 40</div>
+  <h2 class="ch-title">State, Action, Reward</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>These three words are the heart of RL:</p><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'><strong>State</strong> — where you are right now</li><li style='margin:4px 0'><strong>Action</strong> — what you do next</li><li style='margin:4px 0'><strong>Reward</strong> — how good or bad the result was</li></ul></div><div class="real-block"><div class="label">🔬 Real Version</div><table class="tbl"><tr><th>Concept</th><th>Meaning</th><th>Example (robot maze)</th></tr><tr><td>State</td><td>Current observation of environment</td><td>Position: row 3, column 5</td></tr><tr><td>Action</td><td>What the agent can do</td><td>Move: up/down/left/right</td></tr><tr><td>Reward</td><td>Feedback number after action</td><td>+10 reach exit, -1 hit wall, -0.1 each step</td></tr></table><pre><code><span class='cm'># One step in RL</span>
+state      = <span class='cn'>5</span>      <span class='cm'># which situation we're in</span>
+action     = <span class='cn'>2</span>      <span class='cm'># what we decided to do</span>
+reward     = <span class='cn'>1.0</span>    <span class='cm'># positive = good outcome</span>
+next_state = <span class='cn'>8</span>      <span class='cm'># where we ended up after action</span>
+
+<span class='cm'># Now we update our knowledge using these four values</span>
+<span class='cm'># (see Chapter 43 for how)</span></code></pre><div class="callout tip">This cycle of (state → action → reward → next state) repeats continuously. The agent learns from each cycle.</div></div>
+</div>
+<div class="chapter" id="ch41">
+<div class="ch-header">
+  <div class="ch-num">CH 41</div>
+  <h2 class="ch-title">What Is a Q-Table?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>The Q-table is the agent's memory. It answers:</p><p style='margin:10px 0;font-size:15px'>'From this situation, how good is each possible action?'</p><p style='margin:10px 0;font-size:15px'>Higher number = better action from that situation.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><p style='margin:10px 0;font-size:15px'>Q-table = 2D matrix. Rows = states. Columns = actions. Values = quality scores.</p><pre><code><span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+n_states  = <span class='cn'>10</span>   <span class='cm'># 10 possible situations</span>
+n_actions = <span class='cn'>4</span>    <span class='cm'># 4 possible things to do</span>
+
+Q = np.<span class='cf'>zeros</span>((n_states, n_actions))  <span class='cm'># start blank (all zeros)</span>
+<span class='cm'># After training, Q will hold meaningful scores:</span>
+<span class='cm'># Q[3] = [0.8, 0.2, 0.6, 0.1]</span>
+<span class='cm'># In state 3, best action = 0 (score 0.8)</span>
+
+best_action = np.<span class='cf'>argmax</span>(Q[<span class='cn'>3</span>])  <span class='cm'># → 0</span></code></pre><p style='margin:10px 0;font-size:15px'>At the start, Q is all zeros (the agent knows nothing). Every experience gradually fills it with useful values.</p></div>
+</div>
+<div class="chapter" id="ch42">
+<div class="ch-header">
+  <div class="ch-num">CH 42</div>
+  <h2 class="ch-title">The Bellman Equation</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>The Bellman equation is the formula that updates the Q-table after each experience.</p><p style='margin:10px 0;font-size:15px'>In plain English: the value of an action = reward I got NOW + the best I can expect IN THE FUTURE.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><div class="formula"><div class="formula-label">Bellman / Q-Learning Update</div>Q(s,a) ← Q(s,a) + α × [ r + γ × max Q(s', a') − Q(s,a) ]</div><table class="tbl"><tr><th>Symbol</th><th>Name</th><th>Meaning</th></tr><tr><td>Q(s,a)</td><td>Current Q-value</td><td>What we currently believe about this (state, action)</td></tr><tr><td>α (alpha)</td><td>Learning rate</td><td>How fast to update. Typical: 0.1 to 0.3</td></tr><tr><td>r</td><td>Reward</td><td>What we got from taking this action</td></tr><tr><td>γ (gamma)</td><td>Discount factor</td><td>How much future rewards matter. Typical: 0.9 to 0.99</td></tr><tr><td>s'</td><td>Next state</td><td>Where we ended up after the action</td></tr><tr><td>max Q(s',a')</td><td>Best future Q</td><td>Best possible score from the next state</td></tr><tr><td>[...]</td><td>TD Error</td><td>How surprised were we? Our mistake to correct</td></tr></table><div class="callout info">The term in brackets [ ] is called the TD Error (Temporal Difference Error). Big error = big update. Small error = small nudge.</div></div>
+</div>
+<div class="chapter" id="ch43">
+<div class="ch-header">
+  <div class="ch-num">CH 43</div>
+  <h2 class="ch-title">Applying RL Step by Step</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Let's apply the Bellman equation with real numbers. Follow each step.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><pre><code><span class='cm'># Setup</span>
+alpha = <span class='cn'>0.15</span>    <span class='cm'># learning rate</span>
+gamma = <span class='cn'>0.90</span>    <span class='cm'># discount factor</span>
+
+<span class='cm'># What just happened:</span>
+state      = <span class='cn'>2</span>     <span class='cm'># we were in state 2</span>
+action     = <span class='cn'>1</span>     <span class='cm'># we took action 1</span>
+reward     = <span class='cn'>1.0</span>   <span class='cm'># we got reward!</span>
+next_state = <span class='cn'>5</span>     <span class='cm'># we ended up in state 5</span>
+
+<span class='cm'># Step 1: what Q thinks now</span>
+current_q  = Q[state][action]         <span class='cm'># e.g. 0.30</span>
+
+<span class='cm'># Step 2: best future Q from next state</span>
+best_next  = np.<span class='cf'>max</span>(Q[next_state])    <span class='cm'># e.g. 0.80</span>
+
+<span class='cm'># Step 3: what Q SHOULD be (TD target)</span>
+td_target  = reward + gamma * best_next
+<span class='cm'># = 1.0 + 0.90 × 0.80 = 1.72</span>
+
+<span class='cm'># Step 4: how wrong were we?</span>
+td_error   = td_target - current_q
+<span class='cm'># = 1.72 - 0.30 = 1.42  (big surprise!)</span>
+
+<span class='cm'># Step 5: update</span>
+Q[state][action] = current_q + alpha * td_error
+<span class='cm'># = 0.30 + 0.15 × 1.42 = 0.513</span>
+<span class='cm'># Q-value went UP because we were rewarded</span></code></pre><div class="callout tip">Next time the agent is in state 2, action 1 looks more appealing (0.51 vs 0.30 before). That is learning!</div></div>
+</div>
+<div class="chapter" id="ch44">
+<div class="ch-header">
+  <div class="ch-num">CH 44</div>
+  <h2 class="ch-title">Epsilon-Greedy Strategy</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>The agent has two choices every step:</p><ul style='margin:8px 0 8px 20px;font-size:14px'><li style='margin:4px 0'><strong>Exploit</strong> — pick the best known action</li><li style='margin:4px 0'><strong>Explore</strong> — try a random action to discover something better</li></ul><p style='margin:10px 0;font-size:15px'>Epsilon controls this balance. epsilon=0.1 means 10% random, 90% best known.</p></div><div class="analogy"><div class="analogy-label">💡 Analogy</div>You found a restaurant you like. If you ALWAYS go there (exploit), you never find the better restaurant two streets over. But if you always try random restaurants (explore), you never enjoy what you already know is good.</div><div class="real-block"><div class="label">🔬 Real Version</div><pre><code><span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+<span class='ck'>def</span> <span class='cf'>choose_action</span>(state, Q, epsilon):
+    <span class='ck'>if</span> np.random.<span class='cf'>random</span>() < epsilon:
+        <span class='ck'>return</span> np.random.<span class='cf'>randint</span>(<span class='cn'>0</span>, Q.shape[<span class='cn'>1</span>])  <span class='cm'># EXPLORE</span>
+    <span class='ck'>return</span> np.<span class='cf'>argmax</span>(Q[state])                  <span class='cm'># EXPLOIT</span>
+
+<span class='cm'># Decay epsilon over time (explore less as you learn more)</span>
+epsilon = <span class='cn'>1.0</span>
+<span class='ck'>for</span> episode <span class='ck'>in</span> <span class='cf'>range</span>(<span class='cn'>1000</span>):
+    <span class='cm'># ... run episode ...</span>
+    epsilon = <span class='cf'>max</span>(<span class='cn'>0.01</span>, epsilon * <span class='cn'>0.995</span>)  <span class='cm'># slowly decay</span></code></pre></div>
+</div>
+<div class="chapter" id="ch45">
+<div class="ch-header">
+  <div class="ch-num">CH 45</div>
+  <h2 class="ch-title">What Does the RL Agent Think?</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>The agent does not think in the human sense.</p><p style='margin:10px 0;font-size:15px'>It looks at its situation, checks the Q-table, picks the best-scoring action (or a random one), then waits for feedback.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><ul class="steps"><li><span class="step-n">1</span><span>Observe current state (a number or list of numbers)</span></li><li><span class="step-n">2</span><span>Look up Q[state] → array of scores for all actions</span></li><li><span class="step-n">3</span><span>If random < epsilon: pick random action (explore)</span></li><li><span class="step-n">4</span><span>Else: pick action with highest Q[state][action] (exploit)</span></li><li><span class="step-n">5</span><span>Actually take that action</span></li><li><span class="step-n">6</span><span>Receive reward and observe new state</span></li><li><span class="step-n">7</span><span>Run Bellman update: Q[state][action] changes</span></li><li><span class="step-n">8</span><span>Move to new state. Go to step 1.</span></li></ul><div class="callout warn">The agent does NOT plan ahead (basic Q-learning).<br>
+It does NOT understand what 'reward' means.<br>
+It just statistically learned: 'when in state X, action Y tends to produce higher future numbers.'<br>
+That's it. Pure statistics, no understanding.</div></div>
+</div>
+<div class="chapter" id="ch46">
+<div class="ch-header">
+  <div class="ch-num">CH 46</div>
+  <h2 class="ch-title">Python Crash Course</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Python is the most beginner-friendly programming language. It reads like English.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Variables</h3><pre><code>age    = <span class='cn'>25</span>          <span class='cm'># integer</span>
+name   = <span class='cs'>"Alice"</span>    <span class='cm'># string (text)</span>
+score  = <span class='cn'>0.95</span>       <span class='cm'># decimal number</span>
+active = <span class='ck'>True</span>       <span class='cm'># boolean (True or False)</span></code></pre><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Lists and Loops</h3><pre><code>fruits = [<span class='cs'>"apple"</span>, <span class='cs'>"banana"</span>, <span class='cs'>"mango"</span>]
+<span class='cf'>print</span>(fruits[<span class='cn'>0</span>])      <span class='cm'># apple  (starts at 0)</span>
+<span class='cf'>print</span>(<span class='cf'>len</span>(fruits))    <span class='cm'># 3</span>
+
+<span class='ck'>for</span> fruit <span class='ck'>in</span> fruits:
+    <span class='cf'>print</span>(fruit)        <span class='cm'># apple, banana, mango</span>
+
+<span class='ck'>for</span> i <span class='ck'>in</span> <span class='cf'>range</span>(<span class='cn'>5</span>):
+    <span class='cf'>print</span>(i)            <span class='cm'># 0 1 2 3 4</span></code></pre><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Conditions</h3><pre><code>temp = <span class='cn'>30</span>
+<span class='ck'>if</span> temp > <span class='cn'>25</span>:
+    <span class='cf'>print</span>(<span class='cs'>"Hot!"</span>)
+<span class='ck'>elif</span> temp > <span class='cn'>15</span>:
+    <span class='cf'>print</span>(<span class='cs'>"Warm."</span>)
+<span class='ck'>else</span>:
+    <span class='cf'>print</span>(<span class='cs'>"Cold."</span>)</code></pre><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Numpy — Numbers for AI</h3><pre><code><span class='ck'>import</span> numpy <span class='ck'>as</span> np
+
+a = np.<span class='cf'>array</span>([<span class='cn'>1</span>,<span class='cn'>2</span>,<span class='cn'>3</span>,<span class='cn'>4</span>,<span class='cn'>5</span>])
+<span class='cf'>print</span>(a * <span class='cn'>2</span>)        <span class='cm'># [2 4 6 8 10]</span>
+<span class='cf'>print</span>(a.<span class='cf'>mean</span>())     <span class='cm'># 3.0</span>
+<span class='cf'>print</span>(a.<span class='cf'>max</span>())      <span class='cm'># 5</span>
+
+X = np.<span class='cf'>array</span>([[<span class='cn'>1</span>,<span class='cn'>2</span>],[<span class='cn'>3</span>,<span class='cn'>4</span>]])
+<span class='cf'>print</span>(X.shape)      <span class='cm'># (2, 2)</span></code></pre></div>
+</div>
+<div class="chapter" id="ch47">
+<div class="ch-header">
+  <div class="ch-num">CH 47</div>
+  <h2 class="ch-title">Tkinter: Windows and Buttons</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Tkinter is Python's built-in library for making windows. No installation needed.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Hello World Window</h3><pre><code><span class='ck'>import</span> tkinter <span class='ck'>as</span> tk
+
+root = tk.<span class='cf'>Tk</span>()                    <span class='cm'># create window</span>
+root.<span class='cf'>title</span>(<span class='cs'>"My Window"</span>)           <span class='cm'># set title</span>
+root.<span class='cf'>geometry</span>(<span class='cs'>"400x300"</span>)         <span class='cm'># width x height</span>
+root.<span class='cf'>mainloop</span>()                   <span class='cm'># keep window open</span></code></pre><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Label + Button + Entry</h3><pre><code><span class='ck'>import</span> tkinter <span class='ck'>as</span> tk
+<span class='ck'>from</span> tkinter <span class='ck'>import</span> messagebox
+
+root = tk.<span class='cf'>Tk</span>()
+
+<span class='cm'># Label — shows text</span>
+lbl = tk.<span class='cf'>Label</span>(root, text=<span class='cs'>"Enter your name:"</span>, font=(<span class='cs'>"Helvetica"</span>,<span class='cn'>12</span>))
+lbl.<span class='cf'>pack</span>(pady=<span class='cn'>10</span>)
+
+<span class='cm'># Entry — text input box</span>
+entry = tk.<span class='cf'>Entry</span>(root, width=<span class='cn'>20</span>)
+entry.<span class='cf'>pack</span>()
+
+<span class='cm'># Button — calls a function when clicked</span>
+<span class='ck'>def</span> <span class='cf'>greet</span>():
+    name = entry.<span class='cf'>get</span>()             <span class='cm'># read text from box</span>
+    messagebox.<span class='cf'>showinfo</span>(<span class='cs'>"Hi!"</span>, <span class='cs'>f"Hello, {name}!"</span>)
+
+tk.<span class='cf'>Button</span>(root, text=<span class='cs'>"Greet"</span>, command=greet,
+          bg=<span class='cs'>"#27ae60"</span>, fg=<span class='cs'>"white"</span>).<span class='cf'>pack</span>(pady=<span class='cn'>10</span>)
+
+root.<span class='cf'>mainloop</span>()</code></pre><div class="callout tip"><strong>pack()</strong> auto-places widgets &nbsp;|&nbsp; <strong>grid(row,col)</strong> precise placement &nbsp;|&nbsp; <strong>.config(text=...)</strong> change a widget after creation</div></div>
+</div>
+<div class="chapter" id="ch48">
+<div class="ch-header">
+  <div class="ch-num">CH 48</div>
+  <h2 class="ch-title">sklearn AI Toolkit</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>sklearn (scikit-learn) is the go-to Python library for machine learning. Ready-made models, scalers, splitters.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Most Important Functions:</h3><table class="tbl"><tr><th>Function</th><th>What it does</th></tr><tr><td>MLPClassifier(hidden_layer_sizes=(64,32))</td><td>Create neural network for classification</td></tr><tr><td>MLPRegressor(...)</td><td>Create neural network for predicting numbers</td></tr><tr><td>model.fit(X, y)</td><td>TRAIN the model on data</td></tr><tr><td>model.predict(X)</td><td>Predict class labels for new data</td></tr><tr><td>model.predict_proba(X)</td><td>Predict probabilities for each class</td></tr><tr><td>model.score(X, y)</td><td>Accuracy: fraction of correct predictions</td></tr><tr><td>StandardScaler().fit_transform(X)</td><td>Normalise features to mean=0, std=1</td></tr><tr><td>train_test_split(X, y, test_size=0.2)</td><td>Split into 80% train, 20% test</td></tr><tr><td>cross_val_score(model, X, y, cv=5)</td><td>5-fold cross-validation accuracy</td></tr><tr><td>joblib.dump(model, 'file.pkl')</td><td>Save model to file</td></tr><tr><td>joblib.load('file.pkl')</td><td>Load model from file</td></tr></table><pre><code><span class='ck'>from</span> sklearn.pipeline <span class='ck'>import</span> Pipeline
+<span class='ck'>from</span> sklearn.preprocessing <span class='ck'>import</span> StandardScaler
+<span class='ck'>from</span> sklearn.neural_network <span class='ck'>import</span> MLPClassifier
+
+<span class='cm'># Pipeline chains steps — scale then train automatically</span>
+pipe = <span class='cf'>Pipeline</span>([
+    (<span class='cs'>"scale"</span>, <span class='cf'>StandardScaler</span>()),
+    (<span class='cs'>"model"</span>, <span class='cf'>MLPClassifier</span>(max_iter=<span class='cn'>500</span>)),
+])
+pipe.<span class='cf'>fit</span>(X_train, y_train)
+pipe.<span class='cf'>predict</span>(X_test)   <span class='cm'># auto-scales then predicts</span></code></pre></div>
+</div>
+<div class="chapter" id="ch49">
+<div class="ch-header">
+  <div class="ch-num">CH 49</div>
+  <h2 class="ch-title">Every AI Function Explained</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Here are all the functions you will encounter, grouped by what they do.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Creating Models</h3><table class="tbl"><tr><th>Call</th><th>Does</th></tr><tr><td>MLPClassifier(hidden_layer_sizes=(64,32), activation='relu', solver='adam', max_iter=500)</td><td>Neural network for classification</td></tr><tr><td>MLPRegressor(...)</td><td>Neural network for number prediction</td></tr><tr><td>KMeans(n_clusters=3)</td><td>Cluster data into 3 groups (unsupervised)</td></tr><tr><td>RandomForestClassifier(n_estimators=100)</td><td>100 decision trees, vote for best answer</td></tr></table><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Training and Predicting</h3><table class="tbl"><tr><th>Call</th><th>Does</th></tr><tr><td>model.fit(X, y)</td><td>Train supervised model</td></tr><tr><td>model.fit(X)</td><td>Train unsupervised model</td></tr><tr><td>model.predict(X)</td><td>Return predicted class labels</td></tr><tr><td>model.predict_proba(X)</td><td>Return probability for each class</td></tr><tr><td>model.score(X, y)</td><td>Return accuracy fraction 0.0–1.0</td></tr></table><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Evaluating</h3><table class="tbl"><tr><th>Call</th><th>Does</th></tr><tr><td>accuracy_score(y_true, y_pred)</td><td>% of correct predictions</td></tr><tr><td>precision_score(y_true, y_pred)</td><td>Of 'yes' predictions, how many were right?</td></tr><tr><td>recall_score(y_true, y_pred)</td><td>Of real 'yes' cases, how many did we find?</td></tr><tr><td>f1_score(y_true, y_pred)</td><td>Balance of precision and recall</td></tr><tr><td>confusion_matrix(y_true, y_pred)</td><td>Table of which classes got confused</td></tr><tr><td>classification_report(y_true, y_pred)</td><td>Full per-class stats table</td></tr></table><h3 style='color:var(--accent2);margin:18px 0 8px;font-size:16px'>Data Prep</h3><table class="tbl"><tr><th>Call</th><th>Does</th></tr><tr><td>StandardScaler().fit_transform(X)</td><td>Mean=0, std=1 per feature</td></tr><tr><td>MinMaxScaler().fit_transform(X)</td><td>Scale to 0–1</td></tr><tr><td>train_test_split(X,y,test_size=0.2)</td><td>80/20 split</td></tr><tr><td>cross_val_score(model,X,y,cv=5)</td><td>5-fold CV scores</td></tr><tr><td>LabelEncoder().fit_transform(y)</td><td>Text labels → numbers</td></tr></table></div>
+</div>
+<div class="chapter" id="ch50">
+<div class="ch-header">
+  <div class="ch-num">CH 50</div>
+  <h2 class="ch-title">Full Glossary</h2>
+</div>
+<div class="simple-block"><div class="label">🐣 Simple Version</div><p style='margin:10px 0;font-size:15px'>Every AI term you will ever encounter — short, plain-English definitions.</p></div><div class="real-block"><div class="label">🔬 Real Version</div><div class="gloss-grid"><div class="gloss-item"><div class="gloss-term">Accuracy</div><div class="gloss-def">Fraction of correct predictions. 0.0 = never right. 1.0 = always right.</div></div><div class="gloss-item"><div class="gloss-term">Action (RL)</div><div class="gloss-def">Something the RL agent does: move, say a word, buy a stock.</div></div><div class="gloss-item"><div class="gloss-term">Activation Function</div><div class="gloss-def">Applied to neuron output to add non-linearity. ReLU, softmax, sigmoid.</div></div><div class="gloss-item"><div class="gloss-term">Adam</div><div class="gloss-def">Popular weight-update algorithm. Adapts learning rate automatically. Default in sklearn.</div></div><div class="gloss-item"><div class="gloss-term">Agent (RL)</div><div class="gloss-def">The AI that learns and acts in RL.</div></div><div class="gloss-item"><div class="gloss-term">Argmax</div><div class="gloss-def">Index of the largest value in a list. np.argmax([0.1, 0.8, 0.1]) → 1</div></div><div class="gloss-item"><div class="gloss-term">Backpropagation</div><div class="gloss-def">Computes which weights caused the error and by how much. Works backwards.</div></div><div class="gloss-item"><div class="gloss-term">Batch</div><div class="gloss-def">Small subset of training data processed before one weight update.</div></div><div class="gloss-item"><div class="gloss-term">Bellman Equation</div><div class="gloss-def">Q(s,a) ← Q(s,a) + α[r + γ·max Q(s',a') − Q(s,a)]. Core RL formula.</div></div><div class="gloss-item"><div class="gloss-term">Bias (neuron)</div><div class="gloss-def">One extra learnable number per neuron. Lets neuron fire with zero inputs.</div></div><div class="gloss-item"><div class="gloss-term">Blank Model</div><div class="gloss-def">Model with random weights. Knows nothing. Output is random.</div></div><div class="gloss-item"><div class="gloss-term">Classification</div><div class="gloss-def">Predict a category: cat/dog, spam/not-spam.</div></div><div class="gloss-item"><div class="gloss-term">CNN</div><div class="gloss-def">Convolutional Neural Network. Uses sliding filters. Best for images.</div></div><div class="gloss-item"><div class="gloss-term">Cross-Entropy</div><div class="gloss-def">Loss function for classification. Penalises confident wrong answers.</div></div><div class="gloss-item"><div class="gloss-term">Cross-Validation</div><div class="gloss-def">Test model on multiple data splits. More reliable than one split.</div></div><div class="gloss-item"><div class="gloss-term">Deep Learning</div><div class="gloss-def">Neural networks with many layers. Powers ChatGPT, image AI.</div></div><div class="gloss-item"><div class="gloss-term">Discount Factor γ</div><div class="gloss-def">How much future rewards matter. 0.9 = near future matters a lot.</div></div><div class="gloss-item"><div class="gloss-term">Epoch</div><div class="gloss-def">One full pass through all training data.</div></div><div class="gloss-item"><div class="gloss-term">Epsilon-Greedy</div><div class="gloss-def">RL strategy: explore randomly ε% of the time, exploit the rest.</div></div><div class="gloss-item"><div class="gloss-term">Episode (RL)</div><div class="gloss-def">One complete run from start to end (one game, one conversation).</div></div><div class="gloss-item"><div class="gloss-term">Feature</div><div class="gloss-def">One piece of information about an example: size, colour, age.</div></div><div class="gloss-item"><div class="gloss-term">Feature Extraction</div><div class="gloss-def">Converting raw data (image, audio, text) to numbers for AI.</div></div><div class="gloss-item"><div class="gloss-term">Feature Vector</div><div class="gloss-def">A list of numbers describing one example.</div></div><div class="gloss-item"><div class="gloss-term">Forward Pass</div><div class="gloss-def">Running data through network layers from input to output to get prediction.</div></div><div class="gloss-item"><div class="gloss-term">Gradient</div><div class="gloss-def">Direction and magnitude of change needed to reduce loss.</div></div><div class="gloss-item"><div class="gloss-term">Gradient Descent</div><div class="gloss-def">Algorithm: adjust weights in direction that reduces loss.</div></div><div class="gloss-item"><div class="gloss-term">Hidden Layer</div><div class="gloss-def">Layers between input and output. Where learning happens.</div></div><div class="gloss-item"><div class="gloss-term">Label</div><div class="gloss-def">Correct answer for one training example. Also called target or ground truth.</div></div><div class="gloss-item"><div class="gloss-term">Layer</div><div class="gloss-def">Group of neurons. Input layer, hidden layers, output layer.</div></div><div class="gloss-item"><div class="gloss-term">Learning Rate α</div><div class="gloss-def">How big a step to take when updating weights. Typical: 0.001.</div></div><div class="gloss-item"><div class="gloss-term">Loss</div><div class="gloss-def">Number measuring how wrong the model is. Train to minimise this.</div></div><div class="gloss-item"><div class="gloss-term">Loss Function</div><div class="gloss-def">Formula to compute loss. Cross-entropy for classification, MSE for regression.</div></div><div class="gloss-item"><div class="gloss-term">Model</div><div class="gloss-def">Trained AI system. Holds all learned weights. Input → prediction.</div></div><div class="gloss-item"><div class="gloss-term">MSE</div><div class="gloss-def">Mean Squared Error. average((prediction − truth)²). For regression.</div></div><div class="gloss-item"><div class="gloss-term">Neural Network</div><div class="gloss-def">Many neurons in layers. Can learn very complex patterns.</div></div><div class="gloss-item"><div class="gloss-term">Neuron</div><div class="gloss-def">Basic unit. Multiplies inputs by weights, adds bias, applies activation.</div></div><div class="gloss-item"><div class="gloss-term">Normalisation</div><div class="gloss-def">Scale features to similar range so no feature dominates.</div></div><div class="gloss-item"><div class="gloss-term">One-Hot Encoding</div><div class="gloss-def">Class 2 of 4 → [0, 0, 1, 0]. Done automatically inside models.</div></div><div class="gloss-item"><div class="gloss-term">Overfitting</div><div class="gloss-def">Memorised training data. Train accuracy high, test accuracy low.</div></div><div class="gloss-item"><div class="gloss-term">Policy (RL)</div><div class="gloss-def">Strategy: given state, which action to take?</div></div><div class="gloss-item"><div class="gloss-term">Prediction</div><div class="gloss-def">Model's output for a given input.</div></div><div class="gloss-item"><div class="gloss-term">Q-Table</div><div class="gloss-def">2D matrix of Q-values. Q[state][action] = quality score.</div></div><div class="gloss-item"><div class="gloss-term">Q-Value</div><div class="gloss-def">Expected total reward for taking action a in state s.</div></div><div class="gloss-item"><div class="gloss-term">ReLU</div><div class="gloss-def">relu(x) = max(0, x). Most common hidden-layer activation.</div></div><div class="gloss-item"><div class="gloss-term">Regression</div><div class="gloss-def">Predict a continuous number (not a category).</div></div><div class="gloss-item"><div class="gloss-term">Reinforcement Learning</div><div class="gloss-def">Learn by trial and error using reward signal. No labelled data.</div></div><div class="gloss-item"><div class="gloss-term">Reward (RL)</div><div class="gloss-def">Feedback: positive = good, zero = neutral, negative = bad.</div></div><div class="gloss-item"><div class="gloss-term">RNN</div><div class="gloss-def">Recurrent Neural Network. Processes sequences with memory.</div></div><div class="gloss-item"><div class="gloss-term">Softmax</div><div class="gloss-def">Converts raw scores to probabilities summing to 1.0.</div></div><div class="gloss-item"><div class="gloss-term">State (RL)</div><div class="gloss-def">Agent's current observation of the environment.</div></div><div class="gloss-item"><div class="gloss-term">Supervised Learning</div><div class="gloss-def">Learning from labelled examples (X and y pairs).</div></div><div class="gloss-item"><div class="gloss-term">TD Error</div><div class="gloss-def">Temporal Difference Error. How surprised was the agent? target − current Q.</div></div><div class="gloss-item"><div class="gloss-term">Test Set</div><div class="gloss-def">Data model never saw. Used for honest final evaluation.</div></div><div class="gloss-item"><div class="gloss-term">Training</div><div class="gloss-def">Adjusting weights to reduce loss. model.fit(X, y) does this.</div></div><div class="gloss-item"><div class="gloss-term">Transformer</div><div class="gloss-def">Architecture using self-attention. Powers GPT, BERT.</div></div><div class="gloss-item"><div class="gloss-term">Underfitting</div><div class="gloss-def">Model too simple or under-trained. Both train and test accuracy low.</div></div><div class="gloss-item"><div class="gloss-term">Unsupervised Learning</div><div class="gloss-def">Learning from unlabelled data. Finds groups and patterns.</div></div><div class="gloss-item"><div class="gloss-term">Validation Set</div><div class="gloss-def">Monitor overfitting during training. Different from test set.</div></div><div class="gloss-item"><div class="gloss-term">Weight</div><div class="gloss-def">Learnable number on a connection between neurons.</div></div><div class="gloss-item"><div class="gloss-term">Weight Matrix</div><div class="gloss-def">2D array of weights for one layer. Shape: (fan_in, fan_out).</div></div><div class="gloss-item"><div class="gloss-term">X</div><div class="gloss-def">Input data. Shape: (n_examples, n_features).</div></div><div class="gloss-item"><div class="gloss-term">y</div><div class="gloss-def">Labels/targets. Shape: (n_examples,).</div></div></div></div>
+</div>
+<footer>
+  <p style="font-size:20px;font-weight:900;background:linear-gradient(135deg,#4f8ef7,#a78bfa);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px">MAIX</p>
+  <p>The Complete Baby Guide to Artificial Intelligence</p>
+  <p style="margin-top:8px;font-size:12px">Read on any device &nbsp;·&nbsp; No experience needed &nbsp;·&nbsp; 50 Chapters</p>
+</footer>
+<a href="#top" class="back-top" title="Back to top">↑</a>
+</div>
+</body>
+</html>
