@@ -1,2627 +1,2601 @@
-╔══════════════════════════════════════════════════════════╗
-║              M A I X  —  The Baby Guide to AI            ║
-║    The Complete Baby Guide to Artificial Intelligence    ║
-║     From absolute zero to understanding how AI works     ║
-╚══════════════════════════════════════════════════════════╝
-  50 Chapters  ·  Zero Experience Needed  ·  All Concepts Explained
-  Phone Friendly  ·  Laptop Ready
-
-
-════════════════════════════════════════════════════════════
-   TABLE OF CONTENTS
-════════════════════════════════════════════════════════════
-
-  CH01  What Is a Computer?
-  CH02  What Is Code?
-  CH03  What Is Data?
-  CH04  What Is AI?
-  CH05  Normal Code vs AI
-  CH06  Types of AI
-  CH07  Supervised Learning
-  CH08  Unsupervised Learning
-  CH09  Reinforcement Learning Intro
-  CH10  What Is a Blank Model?
-  CH11  What Are Weights?
-  CH12  What Are Biases?
-  CH13  Training Data X and Y
-  CH14  What Is a Label?
-  CH15  What Is Training?
-  CH16  What Is an Epoch?
-  CH17  What Is a Loss Function?
-  CH18  What Is a Learning Rate?
-  CH19  What Is a Neuron?
-  CH20  What Are Layers?
-  CH21  What Is a Neural Network?
-  CH22  The Forward Pass
-  CH23  What Does AI Think Before Answering?
-  CH24  How AI Makes a Decision
-  CH25  What Is ReLU?
-  CH26  What Is Softmax?
-  CH27  What Is Backpropagation?
-  CH28  AI Learning from Numbers
-  CH29  AI Learning from Text
-  CH30  AI Learning from Images
-  CH31  AI Learning from Audio
-  CH32  What Is Overfitting?
-  CH33  What Is Underfitting?
-  CH34  Dataset Splits
-  CH35  Normalisation and Scaling
-  CH36  What Is a CNN?
-  CH37  What Is an RNN?
-  CH38  What Is a Transformer?
-  CH39  RL Deep Dive
-  CH40  State Action Reward
-  CH41  What Is a Q-Table?
-  CH42  The Bellman Equation
-  CH43  Applying RL Step by Step
-  CH44  Epsilon-Greedy Strategy
-  CH45  What Does the RL Agent Think?
-  CH46  Python Crash Course
-  CH47  Tkinter Windows and Buttons
-CH48sklearn AI Toolkit
-  CH49  Every AI Function Explained
-  CH50  Full Glossary
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 01  │  What Is a Computer?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-A computer is a machine that follows instructions very, very fast.
-
-It does not think. It does not feel. It just obeys.
-
-Your phone = computer. Your laptop = computer. A smart TV = computer.
-
-
-   💡 Analogy:
-Imagine a very fast assistant who does EXACTLY what you say — nothing more, nothing less. You say add 5 and 3 — they say 8. They don't wonder why. They just do it.
-
-
-── 🔬 REAL VERSION ──
-
-Every computer has a CPU (Central Processing Unit) that does only 4 things:
-
-Add two numbers
-
-Compare two numbers (is A bigger than B?)
-
-Move a number from one place to another
-
-Jump to a different instruction
-
-That is ALL. Yet from those 4 operations, humans built video games, social media, and AI.
-
-Computers only understand numbers. Your photo = millions of numbers. Your voice = thousands of numbers per second. Your message = numbers. Everything is numbers.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 02  │  What Is Code?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Code is a set of instructions written for a computer.
-
-Like a recipe — but for a machine.
-
-
-   💡 Analogy:
-Cake recipe: mix eggs → add flour → bake 30 mins. Program: get number A → get number B → add them → show result.
-
-
-── 🔬 REAL VERSION ──
-
-Python is the most beginner-friendly coding language. It reads like English.
-
-# A simple Python program
-age = 25 # store 25 in a box called "age"
-name = "Alice" # store text in "name"
-print(age) # show: 25
-print(name) # show: Alice
-
-Functions — reusable blocks of code
-
-def add(a, b): # define a function called "add"
-result = a + b # add the two inputs
-return result # send the answer back
-
-x = add(10, 5) # call it → x = 15
-y = add(3, 7) # call it → y = 10
-print(x) # 15
-
-def = define a function  |  return = send answer back  |  print() = show on screen
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 03  │  What Is Data?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Data is any information at all.
-
-Your age = data
-
-A photo = data
-
-The weather today = data
-
-Your voice = data
-
-A price tag = data
-
-If it can be written down or measured — it is data.
-
-
-── 🔬 REAL VERSION ──
-
-Data comes in types:
-
-Type
-
-Example
-
-In code
-
-Number
-
-Age: 25
-
-age = 25
-
-Decimal
-
-Temperature: 36.6
-
-temp = 36.6
-
-Text
-
-Name: Alice
-
-name = 'Alice'
-
-True/False
-
-Is raining?
-
-rain = True
-
-List
-
-Three scores
-
-[90, 85, 92]
-
-Grid (matrix)
-
-Image pixels
-
-[[255,0,0],[0,255,0]]
-
-Key fact: AI only understands numbers. Photos → pixel numbers. Audio → waveform numbers. Text → word-count numbers. The process of converting to numbers is called Feature Extraction.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 04  │  What Is Artificial Intelligence?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-AI is a program that learns from examples instead of being told exact rules.
-
-
-   💡 Analogy:
-Normal: You hand someone a rulebook. AI: You show someone 1000 examples. They figure out the rules themselves.
-
-
-── 🔬 REAL VERSION ──
-
-AI = systems that learn patterns from data and use those patterns to make decisions on new data.
-
-Normal Program
-
-AI Program
-
-You write every rule
-
-Computer finds the rules
-
-Shows pictures of cats — you code 'if pointy ears → cat'
-
-Shows pictures of cats — AI finds patterns itself
-
-Breaks on new situations
-
-Handles new situations (if trained on similar ones)
-
-Rule = written by human
-
-Rule = discovered by algorithm
-
-What AI is good at today:
-
-Recognising images (photo of what?)
-
-Understanding speech (what did they say?)
-
-Translating languages
-
-Playing games (chess, Go, video games)
-
-Detecting fraud
-
-Medical diagnosis
-
-Recommendation engines
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 05  │  Normal Code vs AI Code
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Normal code = a light switch. You tell it exactly what to do in every case.
-
-AI code = teaching a child to ride a bike. No rules — just practice and feedback.
-
-
-── 🔬 REAL VERSION ──
-
-Normal Code
-
-AI Code
-
-Flow
-
-Input → your rules → output
-
-Data + examples → learned rules → output
-
-Who makes rules?
-
-Programmer
-
-The computer itself
-
-New situations
-
-Often fails
-
-Handles them (if seen similar in training)
-
-Needs data?
-
-Not much
-
-Yes, lots
-
-Gets better?
-
-Only if you rewrite it
-
-Yes, with more data
-
-Example
-
-Calculator
-
-Voice assistant
-
-# Normal code — you write the rule
-def is_spam(email):
-if "FREE" in email:
-return "spam"
-return "not spam"
-
-# AI code — the model finds the rule itself
-model.fit(X_emails, y_labels) # learns from examples
-model.predict([new_email]) # applies what it learned
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 06  │  Types of AI
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-There are many flavours of AI. Here are the main ones you will hear about.
-
-
-── 🔬 REAL VERSION ──
-
-Type
-
-Simple Idea
-
-Used For
-
-Supervised Learning
-
-Learn from labelled examples
-
-Image/speech recognition, spam
-
-Unsupervised Learning
-
-Find patterns with no labels
-
-Customer groups, anomaly detection
-
-Reinforcement Learning
-
-Learn by trying + getting rewards
-
-Game AI, robots, chatbots
-
-Deep Learning
-
-Big neural networks with many layers
-
-ChatGPT, image AI, voice
-
-Generative AI
-
-AI that creates new things
-
-ChatGPT, DALL-E, Suno
-
-NLP
-
-Understanding human language
-
-Translation, search, chatbots
-
-Computer Vision
-
-Understanding images/video
-
-Face recognition, self-driving
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 07  │  Supervised Learning
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-You are a teacher with flashcards. Front = photo. Back = answer.
-
-Show AI 10,000 flashcards. Now show a photo with no answer — AI guesses correctly.
-
-
-── 🔬 REAL VERSION ──
-
-You have X (inputs) and y (correct answers). Train → model learns. Predict → model answers.
-
-Two kinds:
-
-Type
-
-Output
-
-Example
-
-Classification
-
-A category
-
-Photo → 'cat' or 'dog'
-
-Regression
-
-A number
-
-House size → predicted price
-
-from sklearn.neural_network import MLPClassifier
-import numpy as np
-
-X = np.array([[5,9,1], [8,7,2], [4,2,3]])
-# 3 fruits: [size, sweetness, colour]
-y = np.array([0, 1, 2]) # 0=apple 1=banana 2=lime
-
-model = MLPClassifier(max_iter=1000)
-model.fit(X, y) # TRAIN
-
-model.predict([[5,8,1]]) # → [0] (apple)
-model.predict_proba([[5,8,1]]) # → [[0.85, 0.08, 0.07]]
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 08  │  Unsupervised Learning
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Drop 1000 unsorted photos on a table. Tell the AI: find groups.
-
-AI groups similar photos together — no labels, no help. It finds structure by itself.
-
-
-── 🔬 REAL VERSION ──
-
-No y labels. Just X data. Algorithm finds hidden structure.
-
-from sklearn.cluster import KMeans
-import numpy as np
-
-# Height and weight of 6 people
-X = np.array([[160,55],[162,58],
-[180,80],[182,85],
-[171,65],[172,67]])
-
-model = KMeans(n_clusters=3, n_init=10)
-model.fit(X) # no y needed!
-print(model.labels_) # [0,0,1,1,2,2]
-# 0=short/light 1=tall/heavy 2=medium
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 09  │  Reinforcement Learning (Intro)
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Training a dog:
-
-Dog sits when told → give treat → dog does it more
-
-Dog bites sofa → no treat → dog does it less
-
-Nobody told the dog the rules. It learned from consequences. That is RL.
-
-
-── 🔬 REAL VERSION ──
-
-RL has four parts:
-
-Part
-
-Meaning
-
-Example
-
-Agent
-
-The AI doing the learning
-
-A robot
-
-Environment
-
-The world it lives in
-
-A maze
-
-Action
-
-What it can do
-
-Move left/right/up/down
-
-Reward
-
-Feedback: good or bad
-
-+10 reach exit, -1 hit wall
-
-The agent keeps trying actions, collecting rewards, and learns which actions are best.
-
-Unlike supervised learning, RL has NO labelled examples. The AI figures everything out from trial and error.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 10  │  What Is a Blank Model?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-A blank model is like a newborn baby brain.
-
-It has all the right parts. But it knows absolutely nothing.
-
-Everything it will ever know — it must learn.
-
-
-   💡 Analogy:
-Blank model = an empty notebook. Training = writing the right information in it. Prediction = reading the answer from the notebook.
-
-
-── 🔬 REAL VERSION ──
-
-When you create a model in code, all its internal numbers (weights) are set to small random values.
-
-from sklearn.neural_network import MLPClassifier
-
-model = MLPClassifier(hidden_layer_sizes=(64, 32))
-# RIGHT NOW: model has random weights
-# If you predict now → random, useless output
-# After model.fit(X, y) → meaningful, useful output
-
-Random start is fine. The training process knows how to improve from any starting point. What matters is the training, not the starting weights.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 11  │  What Are Weights?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Weights are the AI's memories. They are just numbers stored inside the model.
-
-Before training → random numbers → AI knows nothing
-
-After training → carefully tuned numbers → AI is smart
-
-Every time the AI sees an example, the weights change a tiny bit to get better.
-
-
-── 🔬 REAL VERSION ──
-
-A weight is attached to a connection between two neurons. It says how important that connection is.
-
-input_1 (size) × weight_1 = 0.8 # very important
-input_2 (colour) × weight_2 = 0.3 # somewhat important
-input_3 (smell) × weight_3 = 0.1 # not very important
-output = (0.8 + 0.3 + 0.1) = 1.2
-
-Typical model weight counts:
-
-Model
-
-Number of Weights
-
-Small model
-
-~10,000
-
-Medium model
-
-~10 million
-
-GPT-4
-
-~1 trillion
-
-model.fit(X, y)
-print(model.coefs_[0].shape) # e.g. (26, 64)
-# 26 inputs × 64 neurons = 1,664 weight numbers in layer 1
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 12  │  What Are Biases?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-A bias is a 'head start' number added to a neuron.
-
-Without bias, a neuron with all-zero inputs would always output zero — useless.
-
-Bias lets the neuron have a non-zero output even when inputs are quiet.
-
-
-── 🔬 REAL VERSION ──
-
-Neuron Formula
-output = activate( input₁×w₁ + input₂×w₂ + input₃×w₃ + bias )
-
-Thing
-
-Count
-
-In sklearn
-
-Weights
-
-One per connection
-
-model.coefs_
-
-Biases
-
-One per neuron
-
-model.intercepts_
-
-# After training:
-model.coefs_ # list of weight matrices
-model.intercepts_ # list of bias vectors
-# You rarely need to look at these directly
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 13  │  Training Data: X and Y
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-X = the questions (inputs, examples)
-
-y = the answers (correct labels)
-
-Together they are your training data. The AI reads all of them during training.
-
-
-── 🔬 REAL VERSION ──
-
-X is a 2D grid: each row = one example, each column = one feature.
-
-y is a 1D list: one answer per row in X.
-
-import numpy as np
-
-# Spam detector: [times says FREE, times says CLICK, exclamation marks]
-X = np.array([
-[3, 2, 5], # spammy email
-[0, 0, 1], # normal email
-[5, 3, 8], # very spammy
-[0, 1, 0], # normal email
-])
-
-y = np.array([1, 0, 1, 0]) # 1=spam, 0=not spam
-
-print(X.shape) # (4, 3) → 4 emails, 3 features each
-print(y.shape) # (4,) → 4 labels
-
-Golden rule: len(X) must always equal len(y). One label for every example, always.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 14  │  What Is a Label?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-A label is the correct answer for one example.
-
-If X is a photo of a cat, the label y is 'cat'.
-
-The label is what the model is trying to predict.
-
-
-── 🔬 REAL VERSION ──
-
-Task
-
-Label type
-
-Example
-
-Classification
-
-A category
-
-0=cat, 1=dog, 2=bird
-
-Regression
-
-A number
-
-250000 (house price)
-
-One-Hot Encoding (happens inside the model):
-
-Internally the model converts class numbers to vectors:
-
-cat = class 0 → [1, 0, 0]
-dog = class 1 → [0, 1, 0]
-bird = class 2 → [0, 0, 1]
-# This happens automatically. You just give 0, 1, 2.
-
-The AI never understands the words 'cat' or 'dog'. It only sees the numbers 0 and 1. You translate back to words when showing results.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 15  │  What Is Training?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Training = teaching the AI with examples.
-
-It guesses. You tell it if it was wrong. It adjusts. Repeat thousands of times. Eventually it gets good.
-
-
-── 🔬 REAL VERSION ──
-
-1Start with a blank model (random weights)
-
-2Take one example from X, feed it through the model → get a prediction
-
-3Compare prediction to correct answer in y → measure how wrong (the LOSS)
-
-4Work backwards to find which weights caused the error (backpropagation)
-
-5Adjust those weights a tiny bit to do better next time
-
-6Move to next example in X. Repeat steps 2–5
-
-7One full pass through ALL examples = 1 EPOCH
-
-8Repeat many epochs until the model is good
-
-In sklearn, all of these steps happen inside ONE call: model.fit(X, y) — that single line does everything.
-
-model = MLPClassifier(max_iter=500)
-model.fit(X, y) # trains completely automatically
-model.predict(X_new) # now ready to use
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 16  │  What Is an Epoch?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-One epoch = the AI looks at EVERY example ONCE.
-
-Imagine you have 1000 photos to learn from:
-
-After 1 epoch: saw all 1000 photos once
-
-After 10 epochs: saw all 1000 photos 10 times
-
-After 100 epochs: much more practice, usually much better
-
-
-── 🔬 REAL VERSION ──
-
-More epochs = more practice = usually better performance, up to a point.
-
-Epochs
-
-Typical result
-
-Too few
-
-Didn't learn enough (underfitting)
-
-Too many
-
-Memorised data, stops generalising (overfitting)
-
-Just right
-
-Learns real patterns, works on new data
-
-model = MLPClassifier(
-hidden_layer_sizes=(64, 32),
-max_iter=500, # ← number of epochs
-)
-# Typical values: 50 to 1000, depends on your data
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 17  │  What Is a Loss Function?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Loss = how wrong the AI is right now.
-
-High loss → very wrong
-
-Low loss → almost right
-
-Zero loss → perfect (rarely happens)
-
-Training = making the loss as small as possible.
-
-
-── 🔬 REAL VERSION ──
-
-The loss function takes the prediction and the correct answer and returns one number showing how bad the error was.
-
-Loss Type
-
-Used For
-
-What It Measures
-
-Cross-Entropy
-
-Classification (categories)
-
-How confident and correct the prediction is
-
-Mean Squared Error
-
-Regression (numbers)
-
-Average of (prediction − truth)²
-
-import numpy as np
-
-# MSE example
-true_values = np.array([100, 200, 150])
-predictions = np.array([110, 190, 160])
-
-mse = np.mean((true_values - predictions) ** 2)
-print(mse) # 100.0 (lower = better model)
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 18  │  What Is a Learning Rate?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-The learning rate controls how fast the AI adjusts after each mistake.
-
-Too fast → overshoots, never settles. Too slow → takes forever. Just right → smooth learning.
-
-
-   💡 Analogy:
-Adjusting a shower temperature. Big turns → too hot, then too cold. Tiny turns → takes 20 minutes. Small-but-deliberate turns → perfect in a few adjustments.
-
-
-── 🔬 REAL VERSION ──
-
-Weight Update Formula
-new_weight = old_weight − learning_rate × gradient
-
-Learning Rate
-
-What Happens
-
-10.0 (too high)
-
-Weights jump wildly, loss bounces up and down
-
-0.001 (good)
-
-Smooth learning, loss decreases steadily
-
-0.0000001 (too low)
-
-Takes forever, barely any progress
-
-model = MLPClassifier(
-learning_rate_init=0.001, # safe default
-max_iter=500
-)
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 19  │  What Is a Neuron?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-A neuron is the smallest unit in an AI brain.
-
-It takes in numbers, multiplies each by a weight, adds them up, and passes the result forward.
-
-It is just a simple maths machine.
-
-
-── 🔬 REAL VERSION ──
-
-One Neuron
-output = activate( Σ(input × weight) + bias )
-
-import numpy as np
-
-inputs = np.array([0.5, 0.3, 0.8])
-weights = np.array([0.2, 0.9, 0.4])
-bias = 0.1
-
-# Step 1+2: multiply inputs×weights and sum
-raw = np.dot(inputs, weights) + bias
-# 0.5×0.2 + 0.3×0.9 + 0.8×0.4 + 0.1 = 0.79
-
-# Step 3: apply activation (ReLU = keep if positive)
-output = max(0, raw)
-print(output) # 0.79
-
-np.dot(a, b) multiplies each pair of numbers and adds them all up. It's the core operation of every AI model.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 20  │  What Are Layers?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-A layer is a group of neurons working together.
-
-Data flows through layers left to right — input layer first, output layer last, hidden layers in between.
-
-
-── 🔬 REAL VERSION ──
-
-Layer
-
-What It Does
-
-Input Layer
-
-Receives raw data. One neuron per feature. No computation.
-
-Hidden Layers
-
-Where learning happens. Can be many. Learn patterns.
-
-Output Layer
-
-Final answer. One neuron per class.
-
-# Network: 26 inputs → 64 neurons → 32 neurons → 3 outputs
-model = MLPClassifier(
-hidden_layer_sizes=(64, 32)
-# hidden_layer_sizes=(64, 32) means:
-# hidden layer 1: 64 neurons
-# hidden layer 2: 32 neurons
-# Input and output layers added automatically
-)
-
-26 inputs × 64 neurons = 1,664 weight connections in layer 1 alone.
-
-More layers = more power to learn complex patterns. But also needs more data and time. Balance is everything.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 21  │  What Is a Neural Network?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-A neural network is many neurons connected in layers.
-
-Alone, one neuron is weak. Together in layers, thousands of neurons can learn incredibly complex patterns.
-
-Loosely inspired by the human brain — but much simpler.
-
-
-── 🔬 REAL VERSION ──
-
-Each neuron in one layer connects to EVERY neuron in the next layer. This is called a fully connected or dense layer.
-
-Full Network Computation
-h₁ = relu( X @ W₀ + b₀ ) ← layer 1 (26→64)
-
-h₂ = relu( h₁ @ W₁ + b₁ ) ← layer 2 (64→32)
-
-out = softmax( h₂ @ W₂ + b₂ ) ← output (32→N classes)
-
-@ = matrix multiply    W = weight matrix    b = bias vector
-
-# View the learned weight shapes after training
-model.fit(X, y)
-print(model.coefs_[0].shape) # (26, 64) layer 1
-print(model.coefs_[1].shape) # (64, 32) layer 2
-print(model.coefs_[2].shape) # (32, N) output layer
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 22  │  The Forward Pass
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-The forward pass is what happens when you give the AI some data and it produces an answer.
-
-Data flows forward through the layers. Each layer processes and passes to the next. An answer pops out at the end.
-
-
-── 🔬 REAL VERSION ──
-
-1Input arrives as a list of numbers, e.g. [5, 9, 1]
-
-2Layer 1 neurons all fire: multiply inputs × weights, add bias, apply ReLU → 64 new numbers
-
-3Layer 2 neurons all fire: same thing using the 64 numbers → 32 new numbers
-
-4Output neurons compute final scores (logits): e.g. [-1.2, 3.5, 0.8]
-
-5Softmax converts scores to probabilities: [0.02, 0.94, 0.04]
-
-6Argmax picks the winner: index 1 → predict class 1
-
-import numpy as np
-
-def relu(x): return np.maximum(x, 0)
-def softmax(x):
-e = np.exp(x - x.max())
-return e / e.sum()
-
-def forward(x, W0,b0, W1,b1, W2,b2):
-h1 = relu(x @ W0 + b0)
-h2 = relu(h1 @ W1 + b1)
-out = softmax(h2 @ W2 + b2)
-return out # probabilities per class
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 23  │  What Does AI Think Before Answering?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-The AI does NOT think the way you think.
-
-No wondering. No doubting. No feelings. Just maths.
-
-It multiplies, adds, filters, repeats — out comes a number. That number is the answer.
-
-
-── 🔬 REAL VERSION ──
-
-Here is EXACTLY what happens every time you ask the AI to predict:
-
-Step
-
-What Happens
-
-1
-
-Input arrives as numbers
-
-2
-
-Every neuron in layer 1 fires at the same time: multiply, add, ReLU
-
-3
-
-Same for every hidden layer
-
-4
-
-Output neurons produce raw scores (called logits)
-
-5
-
-Softmax turns scores into probabilities (0.0 to 1.0, sum = 1.0)
-
-6
-
-Argmax picks the index with the highest probability → that is the prediction
-
-The AI does NOT understand anything.
-
-It only learned: "when the input numbers look like X, output Y has the highest probability."
-
-It is pattern matching at massive scale, happening in microseconds.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 24  │  How AI Makes a Decision
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-The AI picks whichever answer it is MOST SURE about.
-
-If it thinks 94% chance of class 1 — it says class 1.
-
-
-── 🔬 REAL VERSION ──
-
-import numpy as np
-
-probs = np.array([0.02, 0.94, 0.04])
-# class 0=2%, class 1=94%, class 2=4%
-
-decision = np.argmax(probs) # → 1 (highest value)
-print(f"Predict class {decision} with {probs[decision]:.0%} confidence")
-# Predict class 1 with 94% confidence
-
-Output
-
-Meaning
-
-[0.94, 0.03, 0.03]
-
-Confident prediction — probably correct
-
-[0.35, 0.33, 0.32]
-
-Model is unsure — treat output with caution
-
-[0.99, 0.005, 0.005]
-
-Very confident — model has seen this type before
-
-High confidence + wrong answer = poorly trained model OR an input very different from training data.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 25  │  What Is ReLU?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-ReLU is a simple filter:
-
-Positive number → pass through unchanged
-
-Negative number → become zero
-
-relu(5) = 5    relu(-3) = 0    relu(0) = 0
-
-
-── 🔬 REAL VERSION ──
-
-ReLU = Rectified Linear Unit. Formula: relu(x) = max(0, x)
-
-Why is it needed? Without activation functions, stacking layers is useless — they collapse to one single multiplication. ReLU adds non-linearity, letting the network learn complex, curved patterns instead of just straight lines.
-
-import numpy as np
-
-x = np.array([-3, -1, 0, 2, 5])
-relu = np.maximum(x, 0)
-print(relu) # [0, 0, 0, 2, 5]
-
-Activation
-
-Formula
-
-Used In
-
-ReLU
-
-max(0,x)
-
-Hidden layers (most common)
-
-Softmax
-
-e^x / sum(e^x)
-
-Output layer (classification)
-
-Sigmoid
-
-1/(1+e^-x)
-
-Binary output
-
-Tanh
-
-(e^x-e^-x)/(e^x+e^-x)
-
-Some hidden layers
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 26  │  What Is Softmax?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Softmax turns ANY list of numbers into probabilities that add up to 100%.
-
-Input: [-1.5, 4.2, 0.8] → Output: [0.01, 0.94, 0.05]
-
-The biggest number gets the biggest probability. Everything sums to 1.0.
-
-
-── 🔬 REAL VERSION ──
-
-Softmax Formula
-softmax(x)[i] = e^x[i] / ( e^x[0] + e^x[1] + ... + e^x[n] )
-
-import numpy as np
-
-def softmax(x):
-e = np.exp(x - x.max()) # subtract max for stability
-return e / e.sum()
-
-x = np.array([-1.5, 4.2, 0.8])
-print(softmax(x))
-# [0.003, 0.965, 0.032] ← sum = 1.0
-
-Softmax always goes in the output layer for classification. It converts raw scores into something you can interpret as percentages.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 27  │  What Is Backpropagation?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-After a wrong prediction, backpropagation figures out:
-
-Which weights caused the error?
-
-How should each weight change to fix it?
-
-It works backwards from output → to input. That is why it is called 'BACK-propagation'.
-
-
-   💡 Analogy:
-Blame propagation. The final wrong answer is blamed. Blame is sent backwards through each layer. Each weight gets its share of blame and adjusts accordingly.
-
-
-── 🔬 REAL VERSION ──
-
-1Forward pass: compute prediction
-
-2Compute loss: how wrong?
-
-3Compute gradient of loss at output layer (how should output weights change?)
-
-4Propagate gradient back to hidden layers using the chain rule from calculus
-
-5Update ALL weights: weight = weight − learning_rate × gradient
-
-6Repeat for next example
-
-You NEVER need to code backpropagation yourself. model.fit(X, y) does it all automatically inside.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 28  │  AI Learning from Numbers
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Numbers are the easiest input for AI. You put them straight into X — no conversion needed.
-
-Just make sure they are on similar scales (see Chapter 35 — Normalisation).
-
-
-── 🔬 REAL VERSION ──
-
-from sklearn.neural_network import MLPRegressor
-from sklearn.preprocessing import StandardScaler
-import numpy as np
-
-# Predict house price from: [bedrooms, sqft, age]
-X = np.array([[3,1500,10],[4,2000,5],[2,800,20]])
-y = np.array([200000, 320000, 110000]) # prices
-
-scaler = StandardScaler()
-X_sc = scaler.fit_transform(X) # normalise
-
-model = MLPRegressor(hidden_layer_sizes=(64,32), max_iter=500)
-model.fit(X_sc, y)
-
-new = scaler.transform([[3,1800,3]])
-print(model.predict(new)) # predicted price
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 29  │  AI Learning from Text
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Computers do not understand words. Every word must become a number first. Then AI can learn.
-
-
-── 🔬 REAL VERSION ──
-
-1Tokenise: split text into words/pieces
-
-2Build vocabulary: assign a number to every known word
-
-3Encode: convert sentence to numbers
-
-4Feed to model: learn from those numbers
-
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.neural_network import MLPClassifier
-
-emails = [
-"FREE money click now", # spam
-"Meeting at 3pm tomorrow", # not spam
-"WIN a FREE iPhone", # spam
-"Can we reschedule lunch?", # not spam
-]
-labels = [1, 0, 1, 0] # 1=spam, 0=not spam
-
-vec = CountVectorizer() # converts text to word counts
-X = vec.fit_transform(emails).toarray()
-
-model = MLPClassifier(max_iter=1000)
-model.fit(X, labels)
-
-test = vec.transform(["FREE prize claim now"]).toarray()
-print(model.predict(test)) # [1] → spam detected!
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 30  │  AI Learning from Images
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-An image is a grid of pixels. Each pixel is 1–3 numbers.
-
-A 100×100 colour image = 30,000 numbers. That list of numbers goes into X.
-
-
-── 🔬 REAL VERSION ──
-
-from PIL import Image
-import numpy as np
-
-img = Image.open("cat.jpg").convert("L") # greyscale
-img = img.resize((28, 28)) # 28×28 pixels
-arr = np.array(img) # shape (28,28)
-flat = arr.flatten() / 255.0 # shape (784,) values 0–1
-# flat = one image's feature vector, ready for model
-
-More advanced image AI uses CNNs (Chapter 36) which understand that nearby pixels are related — much better than simple flattening.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 31  │  AI Learning from Audio
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Sound = vibrations. Microphone converts vibrations to numbers.
-
-At 16,000 samples/second, 1 second of audio = 16,000 numbers. Too many! We summarise to ~26 key numbers called MFCC features.
-
-
-── 🔬 REAL VERSION ──
-
-1Record audio → 16,000 numbers per second
-
-2Split into small 256-sample frames (16ms each)
-
-3Apply FFT to each frame → which frequencies are present?
-
-4Group frequencies into 26 Mel bands (mimics human hearing)
-
-5Take log of energies (mimics how we perceive loudness)
-
-6Apply DCT → 13 MFCC coefficients per frame
-
-7Average over all frames → 26 numbers total = feature vector
-
-These 26 numbers efficiently describe the 'shape' of the sound. The model then learns from those numbers.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 32  │  What Is Overfitting?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-A student who memorised the textbook word-for-word.
-
-Aces the practice test (same text). Fails a real exam (slightly different questions).
-
-They learned the examples, not the patterns.
-
-
-── 🔬 REAL VERSION ──
-
-Symptom
-
-Meaning
-
-Train accuracy: 99%, Test accuracy: 65%
-
-Classic overfitting — memorised training data
-
-Train accuracy: 72%, Test accuracy: 70%
-
-Healthy — genuinely learned patterns
-
-How to fix overfitting:
-
-Get more training data (best solution)
-
-Use a simpler model (fewer neurons/layers)
-
-Add L2 regularisation: alpha=0.01 in sklearn
-
-Train for fewer epochs
-
-Use dropout (random neuron shutoff during training)
-
-model = MLPClassifier(
-hidden_layer_sizes=(64, 32),
-alpha=0.01, # L2 regularisation — discourages memorisation
-max_iter=500
-)
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 33  │  What Is Underfitting?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-A student who did not study at all.
-
-Fails both the practice test AND the real exam.
-
-They did not learn anything.
-
-
-── 🔬 REAL VERSION ──
-
-Symptom
-
-Meaning
-
-Train: 58%, Test: 57%
-
-Underfitting — both low
-
-Train: 98%, Test: 65%
-
-Overfitting — train high, test low
-
-How to fix underfitting:
-
-Use a bigger model (more neurons, more layers)
-
-Train for more epochs
-
-Lower the learning rate
-
-Add more or better features to X
-
-The ideal is in the middle:
-
-Sweet Spot
-Too simple (underfitting) ←————————————→ Too complex (overfitting)
-
-↑ ideal point ↑
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 34  │  Dataset Splits
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Never test your AI on data it trained on. That is cheating.
-
-Keep some data hidden during training. Test on that hidden data. That tells you the truth.
-
-
-── 🔬 REAL VERSION ──
-
-Split
-
-Proportion
-
-Purpose
-
-Training set
-
-70–80%
-
-Model learns from this
-
-Validation set
-
-10–15%
-
-Monitor overfitting during training
-
-Test set
-
-10–20%
-
-Final honest evaluation — model never sees this during training
-
-from sklearn.model_selection import train_test_split, cross_val_score
-
-X_train, X_test, y_train, y_test = train_test_split(
-X, y, test_size=0.2, random_state=42
-)
-
-model.fit(X_train, y_train)
-print(model.score(X_test, y_test)) # honest accuracy
-
-# Even better: 5-fold cross validation
-scores = cross_val_score(model, X, y, cv=5)
-print(scores.mean()) # average over 5 different splits
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 35  │  Normalisation and Scaling
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Imagine grading two features: maths score (0–100) and height (100–200cm).
-
-A height of 190cm LOOKS bigger than a maths score of 95, just because 190 > 95.
-
-That is unfair. Scaling makes all features use the SAME range.
-
-
-── 🔬 REAL VERSION ──
-
-StandardScaler Formula
-scaled = (value − mean) / std
-
-from sklearn.preprocessing import StandardScaler
-import numpy as np
-
-X = np.array([[100, 0.5], # big + tiny features
-[200, 0.8],
-[150, 0.6]])
-
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X) # fit on training data
-print(X_scaled) # both features now on similar range
-
-# ALWAYS apply same scaler to new data too:
-X_new_scaled = scaler.transform(X_new) # NOT fit_transform!
-
-Fit the scaler ONLY on training data. Then use .transform() on everything else (validation, test, production).
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 36  │  What Is a CNN?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-CNN = Convolutional Neural Network.
-
-Designed specifically for images.
-
-Instead of looking at all pixels at once, it slides a small window across the image looking for patterns: edges, curves, shapes.
-
-
-── 🔬 REAL VERSION ──
-
-Layer
-
-What It Does
-
-Conv Layer
-
-Slides small filters across image. Each filter detects one pattern (edge, texture).
-
-ReLU
-
-Activation after each conv layer.
-
-Pooling
-
-Shrinks the image (keeps the strongest signal in each area).
-
-Flatten
-
-Converts 2D feature maps to 1D vector.
-
-Dense
-
-Standard neural network layers to classify.
-
-Famous CNNs: LeNet (1998), AlexNet (2012), ResNet (2015), EfficientNet (2019).
-
-CNNs understand that nearby pixels are related. Simple flattening ignores position. CNNs use position. This is why CNNs are far better at image tasks.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 37  │  What Is an RNN?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-RNN = Recurrent Neural Network.
-
-An RNN REMEMBERS. It reads a sentence one word at a time and carries a memory forward.
-
-By the end, the memory holds information about the whole sequence.
-
-
-── 🔬 REAL VERSION ──
-
-Step
-
-Input
-
-Memory
-
-1
-
-Read: 'The'
-
-Memory M1 = basic context
-
-2
-
-Read: 'cat'
-
-Memory M2 = 'The cat'
-
-3
-
-Read: 'sat'
-
-Memory M3 = 'The cat sat'
-
-4
-
-Read: 'down'
-
-Memory M4 = full phrase
-
-Problem: Long sequences cause gradients to vanish. Model forgets what it read early on.
-
-Solution: LSTM (Long Short-Term Memory) and GRU — special gates that decide what to remember and what to forget.
-
-RNNs were replaced by Transformers (Chapter 38) for most text tasks, but are still used for time series prediction.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 38  │  What Is a Transformer?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-A Transformer reads EVERYTHING at once and figures out how every word relates to every other word.
-
-This is why ChatGPT understands context so well.
-
-
-── 🔬 REAL VERSION ──
-
-Key mechanism: Self-Attention
-
-For each word, self-attention asks: 'which other words in this sentence should I pay attention to?'
-
-"The bank by the river is flooded"
-
-For the word "bank":
-→ "river" gets HIGH attention (river bank!)
-→ "flooded" gets HIGH attention
-→ "the" gets LOW attention
-Model correctly understands: bank = river bank, not financial bank
-
-Model
-
-Purpose
-
-GPT-4
-
-Text generation (ChatGPT)
-
-BERT
-
-Text understanding (Google Search)
-
-DALL-E
-
-Image generation
-
-Whisper
-
-Speech recognition
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 39  │  Reinforcement Learning Deep Dive
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-RL = learning by doing. Try. Get feedback. Improve. Repeat millions of times.
-
-Like a baby learning to walk: nobody explains the physics. The baby just tries, falls, adjusts.
-
-
-── 🔬 REAL VERSION ──
-
-RL is fundamentally different from supervised learning:
-
-Supervised Learning
-
-Reinforcement Learning
-
-Data needed
-
-Labelled examples (X, y)
-
-No labels. Just reward signal.
-
-Feedback
-
-Correct answer given
-
-Good/bad number given
-
-Learning
-
-Memorise examples
-
-Discover strategies by trial
-
-Used for
-
-Classification, regression
-
-Games, robots, chatbots
-
-Key challenges in RL:
-
-Credit assignment: if you win after 40 moves, which moves helped?
-
-Explore vs exploit: try new things or use what you know?
-
-Sparse rewards: reward might come much later than the action that caused it
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 40  │  State, Action, Reward
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-These three words are the heart of RL:
-
-State — where you are right now
-
-Action — what you do next
-
-Reward — how good or bad the result was
-
-
-── 🔬 REAL VERSION ──
-
-Concept
-
-Meaning
-
-Example (robot maze)
-
-State
-
-Current observation of environment
-
-Position: row 3, column 5
-
-Action
-
-What the agent can do
-
-Move: up/down/left/right
-
-Reward
-
-Feedback number after action
-
-+10 reach exit, -1 hit wall, -0.1 each step
-
-# One step in RL
-state = 5 # which situation we're in
-action = 2 # what we decided to do
-reward = 1.0 # positive = good outcome
-next_state = 8 # where we ended up after action
-
-# Now we update our knowledge using these four values
-# (see Chapter 43 for how)
-
-This cycle of (state → action → reward → next state) repeats continuously. The agent learns from each cycle.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 41  │  What Is a Q-Table?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-The Q-table is the agent's memory. It answers:
-
-'From this situation, how good is each possible action?'
-
-Higher number = better action from that situation.
-
-
-── 🔬 REAL VERSION ──
-
-Q-table = 2D matrix. Rows = states. Columns = actions. Values = quality scores.
-
-import numpy as np
-
-n_states = 10 # 10 possible situations
-n_actions = 4 # 4 possible things to do
-
-Q = np.zeros((n_states, n_actions)) # start blank (all zeros)
-# After training, Q will hold meaningful scores:
-# Q[3] = [0.8, 0.2, 0.6, 0.1]
-# In state 3, best action = 0 (score 0.8)
-
-best_action = np.argmax(Q[3]) # → 0
-
-At the start, Q is all zeros (the agent knows nothing). Every experience gradually fills it with useful values.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 42  │  The Bellman Equation
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-The Bellman equation is the formula that updates the Q-table after each experience.
-
-In plain English: the value of an action = reward I got NOW + the best I can expect IN THE FUTURE.
-
-
-── 🔬 REAL VERSION ──
-
-Bellman / Q-Learning Update
-Q(s,a) ← Q(s,a) + α × [ r + γ × max Q(s', a') − Q(s,a) ]
-
-Symbol
-
-Name
-
-Meaning
-
-Q(s,a)
-
-Current Q-value
-
-What we currently believe about this (state, action)
-
-α (alpha)
-
-Learning rate
-
-How fast to update. Typical: 0.1 to 0.3
-
-r
-
-Reward
-
-What we got from taking this action
-
-γ (gamma)
-
-Discount factor
-
-How much future rewards matter. Typical: 0.9 to 0.99
-
-s'
-
-Next state
-
-Where we ended up after the action
-
-max Q(s',a')
-
-Best future Q
-
-Best possible score from the next state
-
-[...]
-
-TD Error
-
-How surprised were we? Our mistake to correct
-
-The term in brackets [ ] is called the TD Error (Temporal Difference Error). Big error = big update. Small error = small nudge.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 43  │  Applying RL Step by Step
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Let's apply the Bellman equation with real numbers. Follow each step.
-
-
-── 🔬 REAL VERSION ──
-
-# Setup
-alpha = 0.15 # learning rate
-gamma = 0.90 # discount factor
-
-# What just happened:
-state = 2 # we were in state 2
-action = 1 # we took action 1
-reward = 1.0 # we got reward!
-next_state = 5 # we ended up in state 5
-
-# Step 1: what Q thinks now
-current_q = Q[state][action] # e.g. 0.30
-
-# Step 2: best future Q from next state
-best_next = np.max(Q[next_state]) # e.g. 0.80
-
-# Step 3: what Q SHOULD be (TD target)
-td_target = reward + gamma * best_next
-# = 1.0 + 0.90 × 0.80 = 1.72
-
-# Step 4: how wrong were we?
-td_error = td_target - current_q
-# = 1.72 - 0.30 = 1.42 (big surprise!)
-
-# Step 5: update
-Q[state][action] = current_q + alpha * td_error
-# = 0.30 + 0.15 × 1.42 = 0.513
-# Q-value went UP because we were rewarded
-
-Next time the agent is in state 2, action 1 looks more appealing (0.51 vs 0.30 before). That is learning!
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 44  │  Epsilon-Greedy Strategy
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-The agent has two choices every step:
-
-Exploit — pick the best known action
-
-Explore — try a random action to discover something better
-
-Epsilon controls this balance. epsilon=0.1 means 10% random, 90% best known.
-
-
-   💡 Analogy:
-You found a restaurant you like. If you ALWAYS go there (exploit), you never find the better restaurant two streets over. But if you always try random restaurants (explore), you never enjoy what you already know is good.
-
-
-── 🔬 REAL VERSION ──
-
-import numpy as np
-
-def choose_action(state, Q, epsilon):
-if np.random.random() < epsilon:
-return np.random.randint(0, Q.shape[1]) # EXPLORE
-return np.argmax(Q[state]) # EXPLOIT
-
-# Decay epsilon over time (explore less as you learn more)
-epsilon = 1.0
-for episode in range(1000):
-# ... run episode ...
-epsilon = max(0.01, epsilon * 0.995) # slowly decay
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 45  │  What Does the RL Agent Think?
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-The agent does not think in the human sense.
-
-It looks at its situation, checks the Q-table, picks the best-scoring action (or a random one), then waits for feedback.
-
-
-── 🔬 REAL VERSION ──
-
-1Observe current state (a number or list of numbers)
-
-2Look up Q[state] → array of scores for all actions
-
-3If random < epsilon: pick random action (explore)
-
-4Else: pick action with highest Q[state][action] (exploit)
-
-5Actually take that action
-
-6Receive reward and observe new state
-
-7Run Bellman update: Q[state][action] changes
-
-8Move to new state. Go to step 1.
-
-The agent does NOT plan ahead (basic Q-learning).
-
-It does NOT understand what 'reward' means.
-
-It just statistically learned: 'when in state X, action Y tends to produce higher future numbers.'
-
-That's it. Pure statistics, no understanding.
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 46  │  Python Crash Course
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Python is the most beginner-friendly programming language. It reads like English.
-
-
-── 🔬 REAL VERSION ──
-
-Variables
-
-age = 25 # integer
-name = "Alice" # string (text)
-score = 0.95 # decimal number
-active = True # boolean (True or False)
-
-Lists and Loops
-
-fruits = ["apple", "banana", "mango"]
-print(fruits[0]) # apple (starts at 0)
-print(len(fruits)) # 3
-
-for fruit in fruits:
-print(fruit) # apple, banana, mango
-
-for i in range(5):
-print(i) # 0 1 2 3 4
-
-Conditions
-
-temp = 30
-if temp > 25:
-print("Hot!")
-elif temp > 15:
-print("Warm.")
-else:
-print("Cold.")
-
-Numpy — Numbers for AI
-
-import numpy as np
-
-a = np.array([1,2,3,4,5])
-print(a * 2) # [2 4 6 8 10]
-print(a.mean()) # 3.0
-print(a.max()) # 5
-
-X = np.array([[1,2],[3,4]])
-print(X.shape) # (2, 2)
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 47  │  Tkinter: Windows and Buttons
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Tkinter is Python's built-in library for making windows. No installation needed.
-
-
-── 🔬 REAL VERSION ──
-
-Hello World Window
-
-import tkinter as tk
-
-root = tk.Tk() # create window
-root.title("My Window") # set title
-root.geometry("400x300") # width x height
-root.mainloop() # keep window open
-
-Label + Button + Entry
-
-import tkinter as tk
-from tkinter import messagebox
-
-root = tk.Tk()
-
-# Label — shows text
-lbl = tk.Label(root, text="Enter your name:", font=("Helvetica",12))
-lbl.pack(pady=10)
-
-# Entry — text input box
-entry = tk.Entry(root, width=20)
-entry.pack()
-
-# Button — calls a function when clicked
-def greet():
-name = entry.get() # read text from box
-messagebox.showinfo("Hi!", f"Hello, {name}!")
-
-tk.Button(root, text="Greet", command=greet,
-bg="#27ae60", fg="white").pack(pady=10)
-
-root.mainloop()
-
-pack() auto-places widgets  |  grid(row,col) precise placement  |  .config(text=...) change a widget after creation
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 48  │  sklearn AI Toolkit
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-sklearn (scikit-learn) is the go-to Python library for machine learning. Ready-made models, scalers, splitters.
-
-
-── 🔬 REAL VERSION ──
-
-Most Important Functions:
-
-Function
-
-What it does
-
-MLPClassifier(hidden_layer_sizes=(64,32))
-
-Create neural network for classification
-
-MLPRegressor(...)
-
-Create neural network for predicting numbers
-
-model.fit(X, y)
-
-TRAIN the model on data
-
-model.predict(X)
-
-Predict class labels for new data
-
-model.predict_proba(X)
-
-Predict probabilities for each class
-
-model.score(X, y)
-
-Accuracy: fraction of correct predictions
-
-StandardScaler().fit_transform(X)
-
-Normalise features to mean=0, std=1
-
-train_test_split(X, y, test_size=0.2)
-
-Split into 80% train, 20% test
-
-cross_val_score(model, X, y, cv=5)
-
-5-fold cross-validation accuracy
-
-joblib.dump(model, 'file.pkl')
-
-Save model to file
-
-joblib.load('file.pkl')
-
-Load model from file
-
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.neural_network import MLPClassifier
-
-# Pipeline chains steps — scale then train automatically
-pipe = Pipeline([
-("scale", StandardScaler()),
-("model", MLPClassifier(max_iter=500)),
-])
-pipe.fit(X_train, y_train)
-pipe.predict(X_test) # auto-scales then predicts
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 49  │  Every AI Function Explained
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Here are all the functions you will encounter, grouped by what they do.
-
-
-── 🔬 REAL VERSION ──
-
-Creating Models
-
-Call
-
-Does
-
-MLPClassifier(hidden_layer_sizes=(64,32), activation='relu', solver='adam', max_iter=500)
-
-Neural network for classification
-
-MLPRegressor(...)
-
-Neural network for number prediction
-
-KMeans(n_clusters=3)
-
-Cluster data into 3 groups (unsupervised)
-
-RandomForestClassifier(n_estimators=100)
-
-100 decision trees, vote for best answer
-
-Training and Predicting
-
-Call
-
-Does
-
-model.fit(X, y)
-
-Train supervised model
-
-model.fit(X)
-
-Train unsupervised model
-
-model.predict(X)
-
-Return predicted class labels
-
-model.predict_proba(X)
-
-Return probability for each class
-
-model.score(X, y)
-
-Return accuracy fraction 0.0–1.0
-
-Evaluating
-
-Call
-
-Does
-
-accuracy_score(y_true, y_pred)
-
-% of correct predictions
-
-precision_score(y_true, y_pred)
-
-Of 'yes' predictions, how many were right?
-
-recall_score(y_true, y_pred)
-
-Of real 'yes' cases, how many did we find?
-
-f1_score(y_true, y_pred)
-
-Balance of precision and recall
-
-confusion_matrix(y_true, y_pred)
-
-Table of which classes got confused
-
-classification_report(y_true, y_pred)
-
-Full per-class stats table
-
-Data Prep
-
-Call
-
-Does
-
-StandardScaler().fit_transform(X)
-
-Mean=0, std=1 per feature
-
-MinMaxScaler().fit_transform(X)
-
-Scale to 0–1
-
-train_test_split(X,y,test_size=0.2)
-
-80/20 split
-
-cross_val_score(model,X,y,cv=5)
-
-5-fold CV scores
-
-LabelEncoder().fit_transform(y)
-
-Text labels → numbers
-
-
-────────────────────────────────────────────────────────────
-  CHAPTER 50  │  Full Glossary
-────────────────────────────────────────────────────────────
-
-
-── 🐣 SIMPLE VERSION ──
-
-Every AI term you will ever encounter — short, plain-English definitions.
-
-
-── 🔬 REAL VERSION ──
-
-Accuracy
-
-Fraction of correct predictions. 0.0 = never right. 1.0 = always right.
-
-Action (RL)
-
-Something the RL agent does: move, say a word, buy a stock.
-
-Activation Function
-
-Applied to neuron output to add non-linearity. ReLU, softmax, sigmoid.
-
-Adam
-
-Popular weight-update algorithm. Adapts learning rate automatically. Default in sklearn.
-
-Agent (RL)
-
-The AI that learns and acts in RL.
-
-Argmax
-
-Index of the largest value in a list. np.argmax([0.1, 0.8, 0.1]) → 1
-
-Backpropagation
-
-Computes which weights caused the error and by how much. Works backwards.
-
-Batch
-
-Small subset of training data processed before one weight update.
-
-Bellman Equation
-
-Q(s,a) ← Q(s,a) + α[r + γ·max Q(s',a') − Q(s,a)]. Core RL formula.
-
-Bias (neuron)
-
-One extra learnable number per neuron. Lets neuron fire with zero inputs.
-
-Blank Model
-
-Model with random weights. Knows nothing. Output is random.
-
-Classification
-
-Predict a category: cat/dog, spam/not-spam.
-
-CNN
-
-Convolutional Neural Network. Uses sliding filters. Best for images.
-
-Cross-Entropy
-
-Loss function for classification. Penalises confident wrong answers.
-
-Cross-Validation
-
-Test model on multiple data splits. More reliable than one split.
-
-Deep Learning
-
-Neural networks with many layers. Powers ChatGPT, image AI.
-
-Discount Factor γ
-
-How much future rewards matter. 0.9 = near future matters a lot.
-
-Epoch
-
-One full pass through all training data.
-
-Epsilon-Greedy
-
-RL strategy: explore randomly ε% of the time, exploit the rest.
-
-Episode (RL)
-
-One complete run from start to end (one game, one conversation).
-
-Feature
-
-One piece of information about an example: size, colour, age.
-
-Feature Extraction
-
-Converting raw data (image, audio, text) to numbers for AI.
-
-Feature Vector
-
-A list of numbers describing one example.
-
-Forward Pass
-
-Running data through network layers from input to output to get prediction.
-
-Gradient
-
-Direction and magnitude of change needed to reduce loss.
-
-Gradient Descent
-
-Algorithm: adjust weights in direction that reduces loss.
-
-Hidden Layer
-
-Layers between input and output. Where learning happens.
-
-Label
-
-Correct answer for one training example. Also called target or ground truth.
-
-Layer
-
-Group of neurons. Input layer, hidden layers, output layer.
-
-Learning Rate α
-
-How big a step to take when updating weights. Typical: 0.001.
-
-Loss
-
-Number measuring how wrong the model is. Train to minimise this.
-
-Loss Function
-
-Formula to compute loss. Cross-entropy for classification, MSE for regression.
-
-Model
-
-Trained AI system. Holds all learned weights. Input → prediction.
-
-MSE
-
-Mean Squared Error. average((prediction − truth)²). For regression.
-
-Neural Network
-
-Many neurons in layers. Can learn very complex patterns.
-
-Neuron
-
-Basic unit. Multiplies inputs by weights, adds bias, applies activation.
-
-Normalisation
-
-Scale features to similar range so no feature dominates.
-
-One-Hot Encoding
-
-Class 2 of 4 → [0, 0, 1, 0]. Done automatically inside models.
-
-Overfitting
-
-Memorised training data. Train accuracy high, test accuracy low.
-
-Policy (RL)
-
-Strategy: given state, which action to take?
-
-Prediction
-
-Model's output for a given input.
-
-Q-Table
-
-2D matrix of Q-values. Q[state][action] = quality score.
-
-Q-Value
-
-Expected total reward for taking action a in state s.
-
-ReLU
-
-relu(x) = max(0, x). Most common hidden-layer activation.
-
-Regression
-
-Predict a continuous number (not a category).
-
-Reinforcement Learning
-
-Learn by trial and error using reward signal. No labelled data.
-
-Reward (RL)
-
-Feedback: positive = good, zero = neutral, negative = bad.
-
-RNN
-
-Recurrent Neural Network. Processes sequences with memory.
-
-Softmax
-
-Converts raw scores to probabilities summing to 1.0.
-
-State (RL)
-
-Agent's current observation of the environment.
-
-Supervised Learning
-
-Learning from labelled examples (X and y pairs).
-
-TD Error
-
-Temporal Difference Error. How surprised was the agent? target − current Q.
-
-Test Set
-
-Data model never saw. Used for honest final evaluation.
-
-Training
-
-Adjusting weights to reduce loss. model.fit(X, y) does this.
-
-Transformer
-
-Architecture using self-attention. Powers GPT, BERT.
-
-Underfitting
-
-Model too simple or under-trained. Both train and test accuracy low.
-
-Unsupervised Learning
-
-Learning from unlabelled data. Finds groups and patterns.
-
-Validation Set
-
-Monitor overfitting during training. Different from test set.
-
-Weight
-
-Learnable number on a connection between neurons.
-
-Weight Matrix
-
-2D array of weights for one layer. Shape: (fan_in, fan_out).
-
-X
-
-Input data. Shape: (n_examples, n_features).
-
-y
-
-Labels/targets. Shape: (n_examples,).
-
-────────────────────────────────────────────────────────────
-  MAIX — The Complete Baby Guide to Artificial Intelligence
-  Read on any device · No experience needed · 50 Chapters
-────────────────────────────────────────────────────────────
+════════════════════════════════════════════════════════════════════
+
+  ███╗   ███╗ █████╗ ██╗██╗  ██╗
+  ████╗ ████║██╔══██╗██║╚██╗██╔╝
+  ██╔████╔██║███████║██║ ╚███╔╝ 
+  ██║╚██╔╝██║██╔══██║██║ ██╔██╗ 
+  ██║ ╚═╝ ██║██║  ██║██║██╔╝ ██╗
+  ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝
+
+  THE COMPLETE BABY GUIDE TO ARTIFICIAL INTELLIGENCE
+
+  From absolute zero — to understanding how AI really works
+  50 Chapters  ·  All Concepts  ·  Real Code Examples
+  Phone and Laptop Friendly  ·  Zero Experience Needed
+
+────────────────────────────────────────────────────────────────────
+  HOW TO READ THIS GUIDE:
+    🐣 SIMPLE = the age-5 explanation of the concept
+    🔬 REAL   = the actual technical detail and code
+    Read any chapter on its own. No order required.
+════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════
+  TABLE OF CONTENTS
+════════════════════════════════════════════════════════════════════
+
+  CH01  What Is a Computer? ······································· 01
+  CH02  What Is Code? ············································· 02
+  CH03  What Is Data? ············································· 03
+  CH04  What Is AI? ··············································· 04
+  CH05  Normal Code vs AI ········································· 05
+  CH06  Types of AI ··············································· 06
+  CH07  Supervised Learning ······································· 07
+  CH08  Unsupervised Learning ····································· 08
+  CH09  Reinforcement Learning Intro ······························ 09
+  CH10  What Is a Blank Model? ···································· 10
+  CH11  What Are Weights? ········································· 11
+  CH12  What Are Biases? ·········································· 12
+  CH13  Training Data X and Y ····································· 13
+  CH14  What Is a Label? ·········································· 14
+  CH15  What Is Training? ········································· 15
+  CH16  What Is an Epoch? ········································· 16
+  CH17  What Is a Loss Function? ·································· 17
+  CH18  What Is a Learning Rate? ·································· 18
+  CH19  What Is a Neuron? ········································· 19
+  CH20  What Are Layers? ·········································· 20
+  CH21  What Is a Neural Network? ································· 21
+  CH22  The Forward Pass ·········································· 22
+  CH23  What Does AI Think Before Answering? ······················ 23
+  CH24  How AI Makes a Decision ··································· 24
+  CH25  What Is ReLU? ············································· 25
+  CH26  What Is Softmax? ·········································· 26
+  CH27  What Is Backpropagation? ·································· 27
+  CH28  AI Learning from Numbers ·································· 28
+  CH29  AI Learning from Text ····································· 29
+  CH30  AI Learning from Images ··································· 30
+  CH31  AI Learning from Audio ···································· 31
+  CH32  What Is Overfitting? ······································ 32
+  CH33  What Is Underfitting? ····································· 33
+  CH34  Dataset Splits ············································ 34
+  CH35  Normalisation and Scaling ································· 35
+  CH36  What Is a CNN? ············································ 36
+  CH37  What Is an RNN? ··········································· 37
+  CH38  What Is a Transformer? ···································· 38
+  CH39  RL Deep Dive ·············································· 39
+  CH40  State Action Reward ······································· 40
+  CH41  What Is a Q-Table? ········································ 41
+  CH42  The Bellman Equation ······································ 42
+  CH43  Applying RL Step by Step ·································· 43
+  CH44  Epsilon-Greedy Strategy ··································· 44
+  CH45  What Does the RL Agent Think? ····························· 45
+  CH46  Python Crash Course ······································· 46
+  CH47  Tkinter Windows and Buttons ······························· 47
+  CH48  sklearn AI Toolkit ········································ 48
+  CH49  Every AI Function Explained ······························· 49
+  CH50  Full Glossary ············································· 50
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 01 — WHAT IS A COMPUTER?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  A computer is a machine that follows instructions very, very
+  fast. It does not think. It does not feel. It just obeys. Your
+  phone = computer. Your laptop = computer. A smart TV = computer.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  💡 ANALOGY
+  ································································
+    Imagine a very fast assistant who does EXACTLY what you say
+    — nothing more, nothing less. You say _add 5 and 3_ — they
+    say _8_. They don't wonder why. They just do it.
+  ································································
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  Every computer has a CPU (Central Processing Unit) that does
+  only 4 things:
+
+    • Add two numbers
+    • Compare two numbers (is A bigger than B?)
+    • Move a number from one place to another
+    • Jump to a different instruction
+
+  That is ALL. Yet from those 4 operations, humans built video
+  games, social media, and AI.
+
+  ℹ INFO ───────────────────────────────────────────────────────
+  │ Computers only understand [numbers]. Your photo = millions
+  │ of numbers. Your voice = thousands of numbers per second.
+  │ Your message = numbers. Everything is numbers.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 02 — WHAT IS CODE?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Code is a set of instructions written for a computer. Like a
+  recipe — but for a machine.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  💡 ANALOGY
+  ································································
+    Cake recipe: mix eggs → add flour → bake 30 mins. Program:
+    get number A → get number B → add them → show result.
+  ································································
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  Python is the most beginner-friendly coding language. It reads
+  like English.
+
+  ┌─────────────────────────────────────────────────────┐
+  │ # A simple Python program                           │
+  │ age  = 25          # store 25 in a box called "age" │
+  │ name = "Alice"    # store text in "name"            │
+  │ print(age)         # show: 25                       │
+  │ print(name)        # show: Alice                    │
+  └─────────────────────────────────────────────────────┘
+
+
+  ▸ FUNCTIONS — REUSABLE BLOCKS OF CODE
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  ┌────────────────────────────────────────────────────────┐
+  │ def add(a, b):        # define a function called "add" │
+  │     result = a + b   # add the two inputs              │
+  │     return result    # send the answer back            │
+  │                                                        │
+  │ x = add(10, 5)      # call it → x = 15                 │
+  │ y = add(3,  7)      # call it → y = 10                 │
+  │ print(x)            # 15                               │
+  └────────────────────────────────────────────────────────┘
+
+  ✦ TIP ────────────────────────────────────────────────────────
+  │ [def] = define a function | [return] = send answer back |
+  │ [print()] = show on screen
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 03 — WHAT IS DATA?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Data is any information at all.
+
+    • Your age = data
+    • A photo = data
+    • The weather today = data
+    • Your voice = data
+    • A price tag = data
+
+  If it can be written down or measured — it is data.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  Data comes in types:
+
+  ┌───────────────┬───────────────────┬───────────────────────┐
+  │ TYPE          │ EXAMPLE           │ IN CODE               │
+  ├───────────────┼───────────────────┼───────────────────────┤
+  │ Number        │ Age: 25           │ age = 25              │
+  ├───────────────┼───────────────────┼───────────────────────┤
+  │ Decimal       │ Temperature: 36.6 │ temp = 36.6           │
+  ├───────────────┼───────────────────┼───────────────────────┤
+  │ Text          │ Name: Alice       │ name = 'Alice'        │
+  ├───────────────┼───────────────────┼───────────────────────┤
+  │ True/False    │ Is raining?       │ rain = True           │
+  ├───────────────┼───────────────────┼───────────────────────┤
+  │ List          │ Three scores      │ [90, 85, 92]          │
+  ├───────────────┼───────────────────┼───────────────────────┤
+  │ Grid (matrix) │ Image pixels      │ [[255,0,0],[0,255,0]] │
+  └───────────────┴───────────────────┴───────────────────────┘
+
+  ℹ INFO ───────────────────────────────────────────────────────
+  │ [Key fact:] AI only understands numbers. Photos → pixel
+  │ numbers. Audio → waveform numbers. Text → word-count
+  │ numbers. The process of converting to numbers is called
+  │ [Feature Extraction].
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 04 — WHAT IS ARTIFICIAL INTELLIGENCE?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  AI is a program that [learns from examples] instead of being
+  told exact rules.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  💡 ANALOGY
+  ································································
+    Normal: You hand someone a rulebook. AI: You show someone
+    1000 examples. They figure out the rules themselves.
+  ································································
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  AI = systems that learn patterns from data and use those
+  patterns to make decisions on new data.
+
+  ┌────────────────────────────┬────────────────────────────┐
+  │ NORMAL PROGRAM             │ AI PROGRAM                 │
+  ├────────────────────────────┼────────────────────────────┤
+  │ You write every rule       │ Computer finds the rules   │
+  ├────────────────────────────┼────────────────────────────┤
+  │ Shows pictures of cats —   │ Shows pictures of cats —   │
+  │ you code 'if pointy ears → │ AI finds patterns itself   │
+  │ cat'                       │                            │
+  ├────────────────────────────┼────────────────────────────┤
+  │ Breaks on new situations   │ Handles new situations (if │
+  │                            │ trained on similar ones)   │
+  ├────────────────────────────┼────────────────────────────┤
+  │ Rule = written by human    │ Rule = discovered by       │
+  │                            │ algorithm                  │
+  └────────────────────────────┴────────────────────────────┘
+
+
+  ▸ WHAT AI IS GOOD AT TODAY:
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+    • Recognising images (photo of what?)
+    • Understanding speech (what did they say?)
+    • Translating languages
+    • Playing games (chess, Go, video games)
+    • Detecting fraud
+    • Medical diagnosis
+    • Recommendation engines
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 05 — NORMAL CODE VS AI CODE
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  [Normal code] = a light switch. You tell it exactly what to do
+  in every case. [AI code] = teaching a child to ride a bike. No
+  rules — just practice and feedback.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌─────────────────┬──────────────────────┬─────────────────────────┐
+  │                 │ NORMAL CODE          │ AI CODE                 │
+  ├─────────────────┼──────────────────────┼─────────────────────────┤
+  │ Flow            │ Input → your rules → │ Data + examples →       │
+  │                 │ output               │ learned rules → output  │
+  ├─────────────────┼──────────────────────┼─────────────────────────┤
+  │ Who makes       │ Programmer           │ The computer itself     │
+  │ rules?          │                      │                         │
+  ├─────────────────┼──────────────────────┼─────────────────────────┤
+  │ New situations  │ Often fails          │ Handles them (if seen   │
+  │                 │                      │ similar in training)    │
+  ├─────────────────┼──────────────────────┼─────────────────────────┤
+  │ Needs data?     │ Not much             │ Yes, lots               │
+  ├─────────────────┼──────────────────────┼─────────────────────────┤
+  │ Gets better?    │ Only if you rewrite  │ Yes, with more data     │
+  │                 │ it                   │                         │
+  ├─────────────────┼──────────────────────┼─────────────────────────┤
+  │ Example         │ Calculator           │ Voice assistant         │
+  └─────────────────┴──────────────────────┴─────────────────────────┘
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ # Normal code — you write the rule                         │
+  │ def is_spam(email):                                        │
+  │     if "FREE" in email:                                    │
+  │         return "spam"                                      │
+  │     return "not spam"                                      │
+  │                                                            │
+  │ # AI code — the model finds the rule itself                │
+  │ model.fit(X_emails, y_labels)   # learns from examples     │
+  │ model.predict([new_email])       # applies what it learned │
+  └────────────────────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 06 — TYPES OF AI
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  There are many flavours of AI. Here are the main ones you will
+  hear about.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌────────────────────┬───────────────────────┬──────────────────────┐
+  │ TYPE               │ SIMPLE IDEA           │ USED FOR             │
+  ├────────────────────┼───────────────────────┼──────────────────────┤
+  │ Supervised         │ Learn from labelled   │ Image/speech         │
+  │ Learning           │ examples              │ recognition, spam    │
+  ├────────────────────┼───────────────────────┼──────────────────────┤
+  │ Unsupervised       │ Find patterns with no │ Customer groups,     │
+  │ Learning           │ labels                │ anomaly detection    │
+  ├────────────────────┼───────────────────────┼──────────────────────┤
+  │ Reinforcement      │ Learn by trying +     │ Game AI, robots,     │
+  │ Learning           │ getting rewards       │ chatbots             │
+  ├────────────────────┼───────────────────────┼──────────────────────┤
+  │ Deep Learning      │ Big neural networks   │ ChatGPT, image AI,   │
+  │                    │ with many layers      │ voice                │
+  ├────────────────────┼───────────────────────┼──────────────────────┤
+  │ Generative AI      │ AI that creates new   │ ChatGPT, DALL-E,     │
+  │                    │ things                │ Suno                 │
+  ├────────────────────┼───────────────────────┼──────────────────────┤
+  │ NLP                │ Understanding human   │ Translation, search, │
+  │                    │ language              │ chatbots             │
+  ├────────────────────┼───────────────────────┼──────────────────────┤
+  │ Computer Vision    │ Understanding         │ Face recognition,    │
+  │                    │ images/video          │ self-driving         │
+  └────────────────────┴───────────────────────┴──────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 07 — SUPERVISED LEARNING
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  You are a teacher with flashcards. Front = photo. Back =
+  answer. Show AI 10,000 flashcards. Now show a photo with no
+  answer — AI guesses correctly.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  You have X (inputs) and y (correct answers). Train → model
+  learns. Predict → model answers.
+
+
+  ▸ TWO KINDS:
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  ┌────────────────┬────────────┬────────────────────────┐
+  │ TYPE           │ OUTPUT     │ EXAMPLE                │
+  ├────────────────┼────────────┼────────────────────────┤
+  │ Classification │ A category │ Photo → 'cat' or 'dog' │
+  ├────────────────┼────────────┼────────────────────────┤
+  │ Regression     │ A number   │ House size → predicted │
+  │                │            │ price                  │
+  └────────────────┴────────────┴────────────────────────┘
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ from sklearn.neural_network import MLPClassifier           │
+  │ import numpy as np                                         │
+  │                                                            │
+  │ X = np.array([[5,9,1], [8,7,2], [4,2,3]])                  │
+  │ # 3 fruits: [size, sweetness, colour]                      │
+  │ y = np.array([0, 1, 2])  # 0=apple 1=banana 2=lime         │
+  │                                                            │
+  │ model = MLPClassifier(max_iter=1000)                       │
+  │ model.fit(X, y)                   # TRAIN                  │
+  │                                                            │
+  │ model.predict([[5,8,1]])          # → [0]  (apple)         │
+  │ model.predict_proba([[5,8,1]])    # → [[0.85, 0.08, 0.07]] │
+  └────────────────────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 08 — UNSUPERVISED LEARNING
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Drop 1000 unsorted photos on a table. Tell the AI: find
+  groups. AI groups similar photos together — no labels, no help.
+  It finds structure by itself.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  No [y] labels. Just [X] data. Algorithm finds hidden structure.
+
+  ┌──────────────────────────────────────────┐
+  │ from sklearn.cluster import KMeans       │
+  │ import numpy as np                       │
+  │                                          │
+  │ # Height and weight of 6 people          │
+  │ X = np.array([[160,55],[162,58],         │
+  │               [180,80],[182,85],         │
+  │               [171,65],[172,67]])        │
+  │                                          │
+  │ model = KMeans(n_clusters=3, n_init=10)  │
+  │ model.fit(X)              # no y needed! │
+  │ print(model.labels_)    # [0,0,1,1,2,2]  │
+  │ # 0=short/light  1=tall/heavy  2=medium  │
+  └──────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 09 — REINFORCEMENT LEARNING (INTRO)
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Training a dog:
+
+    • Dog sits when told → give treat → dog does it more
+    • Dog bites sofa → no treat → dog does it less
+
+  Nobody told the dog the rules. It learned from consequences.
+  That is RL.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  RL has four parts:
+
+  ┌─────────────┬───────────────────────────┬─────────────────────────┐
+  │ PART        │ MEANING                   │ EXAMPLE                 │
+  ├─────────────┼───────────────────────────┼─────────────────────────┤
+  │ Agent       │ The AI doing the learning │ A robot                 │
+  ├─────────────┼───────────────────────────┼─────────────────────────┤
+  │ Environment │ The world it lives in     │ A maze                  │
+  ├─────────────┼───────────────────────────┼─────────────────────────┤
+  │ Action      │ What it can do            │ Move left/right/up/down │
+  ├─────────────┼───────────────────────────┼─────────────────────────┤
+  │ Reward      │ Feedback: good or bad     │ +10 reach exit, -1 hit  │
+  │             │                           │ wall                    │
+  └─────────────┴───────────────────────────┴─────────────────────────┘
+
+  The agent keeps trying actions, collecting rewards, and learns
+  which actions are best.
+
+  ✦ TIP ────────────────────────────────────────────────────────
+  │ Unlike supervised learning, RL has NO labelled examples. The
+  │ AI figures everything out from trial and error.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 10 — WHAT IS A BLANK MODEL?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  A blank model is like a newborn baby brain. It has all the right
+  parts. But it knows absolutely nothing. Everything it will ever
+  know — it must learn.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  💡 ANALOGY
+  ································································
+    Blank model = an empty notebook. Training = writing the
+    right information in it. Prediction = reading the answer
+    from the notebook.
+  ································································
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  When you create a model in code, all its internal numbers
+  (weights) are set to small random values.
+
+  ┌─────────────────────────────────────────────────────┐
+  │ from sklearn.neural_network import MLPClassifier    │
+  │                                                     │
+  │ model = MLPClassifier(hidden_layer_sizes=(64, 32))  │
+  │ # RIGHT NOW: model has random weights               │
+  │ # If you predict now → random, useless output       │
+  │ # After model.fit(X, y) → meaningful, useful output │
+  └─────────────────────────────────────────────────────┘
+
+  ✦ TIP ────────────────────────────────────────────────────────
+  │ Random start is fine. The training process knows how to
+  │ improve from any starting point. What matters is the
+  │ training, not the starting weights.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 11 — WHAT ARE WEIGHTS?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Weights are the AI's memories. They are just numbers stored
+  inside the model.
+
+    • Before training → random numbers → AI knows nothing
+    • After training → carefully tuned numbers → AI is smart
+
+  Every time the AI sees an example, the weights change a tiny bit
+  to get better.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  A weight is attached to a [connection] between two neurons. It
+  says how important that connection is.
+
+  ┌───────────────────────────────────────────────────────────┐
+  │ input_1 (size)     × weight_1 = 0.8  # very important     │
+  │ input_2 (colour)   × weight_2 = 0.3  # somewhat important │
+  │ input_3 (smell)    × weight_3 = 0.1  # not very important │
+  │ output = (0.8 + 0.3 + 0.1) = 1.2                          │
+  └───────────────────────────────────────────────────────────┘
+
+  Typical model weight counts:
+
+  ┌──────────────┬───────────────────┐
+  │ MODEL        │ NUMBER OF WEIGHTS │
+  ├──────────────┼───────────────────┤
+  │ Small model  │ ~10,000           │
+  ├──────────────┼───────────────────┤
+  │ Medium model │ ~10 million       │
+  ├──────────────┼───────────────────┤
+  │ GPT-4        │ ~1 trillion       │
+  └──────────────┴───────────────────┘
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ model.fit(X, y)                                            │
+  │ print(model.coefs_[0].shape)  # e.g. (26, 64)              │
+  │ # 26 inputs × 64 neurons = 1,664 weight numbers in layer 1 │
+  └────────────────────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 12 — WHAT ARE BIASES?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  A bias is a 'head start' number added to a neuron. Without bias,
+  a neuron with all-zero inputs would always output zero —
+  useless. Bias lets the neuron have a non-zero output even when
+  inputs are quiet.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ╔════════════════════════════════════════════════════════════════╗
+  ║  NEURON FORMULA                                                ║
+  ╠════════════════════════════════════════════════════════════════╣
+  ║ output = activate( input₁×w₁ + input₂×w₂ + input₃×w₃ + bias )  ║
+  ╚════════════════════════════════════════════════════════════════╝
+
+  ┌─────────┬────────────────────┬───────────────────┐
+  │ THING   │ COUNT              │ IN SKLEARN        │
+  ├─────────┼────────────────────┼───────────────────┤
+  │ Weights │ One per connection │ model.coefs_      │
+  ├─────────┼────────────────────┼───────────────────┤
+  │ Biases  │ One per neuron     │ model.intercepts_ │
+  └─────────┴────────────────────┴───────────────────┘
+
+  ┌───────────────────────────────────────────────┐
+  │ # After training:                             │
+  │ model.coefs_        # list of weight matrices │
+  │ model.intercepts_   # list of bias vectors    │
+  │ # You rarely need to look at these directly   │
+  └───────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 13 — TRAINING DATA: X AND Y
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  X = the questions (inputs, examples)y = the answers (correct
+  labels)Together they are your [training data]. The AI reads all
+  of them during training.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  [X] is a 2D grid: each _row_ = one example, each _column_ = one
+  feature.[y] is a 1D list: one answer per row in X.
+
+  ┌──────────────────────────────────────────────────────────────┐
+  │ import numpy as np                                           │
+  │                                                              │
+  │ # Spam detector: [times says FREE, times says CLICK, excla...│
+  │ X = np.array([                                               │
+  │     [3, 2, 5],   # spammy email                              │
+  │     [0, 0, 1],   # normal email                              │
+  │     [5, 3, 8],   # very spammy                               │
+  │     [0, 1, 0],   # normal email                              │
+  │ ])                                                           │
+  │                                                              │
+  │ y = np.array([1, 0, 1, 0])  # 1=spam, 0=not spam             │
+  │                                                              │
+  │ print(X.shape)   # (4, 3)  → 4 emails, 3 features each       │
+  │ print(y.shape)   # (4,)   → 4 labels                         │
+  └──────────────────────────────────────────────────────────────┘
+
+  ⚠ NOTE ───────────────────────────────────────────────────────
+  │ [Golden rule:] len(X) must always equal len(y). One label
+  │ for every example, always.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 14 — WHAT IS A LABEL?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  A label is the correct answer for one example. If X is a photo of
+  a cat, the label y is 'cat'.The label is what the model is
+  trying to predict.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌────────────────┬────────────┬──────────────────────┐
+  │ TASK           │ LABEL TYPE │ EXAMPLE              │
+  ├────────────────┼────────────┼──────────────────────┤
+  │ Classification │ A category │ 0=cat, 1=dog, 2=bird │
+  ├────────────────┼────────────┼──────────────────────┤
+  │ Regression     │ A number   │ 250000 (house price) │
+  └────────────────┴────────────┴──────────────────────┘
+
+
+  ▸ ONE-HOT ENCODING (HAPPENS INSIDE THE MODEL):
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  Internally the model converts class numbers to vectors:
+
+  ┌──────────────────────────────────────────────────────┐
+  │ cat  = class 0  →  [1, 0, 0]                         │
+  │ dog  = class 1  →  [0, 1, 0]                         │
+  │ bird = class 2  →  [0, 0, 1]                         │
+  │ # This happens automatically. You just give 0, 1, 2. │
+  └──────────────────────────────────────────────────────┘
+
+  ℹ INFO ───────────────────────────────────────────────────────
+  │ The AI never understands the words 'cat' or 'dog'. It only
+  │ sees the numbers 0 and 1. You translate back to words when
+  │ showing results.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 15 — WHAT IS TRAINING?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Training = teaching the AI with examples. It guesses. You tell it
+  if it was wrong. It adjusts. Repeat thousands of times.
+  Eventually it gets good.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+   1.  Start with a blank model (random weights)
+   2.  Take one example from X, feed it through the model →
+      get a prediction
+   3.  Compare prediction to correct answer in y → measure how
+      wrong (the LOSS)
+   4.  Work backwards to find which weights caused the error
+      (backpropagation)
+   5.  Adjust those weights a tiny bit to do better next time
+   6.  Move to next example in X. Repeat steps 2–5
+   7.  One full pass through ALL examples = 1 EPOCH
+   8.  Repeat many epochs until the model is good
+
+  ✦ TIP ────────────────────────────────────────────────────────
+  │ In sklearn, [all of these steps happen inside ONE call:]
+  │ model.fit(X, y) — that single line does everything.
+  ────────────────────────────────────────────────────────────────
+
+  ┌──────────────────────────────────────────────────────────┐
+  │ model = MLPClassifier(max_iter=500)                      │
+  │ model.fit(X, y)        # trains completely automatically │
+  │ model.predict(X_new)  # now ready to use                 │
+  └──────────────────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 16 — WHAT IS AN EPOCH?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  One epoch = the AI looks at EVERY example ONCE.Imagine you have
+  1000 photos to learn from:
+
+    • After 1 epoch: saw all 1000 photos once
+    • After 10 epochs: saw all 1000 photos 10 times
+    • After 100 epochs: much more practice, usually much
+      better
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  More epochs = more practice = usually better performance, _up to
+  a point_.
+
+  ┌────────────┬────────────────────────────┐
+  │ EPOCHS     │ TYPICAL RESULT             │
+  ├────────────┼────────────────────────────┤
+  │ Too few    │ Didn't learn enough        │
+  │            │ (underfitting)             │
+  ├────────────┼────────────────────────────┤
+  │ Too many   │ Memorised data, stops      │
+  │            │ generalising (overfitting) │
+  ├────────────┼────────────────────────────┤
+  │ Just right │ Learns real patterns,      │
+  │            │ works on new data          │
+  └────────────┴────────────────────────────┘
+
+  ┌────────────────────────────────────────────────────┐
+  │ model = MLPClassifier(                             │
+  │     hidden_layer_sizes=(64, 32),                   │
+  │     max_iter=500,    # ← number of epochs          │
+  │ )                                                  │
+  │ # Typical values: 50 to 1000, depends on your data │
+  └────────────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 17 — WHAT IS A LOSS FUNCTION?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Loss = how wrong the AI is right now.
+
+    • High loss → very wrong
+    • Low loss → almost right
+    • Zero loss → perfect (rarely happens)
+
+  Training = making the loss as small as possible.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  The loss function takes the prediction and the correct answer
+  and returns one number showing how bad the error was.
+
+  ┌───────────────────┬─────────────────────┬─────────────────────────┐
+  │ LOSS TYPE         │ USED FOR            │ WHAT IT MEASURES        │
+  ├───────────────────┼─────────────────────┼─────────────────────────┤
+  │ Cross-Entropy     │ Classification      │ How confident and       │
+  │                   │ (categories)        │ correct the prediction  │
+  │                   │                     │ is                      │
+  ├───────────────────┼─────────────────────┼─────────────────────────┤
+  │ Mean Squared      │ Regression          │ Average of (prediction  │
+  │ Error             │ (numbers)           │ − truth)²               │
+  └───────────────────┴─────────────────────┴─────────────────────────┘
+
+  ┌─────────────────────────────────────────────────┐
+  │ import numpy as np                              │
+  │                                                 │
+  │ # MSE example                                   │
+  │ true_values = np.array([100, 200, 150])         │
+  │ predictions = np.array([110, 190, 160])         │
+  │                                                 │
+  │ mse = np.mean((true_values - predictions) ** 2) │
+  │ print(mse)   # 100.0  (lower = better model)    │
+  └─────────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 18 — WHAT IS A LEARNING RATE?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  The learning rate controls how fast the AI adjusts after each
+  mistake. Too fast → overshoots, never settles. Too slow → takes
+  forever. Just right → smooth learning.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  💡 ANALOGY
+  ································································
+    Adjusting a shower temperature. Big turns → too hot, then
+    too cold. Tiny turns → takes 20 minutes. Small-but-
+    deliberate turns → perfect in a few adjustments.
+  ································································
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ╔════════════════════════════════════════════════════════════════╗
+  ║  WEIGHT UPDATE FORMULA                                         ║
+  ╠════════════════════════════════════════════════════════════════╣
+  ║       new_weight = old_weight − learning_rate × gradient       ║
+  ╚════════════════════════════════════════════════════════════════╝
+
+  ┌─────────────────────┬───────────────────────────┐
+  │ LEARNING RATE       │ WHAT HAPPENS              │
+  ├─────────────────────┼───────────────────────────┤
+  │ 10.0 (too high)     │ Weights jump wildly, loss │
+  │                     │ bounces up and down       │
+  ├─────────────────────┼───────────────────────────┤
+  │ 0.001 (good)        │ Smooth learning, loss     │
+  │                     │ decreases steadily        │
+  ├─────────────────────┼───────────────────────────┤
+  │ 0.0000001 (too low) │ Takes forever, barely any │
+  │                     │ progress                  │
+  └─────────────────────┴───────────────────────────┘
+
+  ┌───────────────────────────────────────────────┐
+  │ model = MLPClassifier(                        │
+  │     learning_rate_init=0.001,  # safe default │
+  │     max_iter=500                              │
+  │ )                                             │
+  └───────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 19 — WHAT IS A NEURON?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  A neuron is the smallest unit in an AI brain. It takes in
+  numbers, multiplies each by a weight, adds them up, and passes
+  the result forward. It is just a simple maths machine.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ╔════════════════════════════════════════════════════════════════╗
+  ║  ONE NEURON                                                    ║
+  ╠════════════════════════════════════════════════════════════════╣
+  ║         output = activate( Σ(input × weight) + bias )          ║
+  ╚════════════════════════════════════════════════════════════════╝
+
+  ┌──────────────────────────────────────────────────────┐
+  │ import numpy as np                                   │
+  │                                                      │
+  │ inputs  = np.array([0.5, 0.3, 0.8])                  │
+  │ weights = np.array([0.2, 0.9, 0.4])                  │
+  │ bias    = 0.1                                        │
+  │                                                      │
+  │ # Step 1+2: multiply inputs×weights and sum          │
+  │ raw = np.dot(inputs, weights) + bias                 │
+  │ # 0.5×0.2 + 0.3×0.9 + 0.8×0.4 + 0.1 = 0.79           │
+  │                                                      │
+  │ # Step 3: apply activation (ReLU = keep if positive) │
+  │ output = max(0, raw)                                 │
+  │ print(output)   # 0.79                               │
+  └──────────────────────────────────────────────────────┘
+
+  ℹ INFO ───────────────────────────────────────────────────────
+  │ np.dot(a, b) multiplies each pair of numbers and adds them
+  │ all up. It's the core operation of every AI model.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 20 — WHAT ARE LAYERS?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  A layer is a group of neurons working together. Data flows
+  through layers left to right — input layer first, output layer
+  last, hidden layers in between.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌───────────────┬──────────────────────────┐
+  │ LAYER         │ WHAT IT DOES             │
+  ├───────────────┼──────────────────────────┤
+  │ Input Layer   │ Receives raw data. One   │
+  │               │ neuron per feature. No   │
+  │               │ computation.             │
+  ├───────────────┼──────────────────────────┤
+  │ Hidden Layers │ Where learning happens.  │
+  │               │ Can be many. Learn       │
+  │               │ patterns.                │
+  ├───────────────┼──────────────────────────┤
+  │ Output Layer  │ Final answer. One neuron │
+  │               │ per class.               │
+  └───────────────┴──────────────────────────┘
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ # Network: 26 inputs → 64 neurons → 32 neurons → 3 outputs │
+  │ model = MLPClassifier(                                     │
+  │     hidden_layer_sizes=(64, 32)                            │
+  │     # hidden_layer_sizes=(64, 32) means:                   │
+  │     #   hidden layer 1: 64 neurons                         │
+  │     #   hidden layer 2: 32 neurons                         │
+  │     # Input and output layers added automatically          │
+  │ )                                                          │
+  └────────────────────────────────────────────────────────────┘
+
+  26 inputs × 64 neurons = [1,664 weight connections] in layer 1
+  alone.
+
+  ✦ TIP ────────────────────────────────────────────────────────
+  │ More layers = more power to learn complex patterns. But also
+  │ needs more data and time. Balance is everything.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 21 — WHAT IS A NEURAL NETWORK?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  A neural network is many neurons connected in layers. Alone, one
+  neuron is weak. Together in layers, thousands of neurons can
+  learn incredibly complex patterns. Loosely inspired by the human
+  brain — but much simpler.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  Each neuron in one layer connects to EVERY neuron in the next
+  layer. This is called a [fully connected] or [dense] layer.
+
+  ╔════════════════════════════════════════════════════════════════╗
+  ║  FULL NETWORK COMPUTATION                                      ║
+  ╠════════════════════════════════════════════════════════════════╣
+  ║ h₁ = relu( X @ W₀ + b₀ ) ← layer 1 (26→64) h₂ = relu( h₁ @ W₁  ║
+  ║    + b₁ ) ← layer 2 (64→32) out = softmax( h₂ @ W₂ + b₂ ) ←    ║
+  ║                     output (32→N classes)                      ║
+  ╚════════════════════════════════════════════════════════════════╝
+
+  ℹ INFO ───────────────────────────────────────────────────────
+  │ [@] = matrix multiply [W] = weight matrix [b] = bias vector
+  ────────────────────────────────────────────────────────────────
+
+  ┌────────────────────────────────────────────────────────┐
+  │ # View the learned weight shapes after training        │
+  │ model.fit(X, y)                                        │
+  │ print(model.coefs_[0].shape)  # (26, 64)  layer 1      │
+  │ print(model.coefs_[1].shape)  # (64, 32)  layer 2      │
+  │ print(model.coefs_[2].shape)  # (32, N)   output layer │
+  └────────────────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 22 — THE FORWARD PASS
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  The forward pass is what happens when you give the AI some data
+  and it produces an answer. Data flows forward through the layers.
+  Each layer processes and passes to the next. An answer pops out
+  at the end.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+   1.  Input arrives as a list of numbers, e.g. [5, 9, 1]
+   2.  Layer 1 neurons all fire: multiply inputs × weights,
+      add bias, apply ReLU → 64 new numbers
+   3.  Layer 2 neurons all fire: same thing using the 64
+      numbers → 32 new numbers
+   4.  Output neurons compute final scores (logits): e.g.
+      [-1.2, 3.5, 0.8]
+   5.  Softmax converts scores to probabilities: [0.02, 0.94,
+      0.04]
+   6.  Argmax picks the winner: index 1 → predict class 1
+
+  ┌──────────────────────────────────────────────┐
+  │ import numpy as np                           │
+  │                                              │
+  │ def relu(x): return np.maximum(x, 0)         │
+  │ def softmax(x):                              │
+  │     e = np.exp(x - x.max())                  │
+  │     return e / e.sum()                       │
+  │                                              │
+  │ def forward(x, W0,b0, W1,b1, W2,b2):         │
+  │     h1  = relu(x  @ W0 + b0)                 │
+  │     h2  = relu(h1 @ W1 + b1)                 │
+  │     out = softmax(h2 @ W2 + b2)              │
+  │     return out     # probabilities per class │
+  └──────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 23 — WHAT DOES AI THINK BEFORE ANSWERING?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  The AI does NOT think the way you think. No wondering. No
+  doubting. No feelings. Just maths. It multiplies, adds, filters,
+  repeats — out comes a number. That number is the answer.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  Here is EXACTLY what happens every time you ask the AI to
+  predict:
+
+  ┌──────┬────────────────────────────┐
+  │ STEP │ WHAT HAPPENS               │
+  ├──────┼────────────────────────────┤
+  │ 1    │ Input arrives as numbers   │
+  ├──────┼────────────────────────────┤
+  │ 2    │ Every neuron in layer 1    │
+  │      │ fires at the same time:    │
+  │      │ multiply, add, ReLU        │
+  ├──────┼────────────────────────────┤
+  │ 3    │ Same for every hidden      │
+  │      │ layer                      │
+  ├──────┼────────────────────────────┤
+  │ 4    │ Output neurons produce raw │
+  │      │ scores (called logits)     │
+  ├──────┼────────────────────────────┤
+  │ 5    │ Softmax turns scores into  │
+  │      │ probabilities (0.0 to 1.0, │
+  │      │ sum = 1.0)                 │
+  ├──────┼────────────────────────────┤
+  │ 6    │ Argmax picks the index     │
+  │      │ with the highest           │
+  │      │ probability → that is the  │
+  │      │ prediction                 │
+  └──────┴────────────────────────────┘
+
+  ⚠ NOTE ───────────────────────────────────────────────────────
+  │ [The AI does NOT understand anything.] It only learned:
+  │ "when the input numbers look like X, output Y has the
+  │ highest probability." It is pattern matching at massive
+  │ scale, happening in microseconds.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 24 — HOW AI MAKES A DECISION
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  The AI picks whichever answer it is MOST SURE about. If it thinks
+  94% chance of class 1 — it says class 1.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌──────────────────────────────────────────────────────────────┐
+  │ import numpy as np                                           │
+  │                                                              │
+  │ probs = np.array([0.02, 0.94, 0.04])                         │
+  │ # class 0=2%, class 1=94%, class 2=4%                        │
+  │                                                              │
+  │ decision = np.argmax(probs)  # → 1  (highest value)          │
+  │ print(f"Predict class {decision} with {probs[decision]:.0%...│
+  │ # Predict class 1 with 94% confidence                        │
+  └──────────────────────────────────────────────────────────────┘
+
+  ┌──────────────────────┬────────────────────────────┐
+  │ OUTPUT               │ MEANING                    │
+  ├──────────────────────┼────────────────────────────┤
+  │ [0.94, 0.03, 0.03]   │ Confident prediction —     │
+  │                      │ probably correct           │
+  ├──────────────────────┼────────────────────────────┤
+  │ [0.35, 0.33, 0.32]   │ Model is unsure — treat    │
+  │                      │ output with caution        │
+  ├──────────────────────┼────────────────────────────┤
+  │ [0.99, 0.005, 0.005] │ Very confident — model has │
+  │                      │ seen this type before      │
+  └──────────────────────┴────────────────────────────┘
+
+  ⚠ NOTE ───────────────────────────────────────────────────────
+  │ High confidence + wrong answer = poorly trained model OR an
+  │ input very different from training data.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 25 — WHAT IS RELU?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  ReLU is a simple filter:
+
+    • Positive number → pass through unchanged
+    • Negative number → become zero
+
+  relu(5) = 5 relu(-3) = 0 relu(0) = 0
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ReLU = Rectified Linear Unit. Formula: `relu(x) = max(0, x)`[Why
+  is it needed?] Without activation functions, stacking layers is
+  useless — they collapse to one single multiplication. ReLU adds
+  non-linearity, letting the network learn complex, curved
+  patterns instead of just straight lines.
+
+  ┌────────────────────────────────────┐
+  │ import numpy as np                 │
+  │                                    │
+  │ x    = np.array([-3, -1, 0, 2, 5]) │
+  │ relu = np.maximum(x, 0)            │
+  │ print(relu)   # [0, 0, 0, 2, 5]    │
+  └────────────────────────────────────┘
+
+  ┌────────────┬───────────────────────┬─────────────────────┐
+  │ ACTIVATION │ FORMULA               │ USED IN             │
+  ├────────────┼───────────────────────┼─────────────────────┤
+  │ ReLU       │ max(0,x)              │ Hidden layers (most │
+  │            │                       │ common)             │
+  ├────────────┼───────────────────────┼─────────────────────┤
+  │ Softmax    │ e^x / sum(e^x)        │ Output layer        │
+  │            │                       │ (classification)    │
+  ├────────────┼───────────────────────┼─────────────────────┤
+  │ Sigmoid    │ 1/(1+e^-x)            │ Binary output       │
+  ├────────────┼───────────────────────┼─────────────────────┤
+  │ Tanh       │ (e^x-e^-x)/(e^x+e^-x) │ Some hidden layers  │
+  └────────────┴───────────────────────┴─────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 26 — WHAT IS SOFTMAX?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Softmax turns ANY list of numbers into probabilities that add up
+  to 100%.Input: [-1.5, 4.2, 0.8] → Output: [0.01, 0.94, 0.05]The
+  biggest number gets the biggest probability. Everything sums to
+  1.0.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ╔════════════════════════════════════════════════════════════════╗
+  ║  SOFTMAX FORMULA                                               ║
+  ╠════════════════════════════════════════════════════════════════╣
+  ║  softmax(x)[i] = e^x[i] / ( e^x[0] + e^x[1] + ... + e^x[n] )   ║
+  ╚════════════════════════════════════════════════════════════════╝
+
+  ┌──────────────────────────────────────────────────────────┐
+  │ import numpy as np                                       │
+  │                                                          │
+  │ def softmax(x):                                          │
+  │     e = np.exp(x - x.max()) # subtract max for stability │
+  │     return e / e.sum()                                   │
+  │                                                          │
+  │ x = np.array([-1.5, 4.2, 0.8])                           │
+  │ print(softmax(x))                                        │
+  │ # [0.003, 0.965, 0.032]  ← sum = 1.0                     │
+  └──────────────────────────────────────────────────────────┘
+
+  ✦ TIP ────────────────────────────────────────────────────────
+  │ Softmax always goes in the output layer for classification.
+  │ It converts raw scores into something you can interpret as
+  │ percentages.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 27 — WHAT IS BACKPROPAGATION?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  After a wrong prediction, backpropagation figures out:
+
+    • Which weights caused the error?
+    • How should each weight change to fix it?
+
+  It works backwards from output → to input. That is why it is
+  called 'BACK-propagation'.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  💡 ANALOGY
+  ································································
+    Blame propagation. The final wrong answer is blamed. Blame
+    is sent backwards through each layer. Each weight gets its
+    share of blame and adjusts accordingly.
+  ································································
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+   1.  Forward pass: compute prediction
+   2.  Compute loss: how wrong?
+   3.  Compute gradient of loss at output layer (how should
+      output weights change?)
+   4.  Propagate gradient back to hidden layers using the
+      chain rule from calculus
+   5.  Update ALL weights: weight = weight − learning_rate ×
+      gradient
+   6.  Repeat for next example
+
+  ✦ TIP ────────────────────────────────────────────────────────
+  │ You NEVER need to code backpropagation yourself.
+  │ model.fit(X, y) does it all automatically inside.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 28 — AI LEARNING FROM NUMBERS
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Numbers are the easiest input for AI. You put them straight into
+  X — no conversion needed. Just make sure they are on similar
+  scales (see Chapter 35 — Normalisation).
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌──────────────────────────────────────────────────────────────┐
+  │ from sklearn.neural_network import MLPRegressor              │
+  │ from sklearn.preprocessing import StandardScaler             │
+  │ import numpy as np                                           │
+  │                                                              │
+  │ # Predict house price from: [bedrooms, sqft, age]            │
+  │ X = np.array([[3,1500,10],[4,2000,5],[2,800,20]])            │
+  │ y = np.array([200000, 320000, 110000])  # prices             │
+  │                                                              │
+  │ scaler = StandardScaler()                                    │
+  │ X_sc = scaler.fit_transform(X)   # normalise                 │
+  │                                                              │
+  │ model = MLPRegressor(hidden_layer_sizes=(64,32), max_iter=...│
+  │ model.fit(X_sc, y)                                           │
+  │                                                              │
+  │ new = scaler.transform([[3,1800,3]])                         │
+  │ print(model.predict(new))   # predicted price                │
+  └──────────────────────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 29 — AI LEARNING FROM TEXT
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Computers do not understand words. Every word must become a
+  number first. Then AI can learn.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+   1.  Tokenise: split text into words/pieces
+   2.  Build vocabulary: assign a number to every known word
+   3.  Encode: convert sentence to numbers
+   4.  Feed to model: learn from those numbers
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │ from sklearn.feature_extraction.text import CountVectorizer │
+  │ from sklearn.neural_network import MLPClassifier            │
+  │                                                             │
+  │ emails = [                                                  │
+  │     "FREE money click now",     # spam                      │
+  │     "Meeting at 3pm tomorrow",   # not spam                 │
+  │     "WIN a FREE iPhone",         # spam                     │
+  │     "Can we reschedule lunch?",  # not spam                 │
+  │ ]                                                           │
+  │ labels = [1, 0, 1, 0]  # 1=spam, 0=not spam                 │
+  │                                                             │
+  │ vec = CountVectorizer()      # converts text to word counts │
+  │ X   = vec.fit_transform(emails).toarray()                   │
+  │                                                             │
+  │ model = MLPClassifier(max_iter=1000)                        │
+  │ model.fit(X, labels)                                        │
+  │                                                             │
+  │ test = vec.transform(["FREE prize claim now"]).toarray()    │
+  │ print(model.predict(test))  # [1] → spam detected!          │
+  └─────────────────────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 30 — AI LEARNING FROM IMAGES
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  An image is a grid of pixels. Each pixel is 1–3 numbers. A
+  100×100 colour image = 30,000 numbers. That list of numbers goes
+  into X.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌──────────────────────────────────────────────────────────────┐
+  │ from PIL import Image                                        │
+  │ import numpy as np                                           │
+  │                                                              │
+  │ img  = Image.open("cat.jpg").convert("L")  # greyscale       │
+  │ img  = img.resize((28, 28))                 # 28×28 pixels   │
+  │ arr  = np.array(img)                           # shape (28...│
+  │ flat = arr.flatten() / 255.0                 # shape (784,...│
+  │ # flat = one image's feature vector, ready for model         │
+  └──────────────────────────────────────────────────────────────┘
+
+  ℹ INFO ───────────────────────────────────────────────────────
+  │ More advanced image AI uses CNNs (Chapter 36) which
+  │ understand that nearby pixels are related — much better than
+  │ simple flattening.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 31 — AI LEARNING FROM AUDIO
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Sound = vibrations. Microphone converts vibrations to numbers. At
+  16,000 samples/second, 1 second of audio = 16,000 numbers. Too
+  many! We summarise to ~26 key numbers called MFCC features.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+   1.  Record audio → 16,000 numbers per second
+   2.  Split into small 256-sample frames (16ms each)
+   3.  Apply FFT to each frame → which frequencies are
+      present?
+   4.  Group frequencies into 26 Mel bands (mimics human
+      hearing)
+   5.  Take log of energies (mimics how we perceive loudness)
+   6.  Apply DCT → 13 MFCC coefficients per frame
+   7.  Average over all frames → 26 numbers total = feature
+      vector
+
+  ✦ TIP ────────────────────────────────────────────────────────
+  │ These 26 numbers efficiently describe the 'shape' of the
+  │ sound. The model then learns from those numbers.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 32 — WHAT IS OVERFITTING?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  A student who memorised the textbook word-for-word. Aces the
+  practice test (same text). Fails a real exam (slightly different
+  questions).They learned the examples, not the patterns.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌───────────────────────────┬─────────────────────────┐
+  │ SYMPTOM                   │ MEANING                 │
+  ├───────────────────────────┼─────────────────────────┤
+  │ Train accuracy: 99%, Test │ Classic overfitting —   │
+  │ accuracy: 65%             │ memorised training data │
+  ├───────────────────────────┼─────────────────────────┤
+  │ Train accuracy: 72%, Test │ Healthy — genuinely     │
+  │ accuracy: 70%             │ learned patterns        │
+  └───────────────────────────┴─────────────────────────┘
+
+
+  ▸ HOW TO FIX OVERFITTING:
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+    • Get more training data (best solution)
+    • Use a simpler model (fewer neurons/layers)
+    • Add L2 regularisation: alpha=0.01 in sklearn
+    • Train for fewer epochs
+    • Use dropout (random neuron shutoff during training)
+
+  ┌──────────────────────────────────────────────────────────────┐
+  │ model = MLPClassifier(                                       │
+  │     hidden_layer_sizes=(64, 32),                             │
+  │     alpha=0.01,     # L2 regularisation — discourages memo...│
+  │     max_iter=500                                             │
+  │ )                                                            │
+  └──────────────────────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 33 — WHAT IS UNDERFITTING?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  A student who did not study at all. Fails both the practice test
+  AND the real exam. They did not learn anything.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌───────────────────────┬───────────────────────────┐
+  │ SYMPTOM               │ MEANING                   │
+  ├───────────────────────┼───────────────────────────┤
+  │ Train: 58%, Test: 57% │ Underfitting — both low   │
+  ├───────────────────────┼───────────────────────────┤
+  │ Train: 98%, Test: 65% │ Overfitting — train high, │
+  │                       │ test low                  │
+  └───────────────────────┴───────────────────────────┘
+
+
+  ▸ HOW TO FIX UNDERFITTING:
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+    • Use a bigger model (more neurons, more layers)
+    • Train for more epochs
+    • Lower the learning rate
+    • Add more or better features to X
+
+  The ideal is in the middle:
+
+  ╔════════════════════════════════════════════════════════════════╗
+  ║  SWEET SPOT                                                    ║
+  ╠════════════════════════════════════════════════════════════════╣
+  ║      Too simple (underfitting) ←————————————→ Too complex      ║
+  ║                  (overfitting)↑ ideal point ↑                  ║
+  ╚════════════════════════════════════════════════════════════════╝
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 34 — DATASET SPLITS
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Never test your AI on data it trained on. That is cheating. Keep
+  some data hidden during training. Test on that hidden data. That
+  tells you the truth.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌────────────────┬────────────┬────────────────────────────┐
+  │ SPLIT          │ PROPORTION │ PURPOSE                    │
+  ├────────────────┼────────────┼────────────────────────────┤
+  │ Training set   │ 70–80%     │ Model learns from this     │
+  ├────────────────┼────────────┼────────────────────────────┤
+  │ Validation set │ 10–15%     │ Monitor overfitting during │
+  │                │            │ training                   │
+  ├────────────────┼────────────┼────────────────────────────┤
+  │ Test set       │ 10–20%     │ Final honest evaluation —  │
+  │                │            │ model never sees this      │
+  │                │            │ during training            │
+  └────────────────┴────────────┴────────────────────────────┘
+
+  ┌──────────────────────────────────────────────────────────────┐
+  │ from sklearn.model_selection import train_test_split, cros...│
+  │                                                              │
+  │ X_train, X_test, y_train, y_test = train_test_split(         │
+  │     X, y, test_size=0.2, random_state=42                     │
+  │ )                                                            │
+  │                                                              │
+  │ model.fit(X_train, y_train)                                  │
+  │ print(model.score(X_test, y_test))  # honest accuracy        │
+  │                                                              │
+  │ # Even better: 5-fold cross validation                       │
+  │ scores = cross_val_score(model, X, y, cv=5)                  │
+  │ print(scores.mean())   # average over 5 different splits     │
+  └──────────────────────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 35 — NORMALISATION AND SCALING
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Imagine grading two features: maths score (0–100) and height
+  (100–200cm).A height of 190cm LOOKS bigger than a maths score of
+  95, just because 190 > 95.That is unfair. Scaling makes all
+  features use the SAME range.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ╔════════════════════════════════════════════════════════════════╗
+  ║  STANDARDSCALER FORMULA                                        ║
+  ╠════════════════════════════════════════════════════════════════╣
+  ║                 scaled = (value − mean) / std                  ║
+  ╚════════════════════════════════════════════════════════════════╝
+
+  ┌──────────────────────────────────────────────────────────────┐
+  │ from sklearn.preprocessing import StandardScaler             │
+  │ import numpy as np                                           │
+  │                                                              │
+  │ X = np.array([[100, 0.5],  # big + tiny features             │
+  │              [200, 0.8],                                     │
+  │              [150, 0.6]])                                    │
+  │                                                              │
+  │ scaler    = StandardScaler()                                 │
+  │ X_scaled  = scaler.fit_transform(X)   # fit on training data │
+  │ print(X_scaled)  # both features now on similar range        │
+  │                                                              │
+  │ # ALWAYS apply same scaler to new data too:                  │
+  │ X_new_scaled = scaler.transform(X_new)  # NOT fit_transform! │
+  └──────────────────────────────────────────────────────────────┘
+
+  ⚠ NOTE ───────────────────────────────────────────────────────
+  │ Fit the scaler ONLY on training data. Then use .transform()
+  │ on everything else (validation, test, production).
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 36 — WHAT IS A CNN?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  CNN = Convolutional Neural Network. Designed specifically for
+  images. Instead of looking at all pixels at once, it slides a
+  small window across the image looking for patterns: edges,
+  curves, shapes.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌────────────┬────────────────────────────┐
+  │ LAYER      │ WHAT IT DOES               │
+  ├────────────┼────────────────────────────┤
+  │ Conv Layer │ Slides small filters       │
+  │            │ across image. Each filter  │
+  │            │ detects one pattern (edge, │
+  │            │ texture).                  │
+  ├────────────┼────────────────────────────┤
+  │ ReLU       │ Activation after each conv │
+  │            │ layer.                     │
+  ├────────────┼────────────────────────────┤
+  │ Pooling    │ Shrinks the image (keeps   │
+  │            │ the strongest signal in    │
+  │            │ each area).                │
+  ├────────────┼────────────────────────────┤
+  │ Flatten    │ Converts 2D feature maps   │
+  │            │ to 1D vector.              │
+  ├────────────┼────────────────────────────┤
+  │ Dense      │ Standard neural network    │
+  │            │ layers to classify.        │
+  └────────────┴────────────────────────────┘
+
+  Famous CNNs: LeNet (1998), AlexNet (2012), ResNet (2015),
+  EfficientNet (2019).
+
+  ℹ INFO ───────────────────────────────────────────────────────
+  │ CNNs understand that nearby pixels are related. Simple
+  │ flattening ignores position. CNNs use position. This is why
+  │ CNNs are far better at image tasks.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 37 — WHAT IS AN RNN?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  RNN = Recurrent Neural Network. An RNN REMEMBERS. It reads a
+  sentence one word at a time and carries a memory forward. By the
+  end, the memory holds information about the whole sequence.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌──────┬──────────────┬───────────────────────────┐
+  │ STEP │ INPUT        │ MEMORY                    │
+  ├──────┼──────────────┼───────────────────────────┤
+  │ 1    │ Read: 'The'  │ Memory M1 = basic context │
+  ├──────┼──────────────┼───────────────────────────┤
+  │ 2    │ Read: 'cat'  │ Memory M2 = 'The cat'     │
+  ├──────┼──────────────┼───────────────────────────┤
+  │ 3    │ Read: 'sat'  │ Memory M3 = 'The cat sat' │
+  ├──────┼──────────────┼───────────────────────────┤
+  │ 4    │ Read: 'down' │ Memory M4 = full phrase   │
+  └──────┴──────────────┴───────────────────────────┘
+
+  [Problem:] Long sequences cause gradients to vanish. Model
+  forgets what it read early on.[Solution:] LSTM (Long Short-Term
+  Memory) and GRU — special gates that decide what to remember and
+  what to forget.
+
+  ℹ INFO ───────────────────────────────────────────────────────
+  │ RNNs were replaced by Transformers (Chapter 38) for most
+  │ text tasks, but are still used for time series prediction.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 38 — WHAT IS A TRANSFORMER?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  A Transformer reads EVERYTHING at once and figures out how every
+  word relates to every other word. This is why ChatGPT understands
+  context so well.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  Key mechanism: Self-AttentionFor each word, self-attention asks:
+  'which other words in this sentence should I pay attention to?'
+
+  ┌──────────────────────────────────────────────────────────────┐
+  │ "The bank by the river is flooded"                           │
+  │                                                              │
+  │ For the word "bank":                                         │
+  │   → "river" gets HIGH attention  (river bank!)               │
+  │   → "flooded" gets HIGH attention                            │
+  │   → "the" gets LOW attention                                 │
+  │ Model correctly understands: bank = river bank, not financ...│
+  └──────────────────────────────────────────────────────────────┘
+
+  ┌─────────┬────────────────────────────┐
+  │ MODEL   │ PURPOSE                    │
+  ├─────────┼────────────────────────────┤
+  │ GPT-4   │ Text generation (ChatGPT)  │
+  ├─────────┼────────────────────────────┤
+  │ BERT    │ Text understanding (Google │
+  │         │ Search)                    │
+  ├─────────┼────────────────────────────┤
+  │ DALL-E  │ Image generation           │
+  ├─────────┼────────────────────────────┤
+  │ Whisper │ Speech recognition         │
+  └─────────┴────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 39 — REINFORCEMENT LEARNING DEEP DIVE
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  RL = learning by doing. Try. Get feedback. Improve. Repeat
+  millions of times. Like a baby learning to walk: nobody explains
+  the physics. The baby just tries, falls, adjusts.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  RL is fundamentally different from supervised learning:
+
+  ┌─────────────┬────────────────────────────┬─────────────────────────┐
+  │             │ SUPERVISED LEARNING        │ REINFORCEMENT LEARNING  │
+  ├─────────────┼────────────────────────────┼─────────────────────────┤
+  │ Data needed │ Labelled examples (X, y)   │ No labels. Just reward  │
+  │             │                            │ signal.                 │
+  ├─────────────┼────────────────────────────┼─────────────────────────┤
+  │ Feedback    │ Correct answer given       │ Good/bad number given   │
+  ├─────────────┼────────────────────────────┼─────────────────────────┤
+  │ Learning    │ Memorise examples          │ Discover strategies by  │
+  │             │                            │ trial                   │
+  ├─────────────┼────────────────────────────┼─────────────────────────┤
+  │ Used for    │ Classification, regression │ Games, robots, chatbots │
+  └─────────────┴────────────────────────────┴─────────────────────────┘
+
+
+  ▸ KEY CHALLENGES IN RL:
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+    • [Credit assignment:] if you win after 40 moves, which
+      moves helped?
+    • [Explore vs exploit:] try new things or use what you
+      know?
+    • [Sparse rewards:] reward might come much later than the
+      action that caused it
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 40 — STATE, ACTION, REWARD
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  These three words are the heart of RL:
+
+    • [State] — where you are right now
+    • [Action] — what you do next
+    • [Reward] — how good or bad the result was
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌─────────┬────────────────────────┬───────────────────────────┐
+  │ CONCEPT │ MEANING                │ EXAMPLE (ROBOT MAZE)      │
+  ├─────────┼────────────────────────┼───────────────────────────┤
+  │ State   │ Current observation of │ Position: row 3, column 5 │
+  │         │ environment            │                           │
+  ├─────────┼────────────────────────┼───────────────────────────┤
+  │ Action  │ What the agent can do  │ Move: up/down/left/right  │
+  ├─────────┼────────────────────────┼───────────────────────────┤
+  │ Reward  │ Feedback number after  │ +10 reach exit, -1 hit    │
+  │         │ action                 │ wall, -0.1 each step      │
+  └─────────┴────────────────────────┴───────────────────────────┘
+
+  ┌───────────────────────────────────────────────────────┐
+  │ # One step in RL                                      │
+  │ state      = 5      # which situation we're in        │
+  │ action     = 2      # what we decided to do           │
+  │ reward     = 1.0    # positive = good outcome         │
+  │ next_state = 8      # where we ended up after action  │
+  │                                                       │
+  │ # Now we update our knowledge using these four values │
+  │ # (see Chapter 43 for how)                            │
+  └───────────────────────────────────────────────────────┘
+
+  ✦ TIP ────────────────────────────────────────────────────────
+  │ This cycle of (state → action → reward → next state) repeats
+  │ continuously. The agent learns from each cycle.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 41 — WHAT IS A Q-TABLE?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  The Q-table is the agent's memory. It answers:'From this
+  situation, how good is each possible action?'Higher number =
+  better action from that situation.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  Q-table = 2D matrix. Rows = states. Columns = actions. Values =
+  quality scores.
+
+  ┌──────────────────────────────────────────────────────────────┐
+  │ import numpy as np                                           │
+  │                                                              │
+  │ n_states  = 10   # 10 possible situations                    │
+  │ n_actions = 4    # 4 possible things to do                   │
+  │                                                              │
+  │ Q = np.zeros((n_states, n_actions))  # start blank (all ze...│
+  │ # After training, Q will hold meaningful scores:             │
+  │ # Q[3] = [0.8, 0.2, 0.6, 0.1]                                │
+  │ # In state 3, best action = 0 (score 0.8)                    │
+  │                                                              │
+  │ best_action = np.argmax(Q[3])  # → 0                         │
+  └──────────────────────────────────────────────────────────────┘
+
+  At the start, Q is all zeros (the agent knows nothing). Every
+  experience gradually fills it with useful values.
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 42 — THE BELLMAN EQUATION
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  The Bellman equation is the formula that updates the Q-table
+  after each experience. In plain English: the value of an action =
+  reward I got NOW + the best I can expect IN THE FUTURE.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ╔════════════════════════════════════════════════════════════════╗
+  ║  BELLMAN / Q-LEARNING UPDATE                                   ║
+  ╠════════════════════════════════════════════════════════════════╣
+  ║    Q(s,a) ← Q(s,a) + α × [ r + γ × max Q(s', a') − Q(s,a) ]    ║
+  ╚════════════════════════════════════════════════════════════════╝
+
+  ┌──────────────┬─────────────────┬────────────────────────────┐
+  │ SYMBOL       │ NAME            │ MEANING                    │
+  ├──────────────┼─────────────────┼────────────────────────────┤
+  │ Q(s,a)       │ Current Q-value │ What we currently believe  │
+  │              │                 │ about this (state, action) │
+  ├──────────────┼─────────────────┼────────────────────────────┤
+  │ α (alpha)    │ Learning rate   │ How fast to update.        │
+  │              │                 │ Typical: 0.1 to 0.3        │
+  ├──────────────┼─────────────────┼────────────────────────────┤
+  │ r            │ Reward          │ What we got from taking    │
+  │              │                 │ this action                │
+  ├──────────────┼─────────────────┼────────────────────────────┤
+  │ γ (gamma)    │ Discount factor │ How much future rewards    │
+  │              │                 │ matter. Typical: 0.9 to    │
+  │              │                 │ 0.99                       │
+  ├──────────────┼─────────────────┼────────────────────────────┤
+  │ s'           │ Next state      │ Where we ended up after    │
+  │              │                 │ the action                 │
+  ├──────────────┼─────────────────┼────────────────────────────┤
+  │ max Q(s',a') │ Best future Q   │ Best possible score from   │
+  │              │                 │ the next state             │
+  ├──────────────┼─────────────────┼────────────────────────────┤
+  │ [...]        │ TD Error        │ How surprised were we? Our │
+  │              │                 │ mistake to correct         │
+  └──────────────┴─────────────────┴────────────────────────────┘
+
+  ℹ INFO ───────────────────────────────────────────────────────
+  │ The term in brackets [ ] is called the TD Error (Temporal
+  │ Difference Error). Big error = big update. Small error =
+  │ small nudge.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 43 — APPLYING RL STEP BY STEP
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Let's apply the Bellman equation with real numbers. Follow each
+  step.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌───────────────────────────────────────────────────┐
+  │ # Setup                                           │
+  │ alpha = 0.15    # learning rate                   │
+  │ gamma = 0.90    # discount factor                 │
+  │                                                   │
+  │ # What just happened:                             │
+  │ state      = 2     # we were in state 2           │
+  │ action     = 1     # we took action 1             │
+  │ reward     = 1.0   # we got reward!               │
+  │ next_state = 5     # we ended up in state 5       │
+  │                                                   │
+  │ # Step 1: what Q thinks now                       │
+  │ current_q  = Q[state][action]         # e.g. 0.30 │
+  │                                                   │
+  │ # Step 2: best future Q from next state           │
+  │ best_next  = np.max(Q[next_state])    # e.g. 0.80 │
+  │                                                   │
+  │ # Step 3: what Q SHOULD be (TD target)            │
+  │ td_target  = reward + gamma * best_next           │
+  │ # = 1.0 + 0.90 × 0.80 = 1.72                      │
+  │                                                   │
+  │ # Step 4: how wrong were we?                      │
+  │ td_error   = td_target - current_q                │
+  │ # = 1.72 - 0.30 = 1.42  (big surprise!)           │
+  │                                                   │
+  │ # Step 5: update                                  │
+  │ Q[state][action] = current_q + alpha * td_error   │
+  │ # = 0.30 + 0.15 × 1.42 = 0.513                    │
+  │ # Q-value went UP because we were rewarded        │
+  └───────────────────────────────────────────────────┘
+
+  ✦ TIP ────────────────────────────────────────────────────────
+  │ Next time the agent is in state 2, action 1 looks more
+  │ appealing (0.51 vs 0.30 before). That is learning!
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 44 — EPSILON-GREEDY STRATEGY
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  The agent has two choices every step:
+
+    • [Exploit] — pick the best known action
+    • [Explore] — try a random action to discover something
+      better
+
+  Epsilon controls this balance. epsilon=0.1 means 10% random, 90%
+  best known.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  💡 ANALOGY
+  ································································
+    You found a restaurant you like. If you ALWAYS go there
+    (exploit), you never find the better restaurant two streets
+    over. But if you always try random restaurants (explore),
+    you never enjoy what you already know is good.
+  ································································
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ┌────────────────────────────────────────────────────────────┐
+  │ import numpy as np                                         │
+  │                                                            │
+  │ def choose_action(state, Q, epsilon):                      │
+  │     if np.random.random() < epsilon:                       │
+  │         return np.random.randint(0, Q.shape[1])  # EXPLORE │
+  │     return np.argmax(Q[state])                  # EXPLOIT  │
+  │                                                            │
+  │ # Decay epsilon over time (explore less as you learn more) │
+  │ epsilon = 1.0                                              │
+  │ for episode in range(1000):                                │
+  │     # ... run episode ...                                  │
+  │     epsilon = max(0.01, epsilon * 0.995)  # slowly decay   │
+  └────────────────────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 45 — WHAT DOES THE RL AGENT THINK?
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  The agent does not think in the human sense. It looks at its
+  situation, checks the Q-table, picks the best-scoring action (or
+  a random one), then waits for feedback.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+   1.  Observe current state (a number or list of numbers)
+   2.  Look up Q[state] → array of scores for all actions
+   3.  If random
+   4.  Else: pick action with highest Q[state][action]
+      (exploit)
+   5.  Actually take that action
+   6.  Receive reward and observe new state
+   7.  Run Bellman update: Q[state][action] changes
+   8.  Move to new state. Go to step 1.
+
+  ⚠ NOTE ───────────────────────────────────────────────────────
+  │ The agent does NOT plan ahead (basic Q-learning). It does
+  │ NOT understand what 'reward' means. It just statistically
+  │ learned: 'when in state X, action Y tends to produce higher
+  │ future numbers.' That's it. Pure statistics, no
+  │ understanding.
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 46 — PYTHON CRASH COURSE
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Python is the most beginner-friendly programming language. It
+  reads like English.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+
+  ▸ VARIABLES
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  ┌───────────────────────────────────────────────┐
+  │ age    = 25          # integer                │
+  │ name   = "Alice"    # string (text)           │
+  │ score  = 0.95       # decimal number          │
+  │ active = True       # boolean (True or False) │
+  └───────────────────────────────────────────────┘
+
+
+  ▸ LISTS AND LOOPS
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  ┌────────────────────────────────────────────────┐
+  │ fruits = ["apple", "banana", "mango"]          │
+  │ print(fruits[0])      # apple  (starts at 0)   │
+  │ print(len(fruits))    # 3                      │
+  │                                                │
+  │ for fruit in fruits:                           │
+  │     print(fruit)        # apple, banana, mango │
+  │                                                │
+  │ for i in range(5):                             │
+  │     print(i)            # 0 1 2 3 4            │
+  └────────────────────────────────────────────────┘
+
+
+  ▸ CONDITIONS
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  ┌────────────────────────────────────┐
+  │ temp = 30                          │
+  │ if temp > 25:                      │
+  │     print("Hot!")                  │
+  │ elif temp > 15:                    │
+  │     print("Warm.")                 │
+  │ else:                              │
+  │     print("Cold.")                 │
+  └────────────────────────────────────┘
+
+
+  ▸ NUMPY — NUMBERS FOR AI
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  ┌────────────────────────────────────┐
+  │ import numpy as np                 │
+  │                                    │
+  │ a = np.array([1,2,3,4,5])          │
+  │ print(a * 2)        # [2 4 6 8 10] │
+  │ print(a.mean())     # 3.0          │
+  │ print(a.max())      # 5            │
+  │                                    │
+  │ X = np.array([[1,2],[3,4]])        │
+  │ print(X.shape)      # (2, 2)       │
+  └────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 47 — TKINTER: WINDOWS AND BUTTONS
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Tkinter is Python's built-in library for making windows. No
+  installation needed.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+
+  ▸ HELLO WORLD WINDOW
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  ┌──────────────────────────────────────────────────────┐
+  │ import tkinter as tk                                 │
+  │                                                      │
+  │ root = tk. Tk()                    # create window    │
+  │ root.title("My Window")           # set title        │
+  │ root.geometry("400x300")         # width x height    │
+  │ root.mainloop()                   # keep window open │
+  └──────────────────────────────────────────────────────┘
+
+
+  ▸ LABEL + BUTTON + ENTRY
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  ┌──────────────────────────────────────────────────────────────┐
+  │ import tkinter as tk                                         │
+  │ from tkinter import messagebox                               │
+  │                                                              │
+  │ root = tk. Tk()                                               │
+  │                                                              │
+  │ # Label — shows text                                         │
+  │ lbl = tk. Label(root, text="Enter your name:", font=("Helve...│
+  │ lbl.pack(pady=10)                                            │
+  │                                                              │
+  │ # Entry — text input box                                     │
+  │ entry = tk. Entry(root, width=20)                             │
+  │ entry.pack()                                                 │
+  │                                                              │
+  │ # Button — calls a function when clicked                     │
+  │ def greet():                                                 │
+  │     name = entry.get()             # read text from box      │
+  │     messagebox.showinfo("Hi!", f"Hello, {name}!")            │
+  │                                                              │
+  │ tk. Button(root, text="Greet", command=greet,                 │
+  │           bg="#27ae60", fg="white").pack(pady=10)            │
+  │                                                              │
+  │ root.mainloop()                                              │
+  └──────────────────────────────────────────────────────────────┘
+
+  ✦ TIP ────────────────────────────────────────────────────────
+  │ [pack()] auto-places widgets | [grid(row,col)] precise
+  │ placement | [.config(text=...)] change a widget after
+  │ creation
+  ────────────────────────────────────────────────────────────────
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 48 — SKLEARN AI TOOLKIT
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  sklearn (scikit-learn) is the go-to Python library for machine
+  learning. Ready-made models, scalers, splitters.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+
+  ▸ MOST IMPORTANT FUNCTIONS:
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  ┌────────────────────────────┬───────────────────────────┐
+  │ FUNCTION                   │ WHAT IT DOES              │
+  ├────────────────────────────┼───────────────────────────┤
+  │ MLPClassifier(hidden_layer │ Create neural network for │
+  │ _sizes=(64,32))            │ classification            │
+  ├────────────────────────────┼───────────────────────────┤
+  │ MLPRegressor(...)          │ Create neural network for │
+  │                            │ predicting numbers        │
+  ├────────────────────────────┼───────────────────────────┤
+  │ model.fit(X, y)            │ TRAIN the model on data   │
+  ├────────────────────────────┼───────────────────────────┤
+  │ model.predict(X)           │ Predict class labels for  │
+  │                            │ new data                  │
+  ├────────────────────────────┼───────────────────────────┤
+  │ model.predict_proba(X)     │ Predict probabilities for │
+  │                            │ each class                │
+  ├────────────────────────────┼───────────────────────────┤
+  │ model.score(X, y)          │ Accuracy: fraction of     │
+  │                            │ correct predictions       │
+  ├────────────────────────────┼───────────────────────────┤
+  │ StandardScaler().fit_trans │ Normalise features to     │
+  │ form(X)                    │ mean=0, std=1             │
+  ├────────────────────────────┼───────────────────────────┤
+  │ train_test_split(X, y,     │ Split into 80% train, 20% │
+  │ test_size=0.2)             │ test                      │
+  ├────────────────────────────┼───────────────────────────┤
+  │ cross_val_score(model, X,  │ 5-fold cross-validation   │
+  │ y, cv=5)                   │ accuracy                  │
+  ├────────────────────────────┼───────────────────────────┤
+  │ joblib.dump(model,         │ Save model to file        │
+  │ 'file.pkl')                │                           │
+  ├────────────────────────────┼───────────────────────────┤
+  │ joblib.load('file.pkl')    │ Load model from file      │
+  └────────────────────────────┴───────────────────────────┘
+
+  ┌──────────────────────────────────────────────────────────┐
+  │ from sklearn.pipeline import Pipeline                    │
+  │ from sklearn.preprocessing import StandardScaler         │
+  │ from sklearn.neural_network import MLPClassifier         │
+  │                                                          │
+  │ # Pipeline chains steps — scale then train automatically │
+  │ pipe = Pipeline([                                        │
+  │     ("scale", StandardScaler()),                         │
+  │     ("model", MLPClassifier(max_iter=500)),              │
+  │ ])                                                       │
+  │ pipe.fit(X_train, y_train)                               │
+  │ pipe.predict(X_test)   # auto-scales then predicts       │
+  └──────────────────────────────────────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 49 — EVERY AI FUNCTION EXPLAINED
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Here are all the functions you will encounter, grouped by what
+  they do.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+
+  ▸ CREATING MODELS
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  ┌────────────────────────────┬────────────────────────────┐
+  │ CALL                       │ DOES                       │
+  ├────────────────────────────┼────────────────────────────┤
+  │ MLPClassifier(hidden_layer │ Neural network for         │
+  │ _sizes=(64,32),            │ classification             │
+  │ activation='relu',         │                            │
+  │ solver='adam',             │                            │
+  │ max_iter=500)              │                            │
+  ├────────────────────────────┼────────────────────────────┤
+  │ MLPRegressor(...)          │ Neural network for number  │
+  │                            │ prediction                 │
+  ├────────────────────────────┼────────────────────────────┤
+  │ KMeans(n_clusters=3)       │ Cluster data into 3 groups │
+  │                            │ (unsupervised)             │
+  ├────────────────────────────┼────────────────────────────┤
+  │ RandomForestClassifier(n_e │ 100 decision trees, vote   │
+  │ stimators=100)             │ for best answer            │
+  └────────────────────────────┴────────────────────────────┘
+
+
+  ▸ TRAINING AND PREDICTING
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  ┌────────────────────────┬──────────────────────────┐
+  │ CALL                   │ DOES                     │
+  ├────────────────────────┼──────────────────────────┤
+  │ model.fit(X, y)        │ Train supervised model   │
+  ├────────────────────────┼──────────────────────────┤
+  │ model.fit(X)           │ Train unsupervised model │
+  ├────────────────────────┼──────────────────────────┤
+  │ model.predict(X)       │ Return predicted class   │
+  │                        │ labels                   │
+  ├────────────────────────┼──────────────────────────┤
+  │ model.predict_proba(X) │ Return probability for   │
+  │                        │ each class               │
+  ├────────────────────────┼──────────────────────────┤
+  │ model.score(X, y)      │ Return accuracy fraction │
+  │                        │ 0.0–1.0                  │
+  └────────────────────────┴──────────────────────────┘
+
+
+  ▸ EVALUATING
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  ┌────────────────────────────┬────────────────────────────┐
+  │ CALL                       │ DOES                       │
+  ├────────────────────────────┼────────────────────────────┤
+  │ accuracy_score(y_true,     │ % of correct predictions   │
+  │ y_pred)                    │                            │
+  ├────────────────────────────┼────────────────────────────┤
+  │ precision_score(y_true,    │ Of 'yes' predictions, how  │
+  │ y_pred)                    │ many were right?           │
+  ├────────────────────────────┼────────────────────────────┤
+  │ recall_score(y_true,       │ Of real 'yes' cases, how   │
+  │ y_pred)                    │ many did we find?          │
+  ├────────────────────────────┼────────────────────────────┤
+  │ f1_score(y_true, y_pred)   │ Balance of precision and   │
+  │                            │ recall                     │
+  ├────────────────────────────┼────────────────────────────┤
+  │ confusion_matrix(y_true,   │ Table of which classes got │
+  │ y_pred)                    │ confused                   │
+  ├────────────────────────────┼────────────────────────────┤
+  │ classification_report(y_tr │ Full per-class stats table │
+  │ ue, y_pred)                │                            │
+  └────────────────────────────┴────────────────────────────┘
+
+
+  ▸ DATA PREP
+  ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+  ┌────────────────────────────┬───────────────────────────┐
+  │ CALL                       │ DOES                      │
+  ├────────────────────────────┼───────────────────────────┤
+  │ StandardScaler().fit_trans │ Mean=0, std=1 per feature │
+  │ form(X)                    │                           │
+  ├────────────────────────────┼───────────────────────────┤
+  │ MinMaxScaler().fit_transfo │ Scale to 0–1              │
+  │ rm(X)                      │                           │
+  ├────────────────────────────┼───────────────────────────┤
+  │ train_test_split(X,y,test_ │ 80/20 split               │
+  │ size=0.2)                  │                           │
+  ├────────────────────────────┼───────────────────────────┤
+  │ cross_val_score(model,X,y, │ 5-fold CV scores          │
+  │ cv=5)                      │                           │
+  ├────────────────────────────┼───────────────────────────┤
+  │ LabelEncoder().fit_transfo │ Text labels → numbers     │
+  │ rm(y)                      │                           │
+  └────────────────────────────┴───────────────────────────┘
+
+  ────────────────────────────────────────────────────────────────
+
+
+════════════════════════════════════════════════════════════════════
+  CHAPTER 50 — FULL GLOSSARY
+════════════════════════════════════════════════════════════════════
+
+  🐣 SIMPLE VERSION
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+  Every AI term you will ever encounter — short, plain-English
+  definitions.
+
+  ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+
+  🔬 REAL VERSION
+  ────────────────────────────────────────────────────────────────
+  ◆ Accuracy
+      Fraction of correct predictions. 0.0 = never right. 1.0 =
+      always right.
+
+  ◆ Action (RL)
+      Something the RL agent does: move, say a word, buy a stock.
+
+  ◆ Activation Function
+      Applied to neuron output to add non-linearity. ReLU,
+      softmax, sigmoid.
+
+  ◆ Adam
+      Popular weight-update algorithm. Adapts learning rate
+      automatically. Default in sklearn.
+
+  ◆ Agent (RL)
+      The AI that learns and acts in RL.
+
+  ◆ Argmax
+      Index of the largest value in a list. np.argmax([0.1, 0.8,
+      0.1]) → 1
+
+  ◆ Backpropagation
+      Computes which weights caused the error and by how much.
+      Works backwards.
+
+  ◆ Batch
+      Small subset of training data processed before one weight
+      update.
+
+  ◆ Bellman Equation
+      Q(s,a) ← Q(s,a) + α[r + γ·max Q(s',a') − Q(s,a)]. Core RL
+      formula.
+
+  ◆ Bias (neuron)
+      One extra learnable number per neuron. Lets neuron fire with
+      zero inputs.
+
+  ◆ Blank Model
+      Model with random weights. Knows nothing. Output is random.
+
+  ◆ Classification
+      Predict a category: cat/dog, spam/not-spam.
+
+  ◆ CNN
+      Convolutional Neural Network. Uses sliding filters. Best for
+      images.
+
+  ◆ Cross-Entropy
+      Loss function for classification. Penalises confident wrong
+      answers.
+
+  ◆ Cross-Validation
+      Test model on multiple data splits. More reliable than one
+      split.
+
+  ◆ Deep Learning
+      Neural networks with many layers. Powers ChatGPT, image AI.
+
+  ◆ Discount Factor γ
+      How much future rewards matter. 0.9 = near future matters a
+      lot.
+
+  ◆ Epoch
+      One full pass through all training data.
+
+  ◆ Epsilon-Greedy
+      RL strategy: explore randomly ε% of the time, exploit the
+      rest.
+
+  ◆ Episode (RL)
+      One complete run from start to end (one game, one
+      conversation).
+
+  ◆ Feature
+      One piece of information about an example: size, colour,
+      age.
+
+  ◆ Feature Extraction
+      Converting raw data (image, audio, text) to numbers for AI.
+
+  ◆ Feature Vector
+      A list of numbers describing one example.
+
+  ◆ Forward Pass
+      Running data through network layers from input to output to
+      get prediction.
+
+  ◆ Gradient
+      Direction and magnitude of change needed to reduce loss.
+
+  ◆ Gradient Descent
+      Algorithm: adjust weights in direction that reduces loss.
+
+  ◆ Hidden Layer
+      Layers between input and output. Where learning happens.
+
+  ◆ Label
+      Correct answer for one training example. Also called target
+      or ground truth.
+
+  ◆ Layer
+      Group of neurons. Input layer, hidden layers, output layer.
+
+  ◆ Learning Rate α
+      How big a step to take when updating weights. Typical:
+      0.001.
+
+  ◆ Loss
+      Number measuring how wrong the model is. Train to minimise
+      this.
+
+  ◆ Loss Function
+      Formula to compute loss. Cross-entropy for classification,
+      MSE for regression.
+
+  ◆ Model
+      Trained AI system. Holds all learned weights. Input →
+      prediction.
+
+  ◆ MSE
+      Mean Squared Error. average((prediction − truth)²). For
+      regression.
+
+  ◆ Neural Network
+      Many neurons in layers. Can learn very complex patterns.
+
+  ◆ Neuron
+      Basic unit. Multiplies inputs by weights, adds bias, applies
+      activation.
+
+  ◆ Normalisation
+      Scale features to similar range so no feature dominates.
+
+  ◆ One-Hot Encoding
+      Class 2 of 4 → [0, 0, 1, 0]. Done automatically inside
+      models.
+
+  ◆ Overfitting
+      Memorised training data. Train accuracy high, test accuracy
+      low.
+
+  ◆ Policy (RL)
+      Strategy: given state, which action to take?
+
+  ◆ Prediction
+      Model's output for a given input.
+
+  ◆ Q-Table
+      2D matrix of Q-values. Q[state][action] = quality score.
+
+  ◆ Q-Value
+      Expected total reward for taking action a in state s.
+
+  ◆ ReLU
+      relu(x) = max(0, x). Most common hidden-layer activation.
+
+  ◆ Regression
+      Predict a continuous number (not a category).
+
+  ◆ Reinforcement Learning
+      Learn by trial and error using reward signal. No labelled
+      data.
+
+  ◆ Reward (RL)
+      Feedback: positive = good, zero = neutral, negative = bad.
+
+  ◆ RNN
+      Recurrent Neural Network. Processes sequences with memory.
+
+  ◆ Softmax
+      Converts raw scores to probabilities summing to 1.0.
+
+  ◆ State (RL)
+      Agent's current observation of the environment.
+
+  ◆ Supervised Learning
+      Learning from labelled examples (X and y pairs).
+
+  ◆ TD Error
+      Temporal Difference Error. How surprised was the agent?
+      target − current Q.
+
+  ◆ Test Set
+      Data model never saw. Used for honest final evaluation.
+
+  ◆ Training
+      Adjusting weights to reduce loss. model.fit(X, y) does this.
+
+  ◆ Transformer
+      Architecture using self-attention. Powers GPT, BERT.
+
+  ◆ Underfitting
+      Model too simple or under-trained. Both train and test
+      accuracy low.
+
+  ◆ Unsupervised Learning
+      Learning from unlabelled data. Finds groups and patterns.
+
+  ◆ Validation Set
+      Monitor overfitting during training. Different from test
+      set.
+
+  ◆ Weight
+      Learnable number on a connection between neurons.
+
+  ◆ Weight Matrix
+      2D array of weights for one layer. Shape: (fan_in, fan_out).
+
+  ◆ X
+      Input data. Shape: (n_examples, n_features).
+
+  ◆ y
+      Labels/targets. Shape: (n_examples,).
+
+
+  ────────────────────────────────────────────────────────────────
+
+════════════════════════════════════════════════════════════════════
+
+  MAIX — THE COMPLETE BABY GUIDE TO ARTIFICIAL INTELLIGENCE
+  50 Chapters  ·  All Types of AI  ·  No Experience Needed
+  Open in any text editor.  Read on any device.
+
+════════════════════════════════════════════════════════════════════
